@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2F2018%2F08%2F10%2FMarkdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[标题设置 在一句或一段文字前加入#就可以将其设置为标题，标题分为六级 一级标题二级标题 …… 六级标题 引用 为引用标志 图片和连接&gt;图片： ![]() &gt;链接： []() 方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 粗体和斜体 两个包括的为粗体，一个包括的为斜体 表格例子如下 | country | name | age | | ........ |:.......:| ...:| | Germery | keluosi | 27 | | Franch | pawaer | 24 | 代码框 用两个`把代码框起来 class Test{ public static void main(String[] args){ System.out.println(&quot;Hello World&quot;); } } 分割线 通过三个***来表示分割线 列表 列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格]]></content>
+    <content type="text"><![CDATA[1.标题设置 在一句或一段文字前加入#就可以将其设置为标题，标题分为六级 一级标题二级标题 …… 六级标题 2.引用 为引用标志 3.图片和连接图片： ![]() 链接： []() 方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 4.粗体和斜体 两个星号包括的为粗体，一个星号包括的为斜体这是粗体这是斜体 5.表格例子如下 | country | name | age | | ........ |:.......:| ...:| | Germery | keluosi | 27 | | Franch | pawaer | 24 | 6.代码框 用两个`把代码框起来 class Test{ public static void main(String[] args){ System.out.println(&quot;Hello World&quot;); } } 7.分割线 通过三个***来表示分割线 8.列表 列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格 9.特殊换行 每一行最后添加两个空格表示回车换行，一个简单的回车不是换行，两次回车键使前后两行彻底分开 一个特殊的符号]]></content>
       <categories>
         <category>hexo</category>
       </categories>
