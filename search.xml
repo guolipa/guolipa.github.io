@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo部署到github后，github无法访问或缓慢的问题]]></title>
+    <url>%2F2018%2F08%2F11%2Fhexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%90%8E%EF%BC%8Cgithub%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E6%88%96%E7%BC%93%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[问题（problem）在将搭建好的博客部署到github上后，出现了无法访问和github有关的一切网址，包括github本身和博客页面，有时知识访问缓慢甚至链接超时。 解决方法通过修改电脑中的hosts文件，加速对网站域名的解析，加快链接的加载速度 通过如下路径找到hosts文件 C:\Windows\System32\drivers\etc 将下面的内容复制到hosts文件里，保存即可 192.30.253.112 github.com192.30.253.119 gist.github.com151.101.100.133 assets-cdn.github.com151.101.100.133 raw.githubusercontent.com151.101.100.133 gist.githubusercontent.com151.101.100.133 cloud.githubusercontent.com151.101.100.133 camo.githubusercontent.com151.101.100.133 avatars0.githubusercontent.com151.101.100.133 avatars1.githubusercontent.com151.101.100.133 avatars2.githubusercontent.com151.101.100.133 avatars3.githubusercontent.com151.101.100.133 avatars4.githubusercontent.com151.101.100.133 avatars5.githubusercontent.com151.101.100.133 avatars6.githubusercontent.com151.101.100.133 avatars7.githubusercontent.com151.101.100.133 avatars8.githubusercontent.com]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>issue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2F2018%2F08%2F10%2FMarkdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[标题设置在一句或一段文字前加入#就可以将其设置为标题，标题分为六级 # 一级标题 ## 二级标题 ...... ###### 六级标题 引用&gt; 为引用标志 图片和连接图片： ![]() 链接： []() 方括号内为图片或链接的名字，圆括号里为图片和链接的地址插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 粗体和斜体两个*包括的为粗体，一个*包括的为斜体 表格例子如下 | country | name | age | | ........ |:.......:| ...:| | Germery | keluosi | 27 | | Franch | pawaer | 24 | &lt; ！–more–&gt;截断 代码框 用两个`把代码框起来 class Test{ public static void main(String[] args){ System.out.println(&quot;Hello World&quot;); } } ` 分割线通过三个* 列表列表的显示只需要在文字前加上 - 或 * 即可变为无序列表， 有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格]]></content>
+    <content type="text"><![CDATA[标题设置 在一句或一段文字前加入#就可以将其设置为标题，标题分为六级 一级标题二级标题 …… 六级标题 引用 为引用标志 图片和连接&gt;图片： ![]() &gt;链接： []() 方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 粗体和斜体 两个包括的为粗体，一个包括的为斜体 表格例子如下 | country | name | age | | ........ |:.......:| ...:| | Germery | keluosi | 27 | | Franch | pawaer | 24 | 代码框 用两个`把代码框起来 class Test{ public static void main(String[] args){ System.out.println(&quot;Hello World&quot;); } } 分割线 通过三个***来表示分割线 列表 列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
       <tags>
         <tag>Markdown</tag>
       </tags>
