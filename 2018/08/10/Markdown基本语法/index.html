@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  一级标题二级标题   …… 六级标题 2.引用 为引用标志  3.图片和连接图片： ![]() 链接： []()  方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 4.粗体和斜体 两个星号包括的为粗体，一个星号包括的为斜体这是粗体这是斜体">
+<meta name="description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  # 一级标题## 二级标题   ......###### 六级标题  2.引用 &amp;gt; 为引用标志  3.图片和连接   图片： ![]()   链接： []()">
 <meta name="keywords" content="Markdown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown基本语法">
 <meta property="og:url" content="http://yoursite.com/2018/08/10/Markdown基本语法/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  一级标题二级标题   …… 六级标题 2.引用 为引用标志  3.图片和连接图片： ![]() 链接： []()  方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 4.粗体和斜体 两个星号包括的为粗体，一个星号包括的为斜体这是粗体这是斜体">
+<meta property="og:description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  # 一级标题## 二级标题   ......###### 六级标题  2.引用 &amp;gt; 为引用标志  3.图片和连接   图片： ![]()   链接： []()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-11T05:42:55.162Z">
+<meta property="og:updated_time" content="2018-08-12T03:50:38.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown基本语法">
-<meta name="twitter:description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  一级标题二级标题   …… 六级标题 2.引用 为引用标志  3.图片和连接图片： ![]() 链接： []()  方括号内为图片或链接的名字，圆括号里为图片和链接的地址 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，SM.MS 4.粗体和斜体 两个星号包括的为粗体，一个星号包括的为斜体这是粗体这是斜体">
+<meta name="twitter:description" content="1.标题设置   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级  # 一级标题## 二级标题   ......###### 六级标题  2.引用 &amp;gt; 为引用标志  3.图片和连接   图片： ![]()   链接： []()">
 
 
 
@@ -390,33 +390,41 @@
       
         <h3 id="1-标题设置"><a href="#1-标题设置" class="headerlink" title="1.标题设置"></a>1.标题设置</h3><p>   在一句或一段文字前加入#就可以将其设置为标题，标题分为六级</p>
 <blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>   ……</p>
-<h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
+<p><code># 一级标题</code><br><code>## 二级标题</code><br>   <code>......</code><br><code>###### 六级标题</code></p>
+</blockquote>
 <h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2.引用"></a>2.引用</h3><blockquote>
-<p>为引用标志</p>
+<p><code>&gt; 为引用标志</code></p>
 </blockquote>
-<h3 id="3-图片和连接"><a href="#3-图片和连接" class="headerlink" title="3.图片和连接"></a>3.图片和连接</h3><pre><code>图片： ![]()
-链接： []()
-</code></pre><p> 方括号内为图片或链接的名字，圆括号里为图片和链接的地址<br> 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a></p>
+<h3 id="3-图片和连接"><a href="#3-图片和连接" class="headerlink" title="3.图片和连接"></a>3.图片和连接</h3><blockquote>
+<p>  <code>图片： ![]()</code><br>   <code>链接： []()</code><br><a id="more"></a><br> 方括号内为图片或链接的名字，圆括号里为图片和链接的地址<br> 插入的图片地址需要图床，推荐SM.MS的服务生成URL地址，<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a></p>
+</blockquote>
 <h3 id="4-粗体和斜体"><a href="#4-粗体和斜体" class="headerlink" title="4.粗体和斜体"></a>4.粗体和斜体</h3><blockquote>
-<p>两个星号包括的为粗体，一个星号包括的为斜体<br><strong>这是粗体</strong><br><em>这是斜体</em></p>
+<p><code>两个*包括的为粗体，一个*包括的为斜体</code><br><strong>这是粗体</strong><br><em>这是斜体</em></p>
 </blockquote>
-<h3 id="5-表格"><a href="#5-表格" class="headerlink" title="5.表格"></a>5.表格</h3><pre><code>例子如下
-
-| country  | name    | age |
-
-| ........ |:.......:| ...:|
-
-| Germery  | keluosi | 27  |
-
-| Franch   | pawaer  | 24  |
-</code></pre><h3 id="6-代码框"><a href="#6-代码框" class="headerlink" title="6.代码框"></a>6.代码框</h3><p> 用两个`把代码框起来 </p>
-<pre><code> class Test{
-    public static void main(String[] args){
-      System.out.println(&quot;Hello World&quot;);
-    }
-} 
-</code></pre><h3 id="7-分割线"><a href="#7-分割线" class="headerlink" title="7.分割线"></a>7.分割线</h3><blockquote>
+<h3 id="5-表格"><a href="#5-表格" class="headerlink" title="5.表格"></a>5.表格</h3><blockquote>
+<p>   例子如下</p>
+</blockquote>
+<blockquote>
+<p>   | country  | name    | age |</p>
+</blockquote>
+<blockquote>
+<p>   | …….. |:…….:| …:|</p>
+</blockquote>
+<blockquote>
+<p>   | Germery  | keluosi | 27  |</p>
+</blockquote>
+<blockquote>
+<p>   | Franch   | pawaer  | 24  |</p>
+</blockquote>
+<h3 id="6-代码框"><a href="#6-代码框" class="headerlink" title="6.代码框"></a>6.代码框</h3><p> 用两个`把代码框起来 </p>
+<blockquote>
+<pre><code>class Test{
+     public static void main(String[] args){
+        System.out.println(&quot;Hello World&quot;);
+     }
+   } 
+</code></pre></blockquote>
+<h3 id="7-分割线"><a href="#7-分割线" class="headerlink" title="7.分割线"></a>7.分割线</h3><blockquote>
 <p>通过三个***来表示分割线</p>
 </blockquote>
 <h3 id="8-列表"><a href="#8-列表" class="headerlink" title="8.列表"></a>8.列表</h3><blockquote>
@@ -635,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-标题设置"><span class="nav-number">1.</span> <span class="nav-text">1.标题设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number"></span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-引用"><span class="nav-number">1.</span> <span class="nav-text">2.引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-图片和连接"><span class="nav-number">2.</span> <span class="nav-text">3.图片和连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-粗体和斜体"><span class="nav-number">3.</span> <span class="nav-text">4.粗体和斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-表格"><span class="nav-number">4.</span> <span class="nav-text">5.表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-代码框"><span class="nav-number">5.</span> <span class="nav-text">6.代码框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-分割线"><span class="nav-number">6.</span> <span class="nav-text">7.分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-列表"><span class="nav-number">7.</span> <span class="nav-text">8.列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-特殊"><span class="nav-number">8.</span> <span class="nav-text">9.特殊</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-标题设置"><span class="nav-number">1.</span> <span class="nav-text">1.标题设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-引用"><span class="nav-number">2.</span> <span class="nav-text">2.引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-图片和连接"><span class="nav-number">3.</span> <span class="nav-text">3.图片和连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-粗体和斜体"><span class="nav-number">4.</span> <span class="nav-text">4.粗体和斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-表格"><span class="nav-number">5.</span> <span class="nav-text">5.表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-代码框"><span class="nav-number">6.</span> <span class="nav-text">6.代码框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-分割线"><span class="nav-number">7.</span> <span class="nav-text">7.分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-列表"><span class="nav-number">8.</span> <span class="nav-text">8.列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-特殊"><span class="nav-number">9.</span> <span class="nav-text">9.特殊</span></a></li></ol></div>
             
 
           </div>

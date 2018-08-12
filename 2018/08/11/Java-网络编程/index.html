@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()  端口 端口是正在运行程序的">
+<meta name="description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-网络编程">
 <meta property="og:url" content="http://yoursite.com/2018/08/11/Java-网络编程/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()  端口 端口是正在运行程序的">
+<meta property="og:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
-<meta property="og:updated_time" content="2018-08-12T03:27:56.268Z">
+<meta property="og:updated_time" content="2018-08-12T03:44:07.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-网络编程">
-<meta name="twitter:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()  端口 端口是正在运行程序的">
+<meta name="twitter:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
 <meta name="twitter:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
 
 
@@ -393,12 +393,14 @@
         <p><img src="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg" alt="网络结构"></p>
 <h2 id="网络编程的三要素"><a href="#网络编程的三要素" class="headerlink" title="网络编程的三要素"></a>网络编程的三要素</h2><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a><strong>IP地址</strong></h3><ul>
 <li><strong>概念</strong>：IP地址是网络中计算机的唯一标识  </li>
-<li><strong>IP的组成</strong>：网络号+主机号  </li>
-</ul>
+<li><p><strong>IP的组成</strong>：网络号+主机号  </p>
+<a id="more"></a>  
 <p><strong>java提供了InetAddress类来对IP地址解析和操作</strong></p>
 <blockquote>
-<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br>   <code>public String getHostName()</code></p>
+<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br> <code>public String getHostName()</code></p>
 </blockquote>
+</li>
+</ul>
 <h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a><strong>端口</strong></h3><ul>
 <li>端口是正在运行程序的标识</li>
 </ul>
@@ -417,9 +419,7 @@
 <blockquote>
 <p>构造方法：<br><code>public DatagramPacket(byte[] buf,int length,InetAddress address,int port)</code>–发送数据使用的构造方法<br><code>public DatagramPacket(byte[] buf,int length)</code>  –接收数据使用的构造方法<br>buf - 分组数据<br>length - 包长度<br>address - 目的地址<br>port - 目的端口号<br>主要成员方法：<br><code>public byte[] getData()</code>返回数据缓冲区<br><code>public int getLength()</code>返回要发送的数据的长度或接收到的数据的长度<br><code>public InetAddress getAddress()</code>返回该数据报发送或接收数据报的计算机的IP地址  </p>
 </blockquote>
-<ul>
-<li>UDP协议发送数据<br>1创建发送端Socket对象<br>2创建数据并打包<br>3调用Socket对象的发送方法发送数据<br>4释放资源    </li>
-</ul>
+<p>UDP协议发送数据<br>  1.创建发送端Socket对象<br>  2.创建数据并打包<br>  3.调用Socket对象的发送方法发送数据<br>  4.释放资源    </p>
 <p>下面为实现UDP协议发送数据  </p>
 <blockquote>
 <pre><code>public class send{  
@@ -441,9 +441,7 @@
     }
 }
 </code></pre></blockquote>
-<ul>
-<li>UDP协议接收数据<br>   1创建接收端Socket<br>   2创建数据包接收数据（接受容器）<br>   3用Socket接受方法接收数据<br>   4解析数据输出<br>   5释放资源  </li>
-</ul>
+<p>UDP协议接收数据<br>1.创建接收端Socket<br>2.创建数据包接收数据（接受容器）<br>3.用Socket接受方法接收数据<br>4.解析数据输出<br>5.释放资源  </p>
 <p>下面为实现UDP协议接收数据</p>
 <blockquote>
 <pre><code> public class Receive {
@@ -469,9 +467,7 @@
     }
 }
 </code></pre></blockquote>
-<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><ul>
-<li>TCP协议发送数据 （客户端）<br>  1创建发送端Socket<br>  2获取输出流写数据<br>  3释放资源      </li>
-</ul>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP协议发送数据 （客户端）<br>1.创建发送端Socket<br>2.获取输出流写数据<br>3.释放资源      </p>
 <p>TCP发送客户端使用的是Socket类  </p>
 <blockquote>
 <p>构造方法：<br><code>public Socket(InetAddress address,int port)</code><br><code>public Socket(String host,int port)</code><br>主要成员方法：<br><code>public void close()</code>关闭<br><code>public OutputStream getOutputStream()</code>返回此套接字的输出流   </p>
@@ -490,9 +486,7 @@
     }  
 } 
 </code></pre></blockquote>
-<ul>
-<li>TCP协议接收数据（服务器）<br>  1.创建接收端Socket<br>  2.监听客户端连接，返回对应的Socket对象<br>  3.获取输入流读数据<br>  4.释放资源      </li>
-</ul>
+<p>TCP协议接收数据（服务器）<br>1.创建接收端Socket<br>2.监听客户端连接，返回对应的Socket对象<br>3.获取输入流读数据<br>4.释放资源      </p>
 <p>TCP接收客户端使用的是ServeSocket类</p>
 <blockquote>
 <p>构造方法：<br><code>public ServerSocket(int port)</code><br>成员方法：<br><code>public Socket accept()</code>监听 ，返回的是Scoket类，所以需要Socket类的方法<br>Socket类的—<code>public InputStream getInputStream()</code>返回此套接字的输入流</p>
