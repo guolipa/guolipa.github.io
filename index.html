@@ -394,7 +394,11 @@
           <p><img src="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg" alt="网络结构"></p>
 <h2 id="网络编程的三要素"><a href="#网络编程的三要素" class="headerlink" title="网络编程的三要素"></a>网络编程的三要素</h2><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a><strong>IP地址</strong></h3><ul>
 <li><strong>概念</strong>：IP地址是网络中计算机的唯一标识  </li>
-<li><p><strong>IP的组成</strong>：网络号+主机号  </p>
+<li><strong>IP的组成</strong>：网络号+主机号  </li>
+</ul>
+<p><strong>java提供了InetAddress类来对IP地址解析和操作</strong></p>
+<blockquote>
+<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br>   <code>public String getHostName()</code><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/11/Java-网络编程/#more" rel="contents">

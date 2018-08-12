@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
+<meta name="description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-网络编程">
 <meta property="og:url" content="http://yoursite.com/2018/08/11/Java-网络编程/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
+<meta property="og:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
-<meta property="og:updated_time" content="2018-08-12T02:10:29.666Z">
+<meta property="og:updated_time" content="2018-08-12T02:21:35.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-网络编程">
-<meta name="twitter:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
+<meta name="twitter:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号    java提供了InetAddress类来对IP地址解析和操作  确定主机名称的IP地址public static InetAddress getByName(String host)获取此IP地址的主机名   public String getHostName()">
 <meta name="twitter:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
 
 
@@ -393,16 +393,17 @@
         <p><img src="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg" alt="网络结构"></p>
 <h2 id="网络编程的三要素"><a href="#网络编程的三要素" class="headerlink" title="网络编程的三要素"></a>网络编程的三要素</h2><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a><strong>IP地址</strong></h3><ul>
 <li><strong>概念</strong>：IP地址是网络中计算机的唯一标识  </li>
-<li><p><strong>IP的组成</strong>：网络号+主机号  </p>
-<a id="more"></a>  
+<li><strong>IP的组成</strong>：网络号+主机号  </li>
+</ul>
 <p><strong>java提供了InetAddress类来对IP地址解析和操作</strong></p>
 <blockquote>
-<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br> <code>public String getHostName()</code></p>
+<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br>   <code>public String getHostName()</code><br><a id="more"></a></p>
 </blockquote>
-</li>
-</ul>
 <h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a><strong>端口</strong></h3><ul>
-<li>端口是正在运行程序的标识<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a><strong>协议</strong></h3></li>
+<li>端口是正在运行程序的标识</li>
+</ul>
+<p>###<strong>协议</strong></p>
+<ul>
 <li><p>UDP<br> 将数据源和目的地封装在数据包中，无连接，是不可靠协议，不需要建立连接，速度快</p>
 </li>
 <li><p>TCP<br> 建立连接，形成传输数据的通道，在连接中进行大数据量的传输，通过三次握手完成连接，是可靠地，效率会低</p>
@@ -419,10 +420,13 @@
 <p>构造方法：<br><code>public DatagramPacket(byte[] buf,int length,InetAddress address,int port)</code>–发送数据使用的构造方法<br><code>public DatagramPacket(byte[] buf,int length)</code>  –接收数据使用的构造方法<br>buf - 分组数据<br>length - 包长度<br>address - 目的地址<br>port - 目的端口号<br>主要成员方法：<br><code>public byte[] getData()</code>返回数据缓冲区<br><code>public int getLength()</code>返回要发送的数据的长度或接收到的数据的长度<br><code>public InetAddress getAddress()</code>返回该数据报发送或接收数据报的计算机的IP地址  </p>
 </blockquote>
 <ul>
-<li>UDP协议发送数据   <ol>
-<li>创建发送端Socket对象</li>
+<li><p>UDP协议发送数据 </p>
+<ol>
+<li>创建发送端Socket对象<ol start="2">
 <li>创建数据并打包  </li>
 <li>调用Socket对象的发送方法发送数据</li>
+</ol>
+</li>
 <li>释放资源  </li>
 </ol>
 </li>
@@ -449,14 +453,7 @@
 }
 </code></pre></blockquote>
 <ul>
-<li>UDP协议接收数据<ol>
-<li>创建接收端Socket</li>
-<li>创建数据包接收数据（接受容器）</li>
-<li>用Socket接受方法接收数据</li>
-<li>解析数据输出</li>
-<li>释放资源</li>
-</ol>
-</li>
+<li>UDP协议接收数据<br>   1创建接收端Socket<br>   2创建数据包接收数据（接受容器）<br>   3用Socket接受方法接收数据<br>   4解析数据输出<br>   5释放资源  </li>
 </ul>
 <p>下面为实现UDP协议接收数据</p>
 <blockquote>
@@ -484,12 +481,7 @@
 }
 </code></pre></blockquote>
 <h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><ul>
-<li>TCP协议发送数据 （客户端）      <ol>
-<li>创建发送端Socket</li>
-<li>获取输出流写数据</li>
-<li>释放资源    </li>
-</ol>
-</li>
+<li>TCP协议发送数据 （客户端）<br>  1创建发送端Socket<br>  2获取输出流写数据<br>  3释放资源      </li>
 </ul>
 <p>TCP发送客户端使用的是Socket类  </p>
 <blockquote>
@@ -742,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程的三要素"><span class="nav-number">1.</span> <span class="nav-text">网络编程的三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址"><span class="nav-number">1.1.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">1.2.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket网络编程"><span class="nav-number">2.</span> <span class="nav-text">Socket网络编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程的三要素"><span class="nav-number">1.</span> <span class="nav-text">网络编程的三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址"><span class="nav-number">1.1.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">1.2.</span> <span class="nav-text">端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket网络编程"><span class="nav-number">2.</span> <span class="nav-text">Socket网络编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a></li></ol></div>
             
 
           </div>
