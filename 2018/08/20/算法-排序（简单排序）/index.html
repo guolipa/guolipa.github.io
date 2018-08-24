@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcome Hexo">
 <meta property="og:description" content="算法模板Comparable接口   Interface Comparable&amp;lt;T&amp;gt;   该接口对实现它的每个类的对象强加一个整体排序，这个排序被称为类的自然排序，类的compareTo方法被称为其自然比较方法  **int compareTo(T o)** 将此对象与指定的对象进行比较以进行排序      返回一个负整数，零或正整数，因为该对象小于，等于或大于指定对象     com">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T10:27:34.190Z">
+<meta property="og:updated_time" content="2018-08-24T10:38:54.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序（简单排序）">
 <meta name="twitter:description" content="算法模板Comparable接口   Interface Comparable&amp;lt;T&amp;gt;   该接口对实现它的每个类的对象强加一个整体排序，这个排序被称为类的自然排序，类的compareTo方法被称为其自然比较方法  **int compareTo(T o)** 将此对象与指定的对象进行比较以进行排序      返回一个负整数，零或正整数，因为该对象小于，等于或大于指定对象     com">
@@ -422,15 +422,31 @@
         }                
     }
 } 
-</code></pre><p><strong>选择排序：</strong> 首先，找到数组中最小的那个元素，其次，将它和数组的第<br>一个元素交换位置。再次，在剩下的元素中找到最小的元素，将它与数组的第二个元素交换位置。如此往复，直到将整个数组排序。  </p>
+</code></pre><p><strong>选择排序：</strong> 首先，找到数组中最小的那个元素，其次，将它和数组的第一个元素交换位置。再次，在剩下的元素中找到最小的元素，将它与数组的第二个元素交换位置。如此往复，直到将整个数组排序。  </p>
 <p><strong>算法分析：</strong>  </p>
 <ol>
 <li>选择排序的效率取决于交换的次数：<strong>对于长度为 N 的数组，选择排序需要大约 N 2 /2 次比较和 N 次交换</strong><br>时间复杂度 T(N)=O(N*N);</li>
 <li>运行时间和输入无关:已经有序的数组或是主键全部相等的数组和一个元素随机排列的数组所用的排序时间一样长</li>
 <li>数据移动是最少的:选择排序用了 N 次交换,交换次数和数组的大小是线性关系</li>
 </ol>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序：从左到右不断交换相邻逆序的元素，在一轮的循环之后，可以让未排序的最大元素上浮到右侧。在一轮循环中，如果没有发生交换，就说明数组已经是有序的，此时可以直接退出。<br><!--lang:java--><br>    public class Bubble&lt;T extends Comparable<t>&gt; extends Sort<t>{<br>        @Override<br>        public static void sort(T[] a){<br>            int N=a.length;<br>            boolean flag=false;<br>            for(int i=N-1;i&gt;0 &amp;&amp; !flag;i–){<br>                flag=true;<br>                for(int j=0;j&lt;i;j++){<br>                    if(less(a[j+1],a[j])){<br>                        exch(a,j,j+1);<br>                        flag=false;<br>                    }<br>                }<br>            }<br>        }<br>    }</t></t></p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><!--lang:java--> 
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序：从左到右不断交换相邻逆序的元素，在一轮的循环之后，可以让未排序的最大元素上浮到右侧。在一轮循环中，如果没有发生交换，就说明数组已经是有序的，此时可以直接退出。</p>
+<pre><code>public class Bubble&lt;T extends Comparable&lt;T&gt;&gt; extends Sort&lt;T&gt;{
+    @Override
+    public static void sort(T[] a){
+        int N=a.length;
+        boolean flag=false;
+        for(int i=N-1;i&gt;0 &amp;&amp; !flag;i--){
+            flag=true;
+            for(int j=0;j&lt;i;j++){
+                if(less(a[j+1],a[j])){
+                    exch(a,j,j+1);
+                    flag=false;
+                }
+            }
+        }
+    }
+}
+</code></pre><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><!--lang:java--> 
 <pre><code>public class Insertion&lt;T extends Comparable&lt;T&gt;&gt; extends Sort&lt;T&gt;{
     public static &lt;T extends Comparable&lt;T&gt;&gt; void sort(T[] a){
         int N=a.length;
@@ -441,7 +457,7 @@
         }
     }
 }  
-</code></pre><p>算法分析：</p>
+</code></pre><p>算法分析：  </p>
 <ol>
 <li><p><strong>对于随机排列的长度为 N 且主键不重复的数组，平均情况下插入排序需要～ N 2 /4 次比<br>较以及～ N 2 /4 次交换。最坏情况下需要～ N 2 /2 次比较和～ N 2 /2 次交换，最好情况下需要 N-1次比较和 0 次交换</strong><br>时间复杂度 T(N)=O(N*N)</p>
 </li>
@@ -497,18 +513,14 @@
         }
     }  
 </code></pre><blockquote>
-</blockquote>
-<pre><code>This method merges by first copying into the auxiliary array aux[] then merging back to a[].   
-</code></pre><blockquote>
-</blockquote>
-<pre><code>In the merge (the second for loop), there are four conditions:    
-</code></pre><blockquote>
-</blockquote>
-<pre><code>1. left half exhausted (take from the right),   
+<pre><code> This method merges by first copying into the auxiliary array aux[] then merging back to a[].   
+In the merge (the second for loop), there are four conditions:    
+1. left half exhausted (take from the right),   
 2. right half exhausted (take from the left),   
 3. current key on right less than current key on left (take from the right),  
-4. current key on right greater than or equal to current key on left (take from the left).  
-</code></pre><h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><pre><code>public class UptoDpwnMergeSort&lt;T extends Comparable&lt;T&gt;&gt; extends Merge{
+ 4. current key on right greater than or equal to current key on left (take from the left).  
+</code></pre></blockquote>
+<h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><pre><code>public class UptoDpwnMergeSort&lt;T extends Comparable&lt;T&gt;&gt; extends Merge{
     public void sort(T[] a){
         aux=(T[]) new Comparable[a.length];
         sort(a,0,a.length-1);

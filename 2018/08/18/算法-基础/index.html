@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈     public class Stack implements Iterable{        //栈顶指针        private Node first;        //栈中元素数量        pr">
+<meta name="description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈 public class Stack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;{     //栈顶指针     private Node first;     //栈中元素数">
 <meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-基本数据结构">
 <meta property="og:url" content="http://yoursite.com/2018/08/18/算法-基础/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈     public class Stack implements Iterable{        //栈顶指针        private Node first;        //栈中元素数量        pr">
+<meta property="og:description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈 public class Stack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;{     //栈顶指针     private Node first;     //栈中元素数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-20T13:08:36.354Z">
+<meta property="og:updated_time" content="2018-08-24T10:32:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-基本数据结构">
-<meta name="twitter:description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈     public class Stack implements Iterable{        //栈顶指针        private Node first;        //栈中元素数量        pr">
+<meta name="twitter:description" content="基本数据结构数组链表链表的节点表示  public class Node&amp;lt;Item&amp;gt;     Item item;     Node next; }  栈用链表实现栈 public class Stack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;{     //栈顶指针     private Node first;     //栈中元素数">
 
 
 
@@ -373,8 +373,48 @@
     Node next;
 }
 </code></pre></blockquote>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>用链表实现栈<br><!--lang:java--><br>     public class Stack<item> implements Iterable<item>{<br>        //栈顶指针<br>        private Node first;<br>        //栈中元素数量<br>        private int N;<br>        //定义节点<br>        private class Node{<br>            Item item;<br>            Node next;<br>        }<br>        //判断栈是否为空<br>        public boolean isEmpty(){<br>            return first==null;<br>        }<br>        //返回栈中元素数量<br>        public int size(){<br>            return N;<br>        }<br>        //压栈<br>        public void push(Item item){<br>            Node oldfirst=first;<br>            first=new Node();<br>            first.item=item;<br>            first.next=oldfirst;<br>            N++;<br>        }<br>        //出栈<br>        public Item pop(){<br>            if(isEmpty()){<br>                try {<br>                    throw new Exception(“stack is empty”);<br>                } catch (Exception e) {<br>                    // TODO Auto-generated catch block<br>                    e.printStackTrace();<br>                }<br>            }<br>            Item item=first.item;<br>            first=first.next;<br>            N–;<br>            return item;<br>        }</item></item></p>
-<pre><code>    //
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>用链表实现栈</p>
+<pre><code>public class Stack&lt;Item&gt; implements Iterable&lt;Item&gt;{
+    //栈顶指针
+    private Node first;
+    //栈中元素数量
+    private int N;
+    //定义节点
+    private class Node{
+        Item item;
+        Node next;
+    }
+    //判断栈是否为空
+    public boolean isEmpty(){
+        return first==null;
+    }
+    //返回栈中元素数量
+    public int size(){
+        return N;
+    }
+    //压栈
+    public void push(Item item){
+        Node oldfirst=first;
+        first=new Node();
+        first.item=item;
+        first.next=oldfirst;
+        N++;
+    }
+    //出栈
+    public Item pop(){
+        if(isEmpty()){
+            try {
+                throw new Exception(&quot;stack is empty&quot;);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        Item item=first.item;
+        first=first.next;
+        N--;
+        return item;
+    }
     public Iterator&lt;Item&gt; iterator(){
         return new Iterator&lt;Item&gt;(){
             private Node current=first;
