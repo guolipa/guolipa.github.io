@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcome Hexo">
 <meta property="og:description" content="算法模板Comparable接口   Interface Comparable&amp;lt;T&amp;gt;   该接口对实现它的每个类的对象强加一个整体排序，这个排序被称为类的自然排序，类的compareTo方法被称为其自然比较方法  **int compareTo(T o)** 将此对象与指定的对象进行比较以进行排序      返回一个负整数，零或正整数，因为该对象小于，等于或大于指定对象     com">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T10:38:54.097Z">
+<meta property="og:updated_time" content="2018-08-25T04:02:30.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序（简单排序）">
 <meta name="twitter:description" content="算法模板Comparable接口   Interface Comparable&amp;lt;T&amp;gt;   该接口对实现它的每个类的对象强加一个整体排序，这个排序被称为类的自然排序，类的compareTo方法被称为其自然比较方法  **int compareTo(T o)** 将此对象与指定的对象进行比较以进行排序      返回一个负整数，零或正整数，因为该对象小于，等于或大于指定对象     com">
@@ -512,15 +512,15 @@
             }
         }
     }  
-</code></pre><blockquote>
-<pre><code> This method merges by first copying into the auxiliary array aux[] then merging back to a[].   
-In the merge (the second for loop), there are four conditions:    
-1. left half exhausted (take from the right),   
-2. right half exhausted (take from the left),   
-3. current key on right less than current key on left (take from the right),  
- 4. current key on right greater than or equal to current key on left (take from the left).  
-</code></pre></blockquote>
-<h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><pre><code>public class UptoDpwnMergeSort&lt;T extends Comparable&lt;T&gt;&gt; extends Merge{
+</code></pre><p>This method merges by first copying into the auxiliary array aux[] then merging back to a[]. </p>
+<p>In the merge (the second for loop), there are four conditions:    </p>
+<ol>
+<li>left half exhausted (take from the right),   </li>
+<li>right half exhausted (take from the left),   </li>
+<li>current key on right less than current key on left (take from the right),  </li>
+<li>current key on right greater than or equal to current key on left (take from the left).  </li>
+</ol>
+<h3 id="Top-down-mergesort-自顶向下的归并排序"><a href="#Top-down-mergesort-自顶向下的归并排序" class="headerlink" title="Top-down mergesort(自顶向下的归并排序)"></a>Top-down mergesort(自顶向下的归并排序)</h3><pre><code>public class UptoDpwnMergeSort&lt;T extends Comparable&lt;T&gt;&gt; extends Merge{
     public void sort(T[] a){
         aux=(T[]) new Comparable[a.length];
         sort(a,0,a.length-1);
@@ -537,10 +537,24 @@ In the merge (the second for loop), there are four conditions:
 }
 </code></pre><p>A: The code is a <strong>recursive(递归)</strong> mergesort implementation based on this abstract inplace merge.   </p>
 <p>B: It is one of the best-known examples of the utility of the <strong>divide-and-conquer(分而治之)</strong> paradigm for efficient algorithm design   </p>
-<p>C: the sort code simply provides an organized way to sequence the calls to the merge() method</p>
+<p>C: <em>the sort code simply provides an organized way to sequence the calls to the merge() method</em></p>
 <p><strong>算法分析：</strong>  </p>
 <p> <strong>A:</strong> Top-down mergesort uses between ½ N lg N and N lg N compares to sort any array of length N<br><strong>时间复杂度：T(N)=O(N lg N)</strong>  </p>
-<p><strong>B:</strong> Top-down mergesort uses at most 6N lg N array accesses to sort an<br>array of length N</p>
+<p><strong>B:</strong> Top-down mergesort uses at most 6N lg N array accesses to sort an array of length N  </p>
+<h3 id="Bottom-up-mergesort-自底向上的排序"><a href="#Bottom-up-mergesort-自底向上的排序" class="headerlink" title="Bottom-up mergesort(自底向上的排序)"></a>Bottom-up mergesort(自底向上的排序)</h3><pre><code>public class BottomtoUpMergeSort&lt;T extends Comparable&lt;T&gt;&gt; extends Merge&lt;T&gt; {
+    public void sort(T[] a){
+        int N=a.length;
+        aux = (T[]) new Comparable[a.length];
+        for(int sz=1;sz&lt;N;sz=sz+sz){
+            for(int lo=0;lo&lt;N-sz;lo+=sz+sz){
+                merge(a,lo,lo+sz-1,Math.min(lo+sz+sz-1, N-1));
+            }
+        }
+    }
+}
+</code></pre><p><strong>算法分析：</strong><br>Bottom-up mergesort uses between ½ N lg N and N lg N compares and at most 6N lg N array accesses to sort an array of length N.   </p>
+<p><strong><em>both the number of compares usedby mergesort in the worst case and the minimum number of compares that any compare-basedsorting algorithm can guarantee are ~N lg N</em></strong></p>
+<p>归并排序在最坏的情况下的比较次数和任意基于比较的排序算法所需的最少比较次数都是~ NlgN</p>
 
       
     </div>
@@ -571,8 +585,8 @@ In the merge (the second for loop), there are four conditions:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/18/算法-排序（一）/" rel="next" title="算法-排序（一）">
-                <i class="fa fa-chevron-left"></i> 算法-排序（一）
+              <a href="/2018/08/18/算法-排序（快速排序）/" rel="next" title="算法-排序（快速排序）">
+                <i class="fa fa-chevron-left"></i> 算法-排序（快速排序）
               </a>
             
           </div>
@@ -743,7 +757,7 @@ In the merge (the second for loop), there are four conditions:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法模板"><span class="nav-number">1.</span> <span class="nav-text">算法模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">4.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-number">5.</span> <span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MergeSort-归并排序"><span class="nav-number">6.</span> <span class="nav-text">MergeSort(归并排序)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#In-place-merge-原地归并"><span class="nav-number">6.1.</span> <span class="nav-text">In-place merge(原地归并)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-mergesort"><span class="nav-number">6.2.</span> <span class="nav-text">Top-down mergesort</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法模板"><span class="nav-number">1.</span> <span class="nav-text">算法模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">4.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-number">5.</span> <span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MergeSort-归并排序"><span class="nav-number">6.</span> <span class="nav-text">MergeSort(归并排序)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#In-place-merge-原地归并"><span class="nav-number">6.1.</span> <span class="nav-text">In-place merge(原地归并)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-mergesort-自顶向下的归并排序"><span class="nav-number">6.2.</span> <span class="nav-text">Top-down mergesort(自顶向下的归并排序)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-mergesort-自底向上的排序"><span class="nav-number">6.3.</span> <span class="nav-text">Bottom-up mergesort(自底向上的排序)</span></a></li></ol></li></ol></div>
             
 
           </div>

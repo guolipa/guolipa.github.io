@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Internet of things">
-<meta name="keywords" content="Java Internet of things Data Structure and Algorithms">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/Algorithm/index.html">
+<meta name="description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法-排序（快速排序）">
+<meta property="og:url" content="http://yoursite.com/2018/08/18/算法-排序（快速排序）/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="Internet of things">
+<meta property="og:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-25T10:09:28.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome Hexo">
-<meta name="twitter:description" content="Internet of things">
+<meta name="twitter:title" content="算法-排序（快速排序）">
+<meta name="twitter:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Algorithm/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/18/算法-排序（快速排序）/"/>
 
 
 
 
 
-  <title>标签: Algorithm | Welcome Hexo</title>
+  <title>算法-排序（快速排序） | Welcome Hexo</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/guolipa" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -284,110 +285,200 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Algorithm<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/18/算法-排序（快速排序）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guoLipa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/20/算法-排序（简单排序）/" itemprop="url">
-              
-                <span itemprop="name">算法-排序（简单排序）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">算法-排序（快速排序）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-20T20:37:26+08:00"
-              content="2018-08-20" >
-          08-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-18T17:08:35+08:00">
+                2018-08-18
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/18/算法-排序（快速排序）/" itemprop="url">
-              
-                <span itemprop="name">算法-排序（快速排序）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-18T17:08:35+08:00"
-              content="2018-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/18/算法-基础/" itemprop="url">
-              
-                <span itemprop="name">算法-基本数据结构</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-18T16:17:34+08:00"
-              content="2018-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="QuickSort（快速排序）"><a href="#QuickSort（快速排序）" class="headerlink" title="QuickSort（快速排序）"></a>QuickSort（快速排序）</h2><h3 id="The-basic-algorithm（基本算法）"><a href="#The-basic-algorithm（基本算法）" class="headerlink" title="The basic algorithm（基本算法）"></a>The basic algorithm（基本算法）</h3><p><strong>归并排序</strong>将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；<br><strong>快速排序</strong>通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。 </p>
+<pre><code>public class Quick&lt;T extends Comparable&lt;T&gt;&gt; extends Sort&lt;T&gt; {
+    public void sort(T[] a){
+        shuffe(a);  //消除对输入的依赖
+        sort(a,0,a.length-1);
+    }
+    private void sort(T[] a, int lo, int hi) {
+        if(hi&lt;=lo){
+            return;
+        }
+        int j=partition(a,lo,hi);  //切分
+        sort(a,lo,j-1);            //将左半边排序
+        sort(a,j+1,hi);               //将右半边排序
+    }
+    //切分方法
+    private int partition(T[] a, int lo, int hi) {
+        int i=lo;
+        int j=hi+1;
+        T v=a[lo];                 //选取lo处的元素作为分界元素
+        while(true){
+            //从左向右扫描找到比v大的元素
+            while(less(a[++i],v)){
+                if(i==hi){
+                    break;
+                }
+            }
+            //从右向左扫描找到比v小的元素
+            while(less(v,a[--j])){
+                if(j==lo){
+                    break;
+                }
+            }
+            if(i&gt;=j){
+                break;
+            }
+        }
+        exch(a,lo,j);
+        return j;
+    }
+    //打乱数组
+    private void shuffe(T[] a){
+        List&lt;T&gt; list=Arrays.asList(a);
+        Collections.shuffle(list);
+        list.toArray(a);
+    }
+}
+</code></pre><h3 id="Performance-characteristics（性能分析）"><a href="#Performance-characteristics（性能分析）" class="headerlink" title="Performance characteristics（性能分析）"></a>Performance characteristics（性能分析）</h3><p><strong>A: advantage</strong><br>a: it is in-place (uses only a small auxiliary stack) (原地排序)<br>b: it requires time proportional to N log N on the average to sort an array of length N (时间复杂度T(N)=O(NlgN))<br>c: the inner loop of quicksort (in the partitioning method) increments an index and compares an array entry against a fixed value.(内循环短小)</p>
+<p><strong>B:</strong> The best case for quicksort is when each partitioning stage divides the array exactlyin half. This circumstance would make     the number of compares used by quicksort satisfy the divide-and-conquer recurrence CN = 2CN/2 + N，this recurrence has the solution CN ~ N lg N  </p>
+<p><strong>C:</strong> Quicksort uses ~ 2N ln N compares (and one-sixth that many exchanges)on the average to sort an array of length N with distinct keys.   </p>
+<p><strong>D:</strong> Quicksort uses ~ N * N/2 compares in the worst case, but random shuffling protects against this case.(最坏情况)</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/18/算法-基础/" rel="next" title="算法-基本数据结构">
+                <i class="fa fa-chevron-left"></i> 算法-基本数据结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/20/算法-排序（简单排序）/" rel="prev" title="算法-排序（简单排序）">
+                算法-排序（简单排序） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -395,6 +486,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -415,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -508,6 +612,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QuickSort（快速排序）"><span class="nav-number">1.</span> <span class="nav-text">QuickSort（快速排序）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-basic-algorithm（基本算法）"><span class="nav-number">1.1.</span> <span class="nav-text">The basic algorithm（基本算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-characteristics（性能分析）"><span class="nav-number">1.2.</span> <span class="nav-text">Performance characteristics（性能分析）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -648,6 +768,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
