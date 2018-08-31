@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
+<meta name="description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。12345678910111213141516171819202122232425262728293031">
 <meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-排序（快速排序）">
 <meta property="og:url" content="http://yoursite.com/2018/08/18/算法-排序（快速排序）/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
+<meta property="og:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-25T10:09:28.610Z">
+<meta property="og:updated_time" content="2018-08-31T09:53:47.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序（快速排序）">
-<meta name="twitter:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。  public class Quick&amp;lt;T extends Comparable&amp;lt;T&amp;gt;">
+<meta name="twitter:description" content="QuickSort（快速排序）The basic algorithm（基本算法）归并排序将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；快速排序通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。12345678910111213141516171819202122232425262728293031">
 
 
 
@@ -366,53 +366,8 @@
       
 
       
-        <h2 id="QuickSort（快速排序）"><a href="#QuickSort（快速排序）" class="headerlink" title="QuickSort（快速排序）"></a>QuickSort（快速排序）</h2><h3 id="The-basic-algorithm（基本算法）"><a href="#The-basic-algorithm（基本算法）" class="headerlink" title="The basic algorithm（基本算法）"></a>The basic algorithm（基本算法）</h3><p><strong>归并排序</strong>将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；<br><strong>快速排序</strong>通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。 </p>
-<pre><code>public class Quick&lt;T extends Comparable&lt;T&gt;&gt; extends Sort&lt;T&gt; {
-    public void sort(T[] a){
-        shuffe(a);  //消除对输入的依赖
-        sort(a,0,a.length-1);
-    }
-    private void sort(T[] a, int lo, int hi) {
-        if(hi&lt;=lo){
-            return;
-        }
-        int j=partition(a,lo,hi);  //切分
-        sort(a,lo,j-1);            //将左半边排序
-        sort(a,j+1,hi);               //将右半边排序
-    }
-    //切分方法
-    private int partition(T[] a, int lo, int hi) {
-        int i=lo;
-        int j=hi+1;
-        T v=a[lo];                 //选取lo处的元素作为分界元素
-        while(true){
-            //从左向右扫描找到比v大的元素
-            while(less(a[++i],v)){
-                if(i==hi){
-                    break;
-                }
-            }
-            //从右向左扫描找到比v小的元素
-            while(less(v,a[--j])){
-                if(j==lo){
-                    break;
-                }
-            }
-            if(i&gt;=j){
-                break;
-            }
-        }
-        exch(a,lo,j);
-        return j;
-    }
-    //打乱数组
-    private void shuffe(T[] a){
-        List&lt;T&gt; list=Arrays.asList(a);
-        Collections.shuffle(list);
-        list.toArray(a);
-    }
-}
-</code></pre><h3 id="Performance-characteristics（性能分析）"><a href="#Performance-characteristics（性能分析）" class="headerlink" title="Performance characteristics（性能分析）"></a>Performance characteristics（性能分析）</h3><p><strong>A: advantage</strong><br>a: it is in-place (uses only a small auxiliary stack) (原地排序)<br>b: it requires time proportional to N log N on the average to sort an array of length N (时间复杂度T(N)=O(NlgN))<br>c: the inner loop of quicksort (in the partitioning method) increments an index and compares an array entry against a fixed value.(内循环短小)</p>
+        <h2 id="QuickSort（快速排序）"><a href="#QuickSort（快速排序）" class="headerlink" title="QuickSort（快速排序）"></a>QuickSort（快速排序）</h2><h3 id="The-basic-algorithm（基本算法）"><a href="#The-basic-algorithm（基本算法）" class="headerlink" title="The basic algorithm（基本算法）"></a>The basic algorithm（基本算法）</h3><p><strong>归并排序</strong>将数组分为两个子数组分别排序，并将有序的子数组归并使得整个数组排序；<br><strong>快速排序</strong>通过一个切分元素将数组分为两个子数组，左子数组小于等于切分元素，右子数组大于等于切分元素，将这两个子数组排序也就将整个数组排序了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Quick</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">T</span>&gt;&gt; <span class="keyword">extends</span> <span class="title">Sort</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(T[] a)</span></span>&#123;</span><br><span class="line">		shuffe(a);  <span class="comment">//消除对输入的依赖</span></span><br><span class="line">		sort(a,<span class="number">0</span>,a.length-<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(T[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(hi&lt;=lo)&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> j=partition(a,lo,hi);  <span class="comment">//切分</span></span><br><span class="line">		sort(a,lo,j-<span class="number">1</span>);            <span class="comment">//将左半边排序</span></span><br><span class="line">		sort(a,j+<span class="number">1</span>,hi);	           <span class="comment">//将右半边排序</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//切分方法</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(T[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i=lo;</span><br><span class="line">		<span class="keyword">int</span> j=hi+<span class="number">1</span>;</span><br><span class="line">		T v=a[lo];                 <span class="comment">//选取lo处的元素作为分界元素</span></span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">			<span class="comment">//从左向右扫描找到比v大的元素</span></span><br><span class="line">			<span class="keyword">while</span>(less(a[++i],v))&#123;</span><br><span class="line">				<span class="keyword">if</span>(i==hi)&#123;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//从右向左扫描找到比v小的元素</span></span><br><span class="line">			<span class="keyword">while</span>(less(v,a[--j]))&#123;</span><br><span class="line">				<span class="keyword">if</span>(j==lo)&#123;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(i&gt;=j)&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		exch(a,lo,j);</span><br><span class="line">		<span class="keyword">return</span> j;</span><br><span class="line">	&#125;</span><br><span class="line">       <span class="comment">//打乱数组</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shuffe</span><span class="params">(T[] a)</span></span>&#123;</span><br><span class="line">		List&lt;T&gt; list=Arrays.asList(a);</span><br><span class="line">		Collections.shuffle(list);</span><br><span class="line">		list.toArray(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Performance-characteristics（性能分析）"><a href="#Performance-characteristics（性能分析）" class="headerlink" title="Performance characteristics（性能分析）"></a>Performance characteristics（性能分析）</h3><p><strong>A: advantage</strong><br>a: it is in-place (uses only a small auxiliary stack) (原地排序)<br>b: it requires time proportional to N log N on the average to sort an array of length N (时间复杂度T(N)=O(NlgN))<br>c: the inner loop of quicksort (in the partitioning method) increments an index and compares an array entry against a fixed value.(内循环短小)</p>
 <p><strong>B:</strong> The best case for quicksort is when each partitioning stage divides the array exactlyin half. This circumstance would make     the number of compares used by quicksort satisfy the divide-and-conquer recurrence CN = 2CN/2 + N，this recurrence has the solution CN ~ N lg N  </p>
 <p><strong>C:</strong> Quicksort uses ~ 2N ln N compares (and one-sixth that many exchanges)on the average to sort an array of length N with distinct keys.   </p>
 <p><strong>D:</strong> Quicksort uses ~ N * N/2 compares in the worst case, but random shuffling protects against this case.(最坏情况)</p>
@@ -539,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
