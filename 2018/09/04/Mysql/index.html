@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcome Hexo">
 <meta property="og:description" content="Mysql基本操作登陆数据库： mysql -u root -p   退出数据库： exit; 数据库操作创建数据库   create database 数据库名; create database 数据库名 character set 字符集（utf8) collate 校对规则;  删除数据库 drop database 数据库名;   查看数据库 show databases -查看所有数据库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T11:37:19.675Z">
+<meta property="og:updated_time" content="2018-09-08T04:19:17.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql">
 <meta name="twitter:description" content="Mysql基本操作登陆数据库： mysql -u root -p   退出数据库： exit; 数据库操作创建数据库   create database 数据库名; create database 数据库名 character set 字符集（utf8) collate 校对规则;  删除数据库 drop database 数据库名;   查看数据库 show databases -查看所有数据库">
@@ -448,8 +448,52 @@ insert into 表名(列1，2...) values(值1，值2...),(v1,v2..),(v1,v2...)...
 <pre><code>update 表名 set 列1=值1，列2=值2 where 条件
 </code></pre><p>删除数据：</p>
 <pre><code>delete from 表名 where 条件
-</code></pre><p><strong>查询select语句</strong></p>
+</code></pre><p><strong>查询select语句</strong>  </p>
+<pre><code>select * from 表名;
+select 列1，列2，... from 表名;
 
+select c1,c2,... from 表名 as 另一名;
+select c1 as p1,c2 as p2,... from 表名;
+
+select distinct c from 表名; ---去掉重复值
+
+运算查询：
+select *,列的运算 as 名 from 表名;
+
+条件查询：
+where 条件
+select 查询内容 from 表名 where 条件
+    关系运算符
+    逻辑运算符
+    模糊查询  like 
+            where c like &apos;条件&apos;
+            -：代表单个字符
+            %：代表多个字符
+
+    范围查询   in
+            where c in (a1,a2,a3...)
+
+排序查询：
+order by c asc/desc
+    asc:ascend 升序
+    desc:descend 降序
+
+聚合函数：
+select sum(number) from 表名;
+    sum()
+    avg()
+    count()
+    max()
+    min()
+
+分组：
+ group by
+
+having:在group后，可以接聚合函数
+where:在group之前，不可以接聚合函数
+
+select ... from ... where ... group by ... having ... order by ...
+</code></pre>
       
     </div>
     
@@ -572,7 +616,7 @@ insert into 表名(列1，2...) values(值1，值2...),(v1,v2..),(v1,v2...)...
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -594,7 +638,7 @@ insert into 表名(列1，2...) values(值1，值2...),(v1,v2..),(v1,v2...)...
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
