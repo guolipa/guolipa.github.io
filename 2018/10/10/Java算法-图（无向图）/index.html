@@ -79,18 +79,29 @@
 
 
 
-<meta name="description" content="2-3查找树https://www.cnblogs.com/yangecnu/p/Introduce-2-3-Search-Tree.html 红黑树https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html">
+<meta name="description" content="图的定义：A graph is a set of vertices and a collections of edges that each connect a pair of vertices.graph = edge + vertex       图的表示邻接矩阵假设图有V个顶点，使用一个V*V的布尔矩阵a来表示图，顶点v和顶点w相连那么a[v,w]和a[w,v]都设置为true，相连设置为f">
 <meta name="keywords" content="Algorithms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java算法-查找（平衡查找树）">
-<meta property="og:url" content="http://yoursite.com/2018/09/22/Java算法-查找（平衡查找树）/index.html">
+<meta property="og:title" content="Java算法-图（无向图）">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/Java算法-图（无向图）/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="2-3查找树https://www.cnblogs.com/yangecnu/p/Introduce-2-3-Search-Tree.html 红黑树https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html">
+<meta property="og:description" content="图的定义：A graph is a set of vertices and a collections of edges that each connect a pair of vertices.graph = edge + vertex       图的表示邻接矩阵假设图有V个顶点，使用一个V*V的布尔矩阵a来表示图，顶点v和顶点w相连那么a[v,w]和a[w,v]都设置为true，相连设置为f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-12T02:03:48.617Z">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1ad060fc0e.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1ad4a43b48.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1af287ab30.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1b02857554.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1eab474036.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1fd1d0acce.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1fc7f8a4b9.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1fdb1bfcbf.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1fdbb27b71.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/13/5bc1fe3113283.png">
+<meta property="og:updated_time" content="2018-10-13T14:16:47.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java算法-查找（平衡查找树）">
-<meta name="twitter:description" content="2-3查找树https://www.cnblogs.com/yangecnu/p/Introduce-2-3-Search-Tree.html 红黑树https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html">
+<meta name="twitter:title" content="Java算法-图（无向图）">
+<meta name="twitter:description" content="图的定义：A graph is a set of vertices and a collections of edges that each connect a pair of vertices.graph = edge + vertex       图的表示邻接矩阵假设图有V个顶点，使用一个V*V的布尔矩阵a来表示图，顶点v和顶点w相连那么a[v,w]和a[w,v]都设置为true，相连设置为f">
+<meta name="twitter:image" content="https://i.loli.net/2018/10/13/5bc1ad060fc0e.png">
 
 
 
@@ -120,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/22/Java算法-查找（平衡查找树）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/10/Java算法-图（无向图）/"/>
 
 
 
 
 
-  <title>Java算法-查找（平衡查找树） | Welcome Hexo</title>
+  <title>Java算法-图（无向图） | Welcome Hexo</title>
   
 
 
@@ -299,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/22/Java算法-查找（平衡查找树）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/Java算法-图（无向图）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guoLipa">
@@ -316,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java算法-查找（平衡查找树）</h1>
+          <h1 class="post-title" itemprop="name headline">Java算法-图（无向图）</h1>
         
 
         <div class="post-meta">
@@ -328,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T20:02:08+08:00">
-                2018-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T15:47:15+08:00">
+                2018-10-10
               </time>
             
 
@@ -366,8 +377,48 @@
       
 
       
-        <h2 id="2-3查找树"><a href="#2-3查找树" class="headerlink" title="2-3查找树"></a>2-3查找树</h2><p><a href="https://www.cnblogs.com/yangecnu/p/Introduce-2-3-Search-Tree.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangecnu/p/Introduce-2-3-Search-Tree.html</a></p>
-<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><a href="https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html</a>  </p>
+        <p><strong>图的定义</strong>：A graph is a set of vertices and a collections of edges that each connect a pair of vertices.<br>graph = edge + vertex  </p>
+<p><img src="https://i.loli.net/2018/10/13/5bc1ad060fc0e.png" alt=""> <img src="https://i.loli.net/2018/10/13/5bc1ad4a43b48.png" alt="">  </p>
+<h2 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h2><h3 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3><p>假设图有V个顶点，使用一个V*V的布尔矩阵a来表示图，顶点v和顶点w相连那么a[v,w]和a[w,v]都设置为true，相连设置为false。 </p>
+<p><img src="https://i.loli.net/2018/10/13/5bc1af287ab30.png" alt="">  </p>
+<p>邻接矩阵在存储一个较大的图时是不可行的，所需要的巨大的空间无法满足。 </p>
+<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p>邻接表是一个一顶点vertex为索引的列表数组，每一个索引代表一个顶点，数组在该索引处的元素是和该顶点相连接的顶点列表。<br>使用邻接表实现的图有如下特点：  </p>
+<ul>
+<li>创建图使用的空间和V+E成正比  </li>
+<li>添加一条边时间为常数  </li>
+<li>遍历顶点v相邻的顶点所需时间和v的度数成正比</li>
+</ul>
+<p><img src="https://i.loli.net/2018/10/13/5bc1b02857554.png" alt="">  </p>
+<p>用邻接表创建的Graph数据结构：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Graph</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> V; <span class="comment">//顶点数目</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> E; <span class="comment">//边的条数</span></span><br><span class="line">	<span class="keyword">private</span> Bag&lt;Integer&gt;[] adj; <span class="comment">//邻接表</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Graph</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="comment">//初始化顶点为V的邻接表</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Graph</span><span class="params">(<span class="keyword">int</span> V)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.V=V;</span><br><span class="line">		<span class="keyword">this</span>.E=<span class="number">0</span>;</span><br><span class="line">		adj=(Bag&lt;Integer&gt;[]) <span class="keyword">new</span> Bag[V];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;V;i++)&#123;</span><br><span class="line">			adj[i]=<span class="keyword">new</span> Bag&lt;Integer&gt;();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">V</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> V;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">E</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> E;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEdg</span><span class="params">(<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">		adj[v].add(w);</span><br><span class="line">		adj[w].add(v);</span><br><span class="line">		E++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Integer&gt; <span class="title">adj</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> adj[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">degree</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> adj[v].size();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">		String s=V+<span class="string">" vertices"</span>+E+<span class="string">" edges\n"</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;V;i++)&#123;</span><br><span class="line">			s+=i+<span class="string">":"</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j:<span class="keyword">this</span>.adj[i])&#123;</span><br><span class="line">				s+=j+<span class="string">" "</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			s+=<span class="string">"\n"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </p>
+<h2 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h2><p>深度优先搜索类似于走迷宫的Tremaux搜索。<br>从一个没有走过的路口开始，走过的路铺一条绳子；<br>标记走过的路口；<br>当来到标记的路口，一直回退到有没被标记的路口继续走，如果回退时一直无路可走就一直回退到起点。<br><img src="https://i.loli.net/2018/10/13/5bc1eab474036.png" alt=""></p>
+<p>深度优先搜索类似于走迷宫，一直寻找没有被访问的节点<br>深度优先搜索需要用递归的方法遍历图中所有的顶点   </p>
+<ul>
+<li>将访问的节点标记  </li>
+<li>递归的访问它的所有没有被标记的邻居节点<br>深度优先代码如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DFS</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] marked;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DFS</span><span class="params">(Graph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		marked=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		dfs(G,s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Graph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		marked[s]=<span class="keyword">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v:G.adj[s])&#123;</span><br><span class="line">			<span class="keyword">if</span>(!marked[v])&#123;</span><br><span class="line">				dfs(G,v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">marked</span><span class="params">(<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> marked[m];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">count</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> count;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>  
+<p>下面是DFS的搜索轨迹图：</p>
+<p><img src="https://i.loli.net/2018/10/13/5bc1fd1d0acce.png" alt=""></p>
+<p>深度优先搜索可以遍历图中所有的顶点和边，利用DFS可以解决图中的一些问题：  </p>
+<ul>
+<li>连通性问题：给定的两个顶点是否相连  </li>
+<li>单点问题，<strong>路径问题</strong>：某一起点与任意联通顶点的路径   </li>
+</ul>
+<p>下面为利用DFS查找图中的路径的算法程序  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepthFirstPaths</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] marked;<span class="comment">//用于标记顶点是否被访问过</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] edgeTo; <span class="comment">//记录从起点到一个顶点的路径上的最后一个顶点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> s;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DepthFirstPaths</span><span class="params">(Graph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.s=s;</span><br><span class="line">		marked=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		edgeTo=<span class="keyword">new</span> <span class="keyword">int</span>[G.V()];</span><br><span class="line">		dfs(G,s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//深度优先算法DFS</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Graph G,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		marked[v]=<span class="keyword">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> w:G.adj(v))&#123;</span><br><span class="line">			<span class="keyword">if</span>(!marked[w])&#123;</span><br><span class="line">				edgeTo[w]=v;</span><br><span class="line">				dfs(G,w);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> marked[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回起点到某个顶点的路径</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Integer&gt; <span class="title">pathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!hasPathTo(v))&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		Stack&lt;Integer&gt; path=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=v;x!=s;x=edgeTo[x])&#123;</span><br><span class="line">			path.push(x);</span><br><span class="line">		&#125;</span><br><span class="line">		path.push(s);</span><br><span class="line">		<span class="keyword">return</span> path;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+<p>下图为DFS搜索路径的轨迹实例图<br><img src="https://i.loli.net/2018/10/13/5bc1fc7f8a4b9.png" alt=""></p>
+<h2 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h2><p>我们常要解决的问题是图中两个点之间最短的路径问题，DFS可以找出两点间的联通路径，却没办法找到最短的路径，但广度优先搜索可以解决这个问题。  </p>
+<p>在广度优先搜索中我们是按照与起点的距离的顺序遍历多有结点，这里用到了队列；<br>首先将起点标记并加入队列，重复以下步骤直到队列为空：  </p>
+<ul>
+<li>将队列中的下一个顶点v出队，并将其标记；  </li>
+<li>将与v相邻且未被标记的顶点按顺序依次入队；    </li>
+</ul>
+<p>BFS搜索路径算法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BreadthFirstPaths</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] marked;<span class="comment">//用于标记顶点是否被访问过</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] edgeTo; <span class="comment">//记录从起点到一个顶点的路径上的最后一个顶点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> s;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BreadthFirstPaths</span><span class="params">(Graph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.s=s;</span><br><span class="line">		marked=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		edgeTo=<span class="keyword">new</span> <span class="keyword">int</span>[G.V()];</span><br><span class="line">		bfs(G,s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//广度优先算法BFS</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(Graph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		Queue&lt;Integer&gt; queue=<span class="keyword">new</span> Queue&lt;Integer&gt;();</span><br><span class="line">		marked[s]=<span class="keyword">true</span>;</span><br><span class="line">		queue.enqueue(s);</span><br><span class="line">		<span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">			<span class="keyword">int</span> v=queue.dequeue();</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> w:G.adj(v))&#123;</span><br><span class="line">				<span class="keyword">if</span>(!marked[w])&#123;</span><br><span class="line">					edgeTo[w]=v;</span><br><span class="line">					marked[w]=<span class="keyword">true</span>;</span><br><span class="line">					queue.enqueue(w);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> marked[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回起点到某个顶点的路径</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Integer&gt; <span class="title">pathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!hasPathTo(v))&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		Stack&lt;Integer&gt; path=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=v;x!=s;x=edgeTo[x])&#123;</span><br><span class="line">			path.push(x);</span><br><span class="line">		&#125;</span><br><span class="line">		path.push(s);</span><br><span class="line">		<span class="keyword">return</span> path;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>下图为BFS实例中搜索轨迹图： </p>
+<p><img src="https://i.loli.net/2018/10/13/5bc1fdb1bfcbf.png" alt=""><br><img src="https://i.loli.net/2018/10/13/5bc1fdbb27b71.png" alt=""></p>
+<p>DFS和BFS具有不同的搜索路径：</p>
+<p>深度优先搜索是不断深入图中，探索距离起点越来越远的顶点，只有碰到访问过的顶点或者死胡同时才返回到最近的顶点；<br>广度优先搜索像扇面一样前进，它只有访问了一个顶点附近相邻的所有顶点之后才继续向前探索；<br>DFS的路径通常长而曲折，而BFS路径短而整齐直接。 </p>
+<p>如下图所示两种搜索方式的路径对比：  </p>
+<p><img src="https://i.loli.net/2018/10/13/5bc1fe3113283.png" alt=""></p>
 
       
     </div>
@@ -398,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/22/Java算法-查找（二叉搜索树）/" rel="next" title="Java算法-查找（二叉搜索树）">
-                <i class="fa fa-chevron-left"></i> Java算法-查找（二叉搜索树）
+              <a href="/2018/09/29/Java算法-查找（散列表）/" rel="next" title="Java算法-查找（散列表）">
+                <i class="fa fa-chevron-left"></i> Java算法-查找（散列表）
               </a>
             
           </div>
@@ -407,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/24/Java-Comparable和Comparator的区别/" rel="prev" title="Java-Comparable和Comparator的区别">
-                Java-Comparable和Comparator的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3查找树"><span class="nav-number">1.</span> <span class="nav-text">2-3查找树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#红黑树"><span class="nav-number">2.</span> <span class="nav-text">红黑树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图的表示"><span class="nav-number">1.</span> <span class="nav-text">图的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">1.1.</span> <span class="nav-text">邻接矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邻接表"><span class="nav-number">1.2.</span> <span class="nav-text">邻接表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先搜索"><span class="nav-number">2.</span> <span class="nav-text">深度优先搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先搜索"><span class="nav-number">3.</span> <span class="nav-text">广度优先搜索</span></a></li></ol></div>
             
 
           </div>
