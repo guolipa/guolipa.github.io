@@ -79,22 +79,23 @@
 
 
 
-<meta name="description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突。">
+<meta name="description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突">
 <meta name="keywords" content="Algorithms">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java算法-查找（散列表）">
 <meta property="og:url" content="http://yoursite.com/2018/09/29/Java算法-查找（散列表）/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突。">
+<meta property="og:description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/10/16/5bc5fa1e0e39a.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/09/29/5baf7a974ad3a.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/30/5bb03b9e4bae5.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/29/5baf8b359de8f.png">
-<meta property="og:updated_time" content="2018-09-30T03:17:20.098Z">
+<meta property="og:updated_time" content="2018-10-16T14:48:16.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java算法-查找（散列表）">
-<meta name="twitter:description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突。">
-<meta name="twitter:image" content="https://i.loli.net/2018/09/29/5baf7a974ad3a.png">
+<meta name="twitter:description" content="散列查找在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以第一步就是要通过散列函数将键转化为数组的索引值。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以第二步就要处理碰撞冲突">
+<meta name="twitter:image" content="https://i.loli.net/2018/10/16/5bc5fa1e0e39a.jpg">
 
 
 
@@ -370,10 +371,11 @@
       
 
       
-        <h2 id="散列查找"><a href="#散列查找" class="headerlink" title="散列查找"></a>散列查找</h2><p>在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以<strong>第一步就是要通过散列函数将键转化为数组的索引值</strong>。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以<strong>第二步就要处理碰撞冲突</strong>。</p>
+        <p><img src="https://i.loli.net/2018/10/16/5bc5fa1e0e39a.jpg" alt=""></p>
+<h2 id="散列查找"><a href="#散列查找" class="headerlink" title="散列查找"></a>散列查找</h2><p>在查找算法中如果利用数组将要存储的键作为数组索引下标，将对应的值作为数组的内容，在预先知道所要查找的内容在数组的下标可以实现快速查找，实现时间复杂度为O(1)的算法。由于键值可能是各种类型的，可能是整数、可能是字符串类型不能直接作为数组的索引，所以<strong>第一步就是要通过散列函数将键转化为数组的索引值</strong>。由于散列函数在转化过程中不同的键可能变成相同的索引值，出现碰撞冲突，所以<strong>第二步就要处理碰撞冲突</strong>。</p>
 <h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>如果保存键值的数组大小为M，那么键值通过散列函数就要转化在[0,M-1]的索引范围内，我们需要的散列函数能够将键值均匀的分布在[0,M-1]内，每个键都有相同的可能与0~M-1红的每个整数对应。</p>
 <p><strong>我们所使用的散列函数能够均匀并独立的将所有的键分布于0到M-1之间</strong></p>
-<p>由于键值的数据类型不同，所需要的散列函数也不同，每种类型都有与之对应的散列函数</p>
+<p>由于键值的数据类型不同，所需要的散列函数也不同，每种类型都有与之对应的散列函数  </p>
 <ol>
 <li>整数类型<br>对于整数类型常用的方法是除留余数法:k%M<br>最好使用不是2的幂的质数  </li>
 <li>浮点数<br>将键表示为二进制然后使用除留余数法  </li>
@@ -381,11 +383,12 @@
 <li>组合键<br>下面为自定义类的hashcode算法，它将类中的所有成员变量综合起来计算hash值    </li>
 </ol>
 <p>默认的hashcode函数返回对象的地址  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">private</span> String sex;</span><br><span class="line">	<span class="keyword">private</span> String city;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">		<span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">		result = prime * result + age;</span><br><span class="line">		result = prime * result + ((city == <span class="keyword">null</span>) ? <span class="number">0</span> : city.hashCode());</span><br><span class="line">		result = prime * result + ((name == <span class="keyword">null</span>) ? <span class="number">0</span> : name.hashCode());</span><br><span class="line">		result = prime * result + ((sex == <span class="keyword">null</span>) ? <span class="number">0</span> : sex.hashCode());</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">private</span> String sex;</span><br><span class="line">	<span class="keyword">private</span> String city;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">		<span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">		result = prime * result + age;</span><br><span class="line">		result = prime * result + ((city == <span class="keyword">null</span>) ? <span class="number">0</span> : city.hashCode());</span><br><span class="line">		result = prime * result + ((name == <span class="keyword">null</span>) ? <span class="number">0</span> : name.hashCode());</span><br><span class="line">		result = prime * result + ((sex == <span class="keyword">null</span>) ? <span class="number">0</span> : sex.hashCode());</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>  
 <ol start="5">
 <li>将hashcode()的返回值转化为数组索引  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Key k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (k.hashCode() &amp; <span class="number">0x7fffffff</span>) % M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
-&amp;的作用是将计算出的hashCode值得符号位屏蔽  <h3 id="基于拉链法的散列表"><a href="#基于拉链法的散列表" class="headerlink" title="基于拉链法的散列表"></a>基于拉链法的散列表</h3>拉链法：保存数组的大小为M，将数组的每一个元素指向一个链表，每个链表中都存储键值相同的元素。</li>
+&amp;的作用是将计算出的hashCode值得符号位屏蔽  </li>
 </ol>
+<h3 id="基于拉链法的散列表"><a href="#基于拉链法的散列表" class="headerlink" title="基于拉链法的散列表"></a>基于拉链法的散列表</h3><p>拉链法：保存数组的大小为M，将数组的每一个元素指向一个链表，每个链表中都存储键值相同的元素。</p>
 <p><img src="https://i.loli.net/2018/09/29/5baf7a974ad3a.png" alt=""></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeparateChainingHashST</span>&lt;<span class="title">Key</span>,<span class="title">Value</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;<span class="comment">//键值对总数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> M;<span class="comment">//散列表大小</span></span><br><span class="line">	<span class="keyword">private</span> SequentialSearchST&lt;Key,Value&gt;[] st;<span class="comment">//存储链表的数组</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SeparateChainingHashST</span><span class="params">(<span class="keyword">int</span> M)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.M = M;</span><br><span class="line">		st=(SequentialSearchST&lt;Key,Value&gt;[]) <span class="keyword">new</span> SequentialSearchST[M];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">			st[i]=<span class="keyword">new</span> SequentialSearchST();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Key key)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (key.hashCode() &amp; <span class="number">0x7fffffff</span>) % M;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(Key key)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> st[hash(key)].get(key);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Key key,Value val)</span></span>&#123;</span><br><span class="line">		st[hash(key)].put(key, val);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Key key)</span></span>&#123;</span><br><span class="line">		st[hash(key)].delete(key);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Queue&lt;Key&gt; queue=<span class="keyword">new</span> Queue&lt;Key&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(Key key:st[i].keys())&#123;</span><br><span class="line">				queue.enqueue(key);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> queue;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 <p><strong>拉链法的散列表性能分析：</strong></p>
@@ -449,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/Java算法-图（无向图）/" rel="prev" title="Java算法-图（无向图）">
-                Java算法-图（无向图） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/Java算法-图/" rel="prev" title="Java算法-图">
+                Java算法-图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +546,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -554,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
