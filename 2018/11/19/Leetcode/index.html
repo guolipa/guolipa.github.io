@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="3.Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
+<meta name="description" content="Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode">
 <meta property="og:url" content="http://yoursite.com/2018/11/19/Leetcode/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="3.Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
+<meta property="og:description" content="Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/12/01/5c0284bcf39c5.png">
-<meta property="og:updated_time" content="2018-12-02T03:04:13.828Z">
+<meta property="og:updated_time" content="2018-12-02T10:34:27.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode">
-<meta name="twitter:description" content="3.Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
+<meta name="twitter:description" content="Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
 <meta name="twitter:image" content="https://i.loli.net/2018/12/01/5c0284bcf39c5.png">
 
 
@@ -368,7 +368,7 @@
       
 
       
-        <h1 id="3-Longest-Substring-Without-Repeating-Characters"><a href="#3-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="3.Longest Substring Without Repeating Characters"></a>3.Longest Substring Without Repeating Characters</h1><p><strong>Description</strong></p>
+        <h1 id="Longest-Substring-Without-Repeating-Characters"><a href="#Longest-Substring-Without-Repeating-Characters" class="headerlink" title="Longest Substring Without Repeating Characters"></a>Longest Substring Without Repeating Characters</h1><p><strong>Description</strong></p>
 <blockquote>
 <p>Given a string, find the length of the longest substring without repeating character.  </p>
 </blockquote>
@@ -384,7 +384,8 @@ Explanation: The answer is &quot;abc&quot;, with the length of 3.
 <blockquote>
 <p>滑动窗口经常用在数组和字符串的问题中，滑动窗口是数组和字符串中的一些元素，它用两个索引来表示滑动窗口的起始位置[i,j),滑动窗口通过滑动左右的两个索引来改变滑动窗口滑动的方向以及窗口内的元素.  </p>
 </blockquote>
-<p>本题用HashSet来存储现在的滑动窗口内的元素[i,j),通过检查第j个元素，如果不在集合中就存储到集合并继续增加滑动窗口右侧可值j，如果第j个元素已经在集合中了，那么就滑动左侧的索引i，从集合中删除第i个元素，直到此时第j个元素不在集合中了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="comment">// try to extend the range [i, j]</span></span><br><span class="line">            <span class="keyword">if</span> (!set.contains(s.charAt(j)))&#123;</span><br><span class="line">                set.add(s.charAt(j++));</span><br><span class="line">                ans = Math.max(ans, j - i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                set.remove(s.charAt(i++));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  </p>
+<p>本题用HashSet来存储现在的滑动窗口内的元素[i,j),通过检查第j个元素，如果不在集合中就存储到集合并继续增加滑动窗口右侧可值j，如果第j个元素已经在集合中了，那么就滑动左侧的索引i，从集合中删除第i个元素，直到此时第j个元素不在集合中了。  </p>
+<p>代码实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="comment">// try to extend the range [i, j]</span></span><br><span class="line">            <span class="keyword">if</span> (!set.contains(s.charAt(j)))&#123;</span><br><span class="line">                set.add(s.charAt(j++));</span><br><span class="line">                ans = Math.max(ans, j - i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                set.remove(s.charAt(i++));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  </p>
 <blockquote>
 <p>算法分析：时间复杂度：O(2n)=O(n)   </p>
 </blockquote>
@@ -392,7 +393,7 @@ Explanation: The answer is &quot;abc&quot;, with the length of 3.
 <blockquote>
 <p>算法分析：时间复杂度O(n)  </p>
 </blockquote>
-<h1 id="4-Median-of-Two-Sorted-Arrays"><a href="#4-Median-of-Two-Sorted-Arrays" class="headerlink" title="4. Median of Two Sorted Arrays"></a>4. Median of Two Sorted Arrays</h1><p><strong>Description</strong></p>
+<h1 id="Median-of-Two-Sorted-Arrays"><a href="#Median-of-Two-Sorted-Arrays" class="headerlink" title="Median of Two Sorted Arrays"></a>Median of Two Sorted Arrays</h1><p><strong>Description</strong></p>
 <blockquote>
 <p>There are two sorted arrays nums1 and nums2 of size m and n respectively.<br>Find the median of the two sorted arrays.<br>The overall run time complexity should be O(log (m+n)).<br>You may assume nums1 and nums2 cannot be both empty.</p>
 </blockquote>
@@ -404,39 +405,30 @@ median is 2.0
 <h1 id="Longest-Common-Substring-最长公共子字符串"><a href="#Longest-Common-Substring-最长公共子字符串" class="headerlink" title="Longest Common Substring 最长公共子字符串"></a>Longest Common Substring 最长公共子字符串</h1><blockquote>
 <p>动态规划问题  </p>
 </blockquote>
-<pre><code>动态规划问题的两个特点：
-    1.最优子结构
-    2.重叠子问题
-因为有重叠子问题，当前计算的过程中可能有的问题在之前的计算已经计算过了，现在又要计算一遍，
-导致大量重复的计算
-动态规划通过找到解决问题的递推关系，将已经完成计算的存储起来，
-当开始新的计算时如果包含之前计算的子问题时，不需要再次计算，只需要访问已经存储的计算结果就可以，
-这种方法减少了时间复杂度，增加了存储空间。
-
-假设有两个字符串s[0,...m],t[0,...,n],求两个字符串的最长公共子字符串  
-    定义矩阵mXn的矩阵L,L[i][j]表示以s[i]开始和t[j]结尾的公共子字符串长度的最大值
-    那么对于L[i+1][j+1]只是比L[i][j]增加了s[i+1]和t[j+1]
-    因此可以构造出最长公共子字符串的递归式：
-        if s[i]==t[j]
-            L[i][j]=L[i-1][j-1]+1
-        if s[i]!=t[j]
-            L[i][j]=0  
+<p><strong>动态规划问题的两个特点</strong>：  </p>
+<pre><code>1.最优子结构
+2.重叠子问题
+</code></pre><p>因为有重叠子问题，当前计算的过程中可能有的问题在之前的计算已经计算过了，现在又要计算一遍，导致大量重复的计算<br>动态规划通过找到解决问题的递推关系，将已经完成计算的存储起来，当开始新的计算时如果包含之前计算的子问题时，不需要再次计算，只需要访问已经存储的计算结果就可以<br>动态规划解决问题的方法一般减少了时间复杂度，增加了存储空间。</p>
+<p>对于这个问题，假设有两个字符串s[0,…m],t[0,…,n],求两个字符串的最长公共子字符串<br>定义矩阵mXn的矩阵L,L[i][j]表示以s[i]开始和t[j]结尾的公共子字符串长度的最大值，那么对于L[i+1][j+1]只是比L[i][j]增加了s[i+1]和t[j+1]</p>
+<p>因此可以构造出最长公共子字符串的递归式：</p>
+<pre><code>if s[i]==t[j]
+    L[i][j]=L[i-1][j-1]+1
+if s[i]!=t[j]
+    L[i][j]=0  
 </code></pre><p>假设有两个字符串：”ABAB”和”BABA” ,构造出了上述的矩阵<br><img src="https://i.loli.net/2018/12/01/5c0284bcf39c5.png" alt=""><br><strong>代码实现</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">LCS</span><span class="params">(String s1,String s2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(s1.isEmpty() || s2.isEmpty())&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> indexMax=<span class="number">0</span>,maxn=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span>[][] L=<span class="keyword">new</span> <span class="keyword">int</span>[s1.length()][s2.length()];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s2.length();j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s1.charAt(i)==s2.charAt(j))&#123;</span><br><span class="line">				<span class="keyword">if</span>(i==<span class="number">0</span> || j==<span class="number">0</span>)&#123;</span><br><span class="line">					L[i][j]=<span class="number">1</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					L[i][j]=L[i-<span class="number">1</span>][j-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(L[i][j]&gt;maxn)&#123;</span><br><span class="line">				maxn=L[i][j];</span><br><span class="line">				indexMax=i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s1.substring(indexMax+<span class="number">1</span>-maxn, indexMax+<span class="number">1</span>);</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>   </p>
 <blockquote>
 <p>算法分析：</p>
 </blockquote>
 <pre><code>时间复杂度：O(m*n)
 空间复杂度：O(m*n)
-</code></pre><p><strong>算法优化</strong>  </p>
-<pre><code>从上面动态查找最长公共子字符串的过程中发现，在循环查找的过程中只会用到矩阵L中的两行，即正在计算的一行和完成计算的上一行，之前计算的和带计算的都用不到，
- 所以只需要维护两行数据就足够了，不需要使用mxn的数组  
-</code></pre><p><strong>代码实现：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LCS_improve</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">LCS_improve</span><span class="params">(String s1,String s2)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(s1.isEmpty() || s2.isEmpty())&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> indexMax=<span class="number">0</span>,maxn=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> [][] L=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][s1.length()];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> cur=(i+<span class="number">2</span>)%<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">int</span> pre=(i+<span class="number">1</span>)%<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s2.length();j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(s1.charAt(i)==s2.charAt(j))&#123;</span><br><span class="line">					<span class="keyword">if</span>(i==<span class="number">0</span> || j==<span class="number">0</span>)&#123;</span><br><span class="line">						L[cur][j]=<span class="number">1</span>;</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						L[cur][j]=L[pre][j-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					L[cur][j]=<span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(L[cur][j]&gt;maxn)&#123;</span><br><span class="line">					maxn=L[cur][j];</span><br><span class="line">					indexMax=i;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s1.substring(indexMax+<span class="number">1</span>-maxn, indexMax+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>    </p>
+</code></pre><p><strong>算法优化</strong><br>从上面动态查找最长公共子字符串的过程中发现，在循环查找的过程中只会用到矩阵L中的两行，即正在计算的一行和完成计算的上一行，之前计算的和带计算的都用不到，所以只需要维护两行数据就足够了，不需要使用mxn的数组   </p>
+<p><strong>代码实现：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LCS_improve</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">LCS_improve</span><span class="params">(String s1,String s2)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(s1.isEmpty() || s2.isEmpty())&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> indexMax=<span class="number">0</span>,maxn=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> [][] L=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][s1.length()];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> cur=(i+<span class="number">2</span>)%<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">int</span> pre=(i+<span class="number">1</span>)%<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s2.length();j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(s1.charAt(i)==s2.charAt(j))&#123;</span><br><span class="line">					<span class="keyword">if</span>(i==<span class="number">0</span> || j==<span class="number">0</span>)&#123;</span><br><span class="line">						L[cur][j]=<span class="number">1</span>;</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						L[cur][j]=L[pre][j-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					L[cur][j]=<span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(L[cur][j]&gt;maxn)&#123;</span><br><span class="line">					maxn=L[cur][j];</span><br><span class="line">					indexMax=i;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s1.substring(indexMax+<span class="number">1</span>-maxn, indexMax+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>    </p>
 <blockquote>
 <p>算法分析：</p>
 </blockquote>
 <pre><code>时间复杂度：O(mn)
 空间复杂度：O(min(m,n))
-</code></pre><h1 id="5-Longest-Palindromic-Substring"><a href="#5-Longest-Palindromic-Substring" class="headerlink" title="5.Longest Palindromic Substring"></a>5.Longest Palindromic Substring</h1><blockquote>
+</code></pre><h1 id="Longest-Palindromic-Substring"><a href="#Longest-Palindromic-Substring" class="headerlink" title="Longest Palindromic Substring"></a>Longest Palindromic Substring</h1><blockquote>
 <p>回文字符串：正读反读都一样  </p>
 </blockquote>
 <p><strong>1).方法一：暴力法</strong>  </p>
@@ -528,6 +520,10 @@ median is 2.0
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/12/08/Http与Servlet概述/" rel="prev" title="Http与Servlet概述">
+                Http与Servlet概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -607,7 +603,7 @@ median is 2.0
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +625,7 @@ median is 2.0
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -690,7 +686,7 @@ median is 2.0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Longest-Substring-Without-Repeating-Characters"><span class="nav-number">1.</span> <span class="nav-text">3.Longest Substring Without Repeating Characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Median-of-Two-Sorted-Arrays"><span class="nav-number">2.</span> <span class="nav-text">4. Median of Two Sorted Arrays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Common-Substring-最长公共子字符串"><span class="nav-number">3.</span> <span class="nav-text">Longest Common Substring 最长公共子字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Longest-Palindromic-Substring"><span class="nav-number">4.</span> <span class="nav-text">5.Longest Palindromic Substring</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="nav-number">1.</span> <span class="nav-text">Longest Substring Without Repeating Characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Median-of-Two-Sorted-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Median of Two Sorted Arrays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Common-Substring-最长公共子字符串"><span class="nav-number">3.</span> <span class="nav-text">Longest Common Substring 最长公共子字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Palindromic-Substring"><span class="nav-number">4.</span> <span class="nav-text">Longest Palindromic Substring</span></a></li></ol></div>
             
 
           </div>
