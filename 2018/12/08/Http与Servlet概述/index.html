@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Servlet Servlet的概述  Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。   Servlet的实现 Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类impl">
+<meta name="description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
 <meta name="keywords" content="Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Http与Servlet概述">
 <meta property="og:url" content="http://yoursite.com/2018/12/08/Http与Servlet概述/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="Servlet Servlet的概述  Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。   Servlet的实现 Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类impl">
+<meta property="og:description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/12/08/5c0b336ab1426.png">
-<meta property="og:updated_time" content="2018-12-08T03:04:25.039Z">
+<meta property="og:updated_time" content="2018-12-08T03:13:47.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http与Servlet概述">
-<meta name="twitter:description" content="Servlet Servlet的概述  Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。   Servlet的实现 Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类impl">
+<meta name="twitter:description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
 <meta name="twitter:image" content="https://i.loli.net/2018/12/08/5c0b336ab1426.png">
 
 
@@ -369,50 +369,46 @@
 
       
         <h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><ol>
-<li><p>Servlet的概述</p>
-<ul>
-<li><strong>Servlet的定义及其作用</strong>：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。</li>
-</ul>
+<li><p>Servlet的概述<br> <strong>Servlet的定义及其作用</strong>：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。</p>
 </li>
 <li><p>Servlet的实现</p>
-<pre><code>Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法
-
-Servlet实现方法：定义一个类implements Servlet 或者 Extends GenericServlet/HttpServlet(最常用)      
-</code></pre><p> Servlet中的生命周期方法是按以下顺序调用的：  </p>
+<p> Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法</p>
+<p> Servlet实现方法：定义一个类implements Servlet 或者 Extends GenericServlet/HttpServlet(最常用)</p>
+<p> Servlet中的生命周期方法是按以下顺序调用的：  </p>
 <ul>
 <li><p>构造Servlet，使用init方法初始化  </p>
-<pre><code>创建Servlet实例的时候回执行init方法，一个Servlet只会初始化一次，init方法只会被执行一次  
+<pre><code>创建Servlet实例的时候回执行init方法
+一个Servlet只会初始化一次，init方法只会被执行一次  
 </code></pre></li>
 <li><p>处理客户端的请求对service方法的调用</p>
-<pre><code>当客户端有请求的时候回调用service方法，一次请求对应着service的执行，所以它可以被多次执行  
+<pre><code>当客户端有请求的时候回调用service方法
+一次请求对应着service的执行，所以它可以被多次执行  
 </code></pre></li>
 <li><p>从服务器中一处Servlet，并用destroy销毁它，最后垃圾回收终止它 </p>
-<pre><code>Servlet销毁时会执行：当Servlet从服务器移除时执行；当关闭服务器时执行 
+<pre><code>Servlet销毁时会执行：
+    当Servlet从服务器移除时执行；
+    当关闭服务器时执行 
 </code></pre><p>下面是实现了Servlet的代码：   </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sever_servlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;  </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest arg0, ServletResponse arg1)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>Servlet的配置 </p>
-<pre><code>在一个Web工程中当我们实现了一个Servlet的时候，我们应该在Web工程中将这的Servlet加入到配置文件Web。xml文件中，配置Servlet。
-</code></pre><p> 下面是在web.xml天剑一个Servlet的写法     </p>
-<p> <img src="https://i.loli.net/2018/12/08/5c0b336ab1426.png" alt=""></p>
+<p> 在一个Web工程中当我们实现了一个Servlet的时候，我们应该在Web工程中将这的Servlet加入到配置文件Web。xml文件中，配置Servlet。</p>
+<p> 下面是在web.xml天剑一个Servlet的写法<br> <img src="https://i.loli.net/2018/12/08/5c0b336ab1426.png" alt=""></p>
 </li>
 <li><p>获取Servlet配置信息</p>
 <pre><code>//1. 得到servlet配置对象 专门用于在配置servlet的信息
 ServletConfig config = getServletConfig();
-
 //获取到的是配置servlet里面servlet-name 的文本内容
 String servletName = config.getServletName();
 System.out.println(&quot;servletName=&quot;+servletName);
-</code></pre></li>
-</ol>
-<pre><code>//2、。 可以获取具体的某一个参数。 
+
+//2. 可以获取具体的某一个参数。 
 String address = config.getInitParameter(&quot;address&quot;);
 System.out.println(&quot;address=&quot;+address);
 
-
-//3.获取所有的参数名称
+//3. 获取所有的参数名称
 Enumeration&lt;String&gt; names = config.getInitParameterNames();
 //遍历取出所有的参数名称
 while (names.hasMoreElements()) {
@@ -421,7 +417,9 @@ while (names.hasMoreElements()) {
     System.out.println(&quot;key===&quot;+key + &quot;   value=&quot;+value);
 
 }
-</code></pre>
+</code></pre></li>
+</ol>
+
       
     </div>
     
@@ -540,7 +538,7 @@ while (names.hasMoreElements()) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -562,7 +560,7 @@ while (names.hasMoreElements()) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

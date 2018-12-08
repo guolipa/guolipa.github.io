@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Algorihtms," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最短路径最短路径应用的图是加权有向图加权有向图的数据结构：首先定义的是加权有向边的数据类型：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061public class DirectEdge &amp;#123;	private in">
+<meta name="keywords" content="Algorihtms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java算法-图(最短路径)">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/Java算法-图-最短路径/index.html">
+<meta property="og:site_name" content="Welcome Hexo">
+<meta property="og:description" content="最短路径最短路径应用的图是加权有向图加权有向图的数据结构：首先定义的是加权有向边的数据类型：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061public class DirectEdge &amp;#123;	private in">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/11/13/5beae7a0605a8.png">
+<meta property="og:image" content="https://i.loli.net/2018/11/13/5beae79fc7a66.png">
+<meta property="og:image" content="https://i.loli.net/2018/11/16/5beebb75be2ab.png">
+<meta property="og:updated_time" content="2018-12-08T03:21:38.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java算法-图(最短路径)">
+<meta name="twitter:description" content="最短路径最短路径应用的图是加权有向图加权有向图的数据结构：首先定义的是加权有向边的数据类型：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061public class DirectEdge &amp;#123;	private in">
+<meta name="twitter:image" content="https://i.loli.net/2018/11/13/5beae7a0605a8.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/13/Java算法-图-最短路径/"/>
+
+
+
+
+
+  <title>Java算法-图(最短路径) | Welcome Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/guolipa" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Welcome Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Adventure Of Lifetime</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/Java算法-图-最短路径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guoLipa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java算法-图(最短路径)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T10:43:29+08:00">
+                2018-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h1><p>最短路径应用的图是加权有向图<br><strong>加权有向图的数据结构：</strong><br>首先定义的是加权有向边的数据类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectEdge</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> v;<span class="comment">//边的起点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> w;<span class="comment">//边的终点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> weight;<span class="comment">//边的权重</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DirectEdge</span><span class="params">(<span class="keyword">int</span> v,<span class="keyword">int</span> w,<span class="keyword">double</span> weight)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.v=v;</span><br><span class="line">		<span class="keyword">this</span>.w=w;</span><br><span class="line">		<span class="keyword">this</span>.weight=weight;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">weight</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> weight;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">from</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">to</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> String.format(<span class="string">"%d-&gt;%d %.2f"</span>, v,w,weight);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; ```   </span><br><span class="line"></span><br><span class="line">在加权有向边的基础上定义加权有向图  </span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EdgeWeightDigraph</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> V;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> E;</span><br><span class="line">	<span class="keyword">private</span> Bag&lt;DirectEdge&gt;[] adj;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">EdgeWeightDigraph</span><span class="params">(<span class="keyword">int</span> V)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.V=V;</span><br><span class="line">		<span class="keyword">this</span>.E=<span class="number">0</span>;</span><br><span class="line">		adj=(Bag&lt;DirectEdge&gt;[])<span class="keyword">new</span> Bag[V];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;V;v++)&#123;</span><br><span class="line">			adj[v]=<span class="keyword">new</span> Bag&lt;DirectEdge&gt;();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">V</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> V;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">E</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> E;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(DirectEdge e)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> v=e.from();</span><br><span class="line">		adj[v].add(e);</span><br><span class="line">		E++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">adj</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> adj[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">edges</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Bag&lt;DirectEdge&gt; bag=<span class="keyword">new</span> Bag&lt;DirectEdge&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;V;v++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(DirectEdge e:adj[v])&#123;</span><br><span class="line">				bag.add(e);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> bag;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>最短路径</strong>：从图的一个顶点到达另一个顶点的成本最小(权重和最小)的路径，这里的最短路径是单点最短路径<br><strong>最短路径树：</strong> 给定一幅加权有向图和顶点s，可以找到一个以s为起点的最小路径树，他是图的一幅子图，包含了顶点s和所有s可达的顶点。树的根节点是s，树的每一条路径都是有向图中的一条最短路径  </p>
+<h1 id="最短路径算法原理"><a href="#最短路径算法原理" class="headerlink" title="最短路径算法原理"></a>最短路径算法原理</h1><p>边的松弛<br><img src="https://i.loli.net/2018/11/13/5beae7a0605a8.png" alt=""><br>顶点的松弛<br><img src="https://i.loli.net/2018/11/13/5beae79fc7a66.png" alt=""><br><strong>最短路径的最优条件：</strong><br>一幅有向加权图G,顶点s为起点，distTo[]保存着起点s到任意顶点v的路径长度，若s到v不可达，该值为无穷大。当且仅当对于从v到w的任意一条边e，满足<strong>distTo[w]&lt;=distTo[v]+e.weight()</strong>条件时，才是最短路径</p>
+<h1 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h1><ol>
+<li>算法思想<br>1) <strong>首先Dijkstra算法只适用在权值非负的加权有向图</strong><br> 如下图所示，E(v2,v5)为负值，如果想找到v5到v4的最短路径，那么这一条路径：v5-&gt;v4-&gt;v2-&gt;v5-&gt;v4的权值之和为-6，如此一直沿着这条路径循环，那么v5到v4的路径权重之和会越来越小，趋近于负无穷，那么这两个顶点之间的最短路径无法确定。我们称图中这样的循环为负值圈，有向图中出现负值圈时，最短路径的问题就无法确定。<br> <img src="https://i.loli.net/2018/11/16/5beebb75be2ab.png" alt=""><br>2）Dijkstra算法的思想<br> 首先确定源点s，dist[v]表示的是从s到v的最短路径距离<br> Dijkstra算法每次从没有确定最短路径的顶点中选择dist[]值最小的顶点v，对v的所有边进行松弛，如此操作直到确定所有顶点的最短路径  </li>
+<li><p>算法实现  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dijkstra</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> DirectEdge[] edgeTo;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span>[] distTo;</span><br><span class="line">	<span class="keyword">private</span> IndexMinPQ&lt;Double&gt; pq;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Dijkstra</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		edgeTo=<span class="keyword">new</span> DirectEdge[G.V()];</span><br><span class="line">		distTo=<span class="keyword">new</span> <span class="keyword">double</span>[G.V()];</span><br><span class="line">		pq=<span class="keyword">new</span> IndexMinPQ&lt;Double&gt;(G.V());</span><br><span class="line">		<span class="comment">//初始化distTo所有项为正无穷</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;G.V();v++)&#123;</span><br><span class="line">			distTo[v]=Double.POSITIVE_INFINITY;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//起始点设置为0</span></span><br><span class="line">		distTo[s]=<span class="number">0.0</span>;</span><br><span class="line">		<span class="comment">//将起始点入队  </span></span><br><span class="line">		pq.insert(s, <span class="number">0.0</span>);</span><br><span class="line">		<span class="keyword">while</span>(!pq.isEmpty())&#123;</span><br><span class="line">			relax(G,pq.deleteMin());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(DirectEdge e:G.adj(v))&#123;</span><br><span class="line">			<span class="keyword">int</span> w=e.to();</span><br><span class="line">			<span class="keyword">if</span>(distTo[w]&gt;distTo[v]+e.weight())&#123;</span><br><span class="line">				distTo[w]=distTo[v]+e.weight();</span><br><span class="line">				edgeTo[w]=e;</span><br><span class="line">				<span class="keyword">if</span>(pq.contains(w))&#123;</span><br><span class="line">					pq.changeKey(w, distTo[w]);</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					pq.insert(w, distTo[w]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> distTo[v]&lt;Double.POSITIVE_INFINITY;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> distTo[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">pathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		Stack&lt;DirectEdge&gt; stack=<span class="keyword">new</span> Stack&lt;DirectEdge&gt;();</span><br><span class="line">		<span class="keyword">while</span>(edgeTo[v]!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			stack.push(edgeTo[v]);</span><br><span class="line">			v=edgeTo[v].from();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> stack;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>算法分析<br> <strong>Dijkstra算法时间复杂度取决于存储顶点的数据结构</strong><br> 上面算法的实现使用的是最小优先队列，每次删除最小距离顶点时间复杂度为logV，整个算法需要对每条边松弛，所以<strong>基于最小优先队列的Dijkstra算法的时间复杂度为ElogV</strong>  </p>
+</li>
+</ol>
+<h1 id="基于拓扑排序的最短路径算法"><a href="#基于拓扑排序的最短路径算法" class="headerlink" title="基于拓扑排序的最短路径算法"></a>基于拓扑排序的最短路径算法</h1><ol>
+<li><p>算法原理<br> 将图按照拓扑排序的顺序放松顶点</p>
+<p> <strong>这种算法只能应用在无环有向图中，并且它允许图的边的权重是负值</strong>，他还能解决相关的问题比如最长路径  </p>
+</li>
+<li>算法实现  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//利用拓扑排序实现的最短路径算法  </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcyclicSP</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> DirectEdge[] edgeTo;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span>[] distTo;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">AcyclicSP</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">		edgeTo=<span class="keyword">new</span> DirectEdge[G.V()];</span><br><span class="line">		distTo=<span class="keyword">new</span> <span class="keyword">double</span>[G.V()];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;G.V();v++)&#123;</span><br><span class="line">			distTo[v]=Double.POSITIVE_INFINITY;</span><br><span class="line">		&#125;</span><br><span class="line">		distTo[s]=<span class="number">0.0</span>;</span><br><span class="line">		TopoEdgeWeight top=<span class="keyword">new</span> TopoEdgeWeight(G);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v:top.order())&#123;</span><br><span class="line">			relax(G,v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(DirectEdge e:G.adj(v))&#123;</span><br><span class="line">			<span class="keyword">int</span> w=e.to();</span><br><span class="line">			<span class="keyword">if</span>(distTo[w]&gt;distTo[v]+e.weight())&#123;</span><br><span class="line">				distTo[w]=distTo[v]+e.weight();</span><br><span class="line">				edgeTo[w]=e;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> distTo[v]&lt;Double.POSITIVE_INFINITY;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> distTo[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">pathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		Stack&lt;DirectEdge&gt; stack=<span class="keyword">new</span> Stack&lt;DirectEdge&gt;();</span><br><span class="line">		<span class="keyword">while</span>(edgeTo[v]!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			stack.push(edgeTo[v]);</span><br><span class="line">			v=edgeTo[v].from();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> stack;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在查找最短路径之前需要对图进行拓扑排序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TopoEdgeWeight</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> marked[];</span><br><span class="line">	<span class="keyword">private</span> Stack&lt;Integer&gt; stack;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TopoEdgeWeight</span><span class="params">(EdgeWeightDigraph G)</span></span>&#123;</span><br><span class="line">		marked=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		stack=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">		EdgeWeightDigraphCycle cycle=<span class="keyword">new</span> EdgeWeightDigraphCycle(G);</span><br><span class="line">		<span class="keyword">if</span>(!cycle.hasCycle())&#123;</span><br><span class="line">			TopoSort(G);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">TopoSort</span><span class="params">(EdgeWeightDigraph G)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;G.V();v++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!marked[v])&#123;</span><br><span class="line">				dfs(G,v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		marked[v]=<span class="keyword">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(DirectEdge e:G.adj(v))&#123;</span><br><span class="line">			<span class="keyword">if</span>(!marked[e.to()])&#123;</span><br><span class="line">				dfs(G,e.to());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stack.push(v);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Integer&gt; <span class="title">order</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> stack;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;```   </span><br><span class="line">在拓扑排序之前需要检查图是不是无环图  </span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EdgeWeightDigraphCycle</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] marked;</span><br><span class="line">	<span class="keyword">private</span> DirectEdge[] edgeTo;</span><br><span class="line">	<span class="keyword">private</span> Stack&lt;DirectEdge&gt; cycle;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] onStack;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">EdgeWeightDigraphCycle</span><span class="params">(EdgeWeightDigraph G)</span></span>&#123;</span><br><span class="line">		marked=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		edgeTo=<span class="keyword">new</span> DirectEdge[G.V()];</span><br><span class="line">		onStack=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;G.V();v++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!marked[v])&#123;</span><br><span class="line">				dfs(G,v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">		marked[v]=<span class="keyword">true</span>;</span><br><span class="line">		onStack[v]=<span class="keyword">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(DirectEdge e:G.adj(v))&#123;</span><br><span class="line">			<span class="keyword">int</span> w=e.to();</span><br><span class="line">			<span class="keyword">if</span>(hasCycle())&#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!marked[w])&#123;</span><br><span class="line">				edgeTo[w]=e;</span><br><span class="line">				dfs(G,w);</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(onStack[w])&#123;</span><br><span class="line">				cycle=<span class="keyword">new</span> Stack&lt;DirectEdge&gt;();</span><br><span class="line">				DirectEdge f=e;</span><br><span class="line">				<span class="keyword">while</span>(f.from()!=w)&#123;</span><br><span class="line">					cycle.push(f);</span><br><span class="line">					f=edgeTo[f.from()];</span><br><span class="line">				&#125;</span><br><span class="line">				cycle.push(f);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		onStack[v]=<span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> cycle!=<span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">cycle</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> cycle;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>算法分析<br>基于拓扑排序的最短路径算法是一种比Dijkstra算法更快更简单的在无环加权有向图中找到最短路径的算法<br>基于拓扑排序的最短路径算法的<strong>时间复杂度是O(V+E)</strong> </li>
+</ol>
+<h1 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h1><ol>
+<li><p>算法原理<br> 从任意节点v到节点w最短路径有两种情况：第一种是直接从v到w；第二种是从v经过若干个节点到达w，对图中的每个节点k，检查dist(v,k)+dist(k,w)&lt;dist(v,w)是否成立，如果成立，那么更新v到w的最短路径为dist(v,k)+dist(k,w)，如此当我们遍历完图中所有的节点之后，v到w的最短路径和最短距离就确定了。  </p>
+<pre><code>此算法就是一任意的顺序放松图中所有的边，重复V轮。
+</code></pre></li>
+<li><p>算法实现<br>三重循环实现  </p>
+<pre><code class="java"><span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;n; ++k) {
+<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i) {
+ <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; ++j) {
+   <span class="keyword">if</span> (dist[i][k] + dist[k][j] &lt; dist[i][j] ) {
+     dist[i][j] = dist[i][k] + dist[k][j];
+     path[i][j] = path[k][j];
+   }
+ }
+}
+}
+</code></pre>
+</li>
+<li><p>算法分析<br> Floyd算法的时间复杂度为：O(V3)  </p>
+<h1 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h1><p>Bellman-ford算法是求含负权图的单源最短路径算法，效率很低，但代码很容易写  </p>
+</li>
+<li>算法原理<br>利用队列  </li>
+<li>算法实现  <pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BellmanFord</span> </span>{
+ <span class="keyword">private</span> <span class="keyword">double</span>[] distTo;
+ <span class="keyword">private</span> DirectEdge[] edgeTo;
+ <span class="keyword">private</span> <span class="keyword">boolean</span>[] onQ;<span class="comment">//该顶点是否在队列中</span>
+ <span class="keyword">private</span> Queue&lt;Integer&gt; queue;<span class="comment">//用于存放将被放松的顶点</span>
+ <span class="keyword">private</span> <span class="keyword">int</span> cont;<span class="comment">//放松的次数</span>
+ <span class="keyword">private</span> Iterable&lt;DirectEdge&gt; cycle;    
+ <span class="function"><span class="keyword">public</span> <span class="title">BellmanFord</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> s)</span></span>{
+     distTo=<span class="keyword">new</span> <span class="keyword">double</span>[G.V()];
+     edgeTo=<span class="keyword">new</span> DirectEdge[G.V()];
+     onQ=<span class="keyword">new</span> <span class="keyword">boolean</span>[G.V()];
+     queue=<span class="keyword">new</span> Queue&lt;Integer&gt;();
+     <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;G.V();v++){
+         distTo[v]=Double.POSITIVE_INFINITY;
+     }
+     queue.enqueue(s);
+     onQ[s]=<span class="keyword">true</span>;
+     distTo[s]=<span class="number">0.0</span>;
+     <span class="keyword">while</span>(!queue.isEmpty() &amp;&amp; hasNegativeCycle()){
+         <span class="keyword">int</span> v=queue.dequeue();
+         onQ[v]=<span class="keyword">false</span>;
+         relax(G,v);
+     }
+ }
+ <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightDigraph G,<span class="keyword">int</span> v)</span></span>{
+     <span class="keyword">for</span>(DirectEdge e:G.adj(v)){
+         <span class="keyword">int</span> w=e.to();
+         <span class="keyword">if</span>(distTo[w]&gt;distTo[v]+e.weight()){
+             distTo[w]=distTo[v]+e.weight();
+             edgeTo[w]=e;
+             <span class="keyword">if</span>(!onQ[w]){
+                 queue.enqueue(w);
+                 onQ[w]=<span class="keyword">true</span>;
+             }
+         }
+         <span class="keyword">if</span>(cont++ % G.V() ==<span class="number">0</span>){
+             findNegativeCycle();
+         }
+     }
+ }
+ <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findNegativeCycle</span><span class="params">()</span></span>{
+     <span class="keyword">int</span> V=edgeTo.length;
+     EdgeWeightDigraph bf=<span class="keyword">new</span> EdgeWeightDigraph(V);
+     <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;V;v++){
+         <span class="keyword">if</span>(edgeTo[v]!=<span class="keyword">null</span>){
+             bf.addEdge(edgeTo[v]);
+         }
+     }
+     EdgeWeightDigraphCycle cf=<span class="keyword">new</span> EdgeWeightDigraphCycle(bf);
+     cycle=cf.cycle();
+ }
+ <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNegativeCycle</span><span class="params">()</span></span>{
+     <span class="keyword">return</span> cycle!=<span class="keyword">null</span>;
+ }
+ <span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">negativeCycle</span><span class="params">()</span></span>{
+     <span class="keyword">return</span> cycle;
+ }
+ <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>{
+     <span class="keyword">return</span> distTo[v]&lt;Double.POSITIVE_INFINITY;
+ }
+ <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>{
+     <span class="keyword">return</span> distTo[v];
+ }
+ <span class="function"><span class="keyword">public</span> Iterable&lt;DirectEdge&gt; <span class="title">pathTo</span><span class="params">(<span class="keyword">int</span> v)</span></span>{
+     Stack&lt;DirectEdge&gt; stack=<span class="keyword">new</span> Stack&lt;DirectEdge&gt;();
+     <span class="keyword">while</span>(edgeTo[v]!=<span class="keyword">null</span>){
+         stack.push(edgeTo[v]);
+         v=edgeTo[v].from();
+     }
+     <span class="keyword">return</span> stack;
+ }    
+}
+</code></pre>
+</li>
+<li>算法分析<br>BellmanFord算法的时间复杂度一般情况为O(E+V),最坏情况为O(VE)  </li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorihtms/" rel="tag"><i class="fa fa-tag"></i> Algorihtms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Java算法-图（最小生成树）/" rel="next" title="Java算法-图（最小生成树）">
+                <i class="fa fa-chevron-left"></i> Java算法-图（最小生成树）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/19/Leetcode/" rel="prev" title="Leetcode">
+                Leetcode <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="guoLipa" />
+            
+              <p class="site-author-name" itemprop="name">guoLipa</p>
+              <p class="site-description motion-element" itemprop="description">Internet of things</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guolipa" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="2813281589@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053994861822/home?from=page_100505&mod=TAB&is_all=1#place" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/sinat_41847989" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-cc"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#最短路径"><span class="nav-number">1.</span> <span class="nav-text">最短路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最短路径算法原理"><span class="nav-number">2.</span> <span class="nav-text">最短路径算法原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dijkstra算法"><span class="nav-number">3.</span> <span class="nav-text">Dijkstra算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于拓扑排序的最短路径算法"><span class="nav-number">4.</span> <span class="nav-text">基于拓扑排序的最短路径算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Floyd算法"><span class="nav-number">5.</span> <span class="nav-text">Floyd算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bellman-Ford算法"><span class="nav-number">6.</span> <span class="nav-text">Bellman-Ford算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guoLipa</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
