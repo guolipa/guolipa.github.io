@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="a student from Beijing jiaotong university keywords:Java   Internet of things">
-<meta name="keywords" content="Java Internet of things Data Structure and Algorithms">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="Java IO概述Java IO是一套提供输入输出（读写数据）功能的API，提供了java.io 包    Java IO的构成概述java.io包中主要包括了五个类和一个接口：  File:文件类，用于文件的管理 InputStream:字节输入流类，二进制格式操作，基于字节的输入，是所有字节输入流类的父类 OutputStream:字节输出流类，二进制格式操作，基于字节的输出，是所有字节输出流">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-IO概述">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/Java-IO概述/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="a student from Beijing jiaotong university keywords:Java   Internet of things">
+<meta property="og:description" content="Java IO概述Java IO是一套提供输入输出（读写数据）功能的API，提供了java.io 包    Java IO的构成概述java.io包中主要包括了五个类和一个接口：  File:文件类，用于文件的管理 InputStream:字节输入流类，二进制格式操作，基于字节的输入，是所有字节输入流类的父类 OutputStream:字节输出流类，二进制格式操作，基于字节的输出，是所有字节输出流">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T05:51:38.821Z">
+<meta property="og:image" content="https://i.loli.net/2018/12/14/5c13921bf27f9.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/14/5c1390917ee55.png">
+<meta property="og:updated_time" content="2018-12-16T11:43:55.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="a student from Beijing jiaotong university keywords:Java   Internet of things">
+<meta name="twitter:title" content="Java-IO概述">
+<meta name="twitter:description" content="Java IO概述Java IO是一套提供输入输出（读写数据）功能的API，提供了java.io 包    Java IO的构成概述java.io包中主要包括了五个类和一个接口：  File:文件类，用于文件的管理 InputStream:字节输入流类，二进制格式操作，基于字节的输入，是所有字节输入流类的父类 OutputStream:字节输出流类，二进制格式操作，基于字节的输出，是所有字节输出流">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/14/5c13921bf27f9.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/Java-IO概述/"/>
 
 
 
 
 
-  <title>about | Welcome Hexo</title>
+  <title>Java-IO概述 | Welcome Hexo</title>
   
 
 
@@ -287,35 +290,225 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/Java-IO概述/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guoLipa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome Hexo">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>a student from Beijing jiaotong university</p>
-<p>keywords:Java   Internet of things</p>
-
+          <h1 class="post-title" itemprop="name headline">Java-IO概述</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T20:00:33+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="Java-IO概述"><a href="#Java-IO概述" class="headerlink" title="Java IO概述"></a>Java IO概述</h1><p><strong>Java IO是一套提供输入输出（读写数据）功能的API，提供了java.io 包</strong>   </p>
+<h2 id="Java-IO的构成概述"><a href="#Java-IO的构成概述" class="headerlink" title="Java IO的构成概述"></a>Java IO的构成概述</h2><p><strong>java.io包中主要包括了五个类和一个接口：</strong></p>
+<ul>
+<li><strong>File:</strong>文件类，用于文件的管理</li>
+<li><strong>InputStream:</strong>字节输入流类，二进制格式操作，基于字节的输入，是所有字节输入流类的父类</li>
+<li><strong>OutputStream:</strong>字节输出流类，二进制格式操作，基于字节的输出，是所有字节输出流类的父类</li>
+<li><strong>Reader:</strong>字符输入流类，文件格式操作，基于字符的输入操作，是所有字符输入流类的父类</li>
+<li><strong>Writer:</strong>字符输出流类，文件格式操作，基于字符的输出操作，是所有字符输入流类的父类</li>
+<li><p><strong>RandomAccessFile:</strong>可以在文件的任意位置进行存取操作</p>
+</li>
+<li><p><strong>Serializable:</strong></p>
+</li>
+</ul>
+<p>下面是一张通过输入、输出、基于字节或者字符、以及其他比如缓冲、解析之类的特定用途划分的大部分Java IO类的表格<br><img src="https://i.loli.net/2018/12/14/5c13921bf27f9.png" alt="">  </p>
+<p>Java IO关注的是从原始数据源读取数据输出原始数据到目标介质 ，主要的数据源和目标介质有</p>
+<ul>
+<li><strong>文件</strong></li>
+<li><strong>管道</strong><br>  Java中的管道是为运行在同一个JVM中的两个线程提供通信能力<br>  在Java中使用管道时，通信的双方应该是运行在同一进程中的不同线程</li>
+<li><strong>网络连接</strong></li>
+<li><strong>内存缓存</strong></li>
+<li><strong>System.in,System.out,System.error(Java标准的输入输出)</strong></li>
+</ul>
+<p>一个程序需要InputStream或者Reader从数据源读取数据，需要OutputStream或者Writer将数据写入到目标媒介中<br><img src="https://i.loli.net/2018/12/14/5c1390917ee55.png" alt="">   </p>
+<h2 id="Java-IO的分类"><a href="#Java-IO的分类" class="headerlink" title="Java IO的分类"></a>Java IO的分类</h2><p>根据数据流向：</p>
+<ul>
+<li><strong>输入流</strong>-读取数据</li>
+<li><strong>输出流</strong>-写数据</li>
+</ul>
+<p>根据处理的数据类型：</p>
+<ul>
+<li><strong>字节流：</strong>数据流中最小的数据单元是字节</li>
+<li><strong>字符流：</strong>数据流中最小的数据单元是字符，Java中的字符是Unicode编码，一个字符占用两个字节，因为数据编码的不同，而有了对字符进行高效操作的流对象，本质其实就是基于字节流读取时，去查了指定的码表。</li>
+</ul>
+<p>注解：</p>
+<ul>
+<li>采用数据流的目的是使输入输出独立于设备，不用关心设备</li>
+<li>对于程序来说，<strong>输出流是往存储介质或数据通道写入数据，而输入流是从存储介质或数据通道中读取数据</strong>    </li>
+<li>只读或只写，每个流只能是输入流或输出流的一种，不能同时具备两个功能，输入流只能进行读操作，对输出流只能进行写操作。在一个数据传输通道中，如果既要写入数据，又要读取数据，则要分别提供两个流  </li>
+</ul>
+<h1 id="File类-文件管理"><a href="#File类-文件管理" class="headerlink" title="File类-文件管理"></a>File类-文件管理</h1><p>File类用于管理文件的类，包括创建文件，删除文件，获取文件路径、文件名等，做判断过滤等功能  </p>
+<p>构造方法</p>
+<pre><code>public File(String pathname)    通过将给定的路径名字符串转换为抽象路径名来创建新的File实例        
+public File(String parent,String child)     从父路径名字符串和子路径名字符串创建新的File实例        
+public File(File parent,String child)    从父抽象路径名和子路径名字符串创建新的File实例
+</code></pre><p>成员方法：</p>
+<pre><code>创建功能：
+    public boolean createNewFile() throws IOException  当且仅当具有该名称的文件尚不存在时，原子地创建一个由该抽象路径名命名的新的空文件
+    public boolean mkdir()          创建文件夹
+    public boolean mkdirs()  创建由此抽象路径名命名的目录，包括任何必需但不存在的父目
+删除功能：
+    public boolean delete()    删除由此抽象路径名表示的文件或目录
+重命名：
+    public boolean renameTo(File dest)
+判断：
+    public boolean isDirectory()    判断是否是目录
+    public boolean isFile()    判断是否是文件
+    public boolean exists()    判断是否存在
+    public boolean canRead()    判断是否可读
+    public boolean canWrite()    判断是否可写
+    public boolean isHidden()    判断是否隐藏
+获取：
+    public String getAbsolutePath() 获取绝对路径
+    public String getPath()    获取相对路径
+    public String getName()   获取名称        
+    public long length()    获取长度，字节数
+    public long lastModified()    获取最后一次修改时间
+    public String[] list()    获取指定目录下所有文件夹或文件名称的数组
+    public File[] listFiles()    获取指定目录下所有文件夹或文件的File的数组
+文件名称过滤器FilenameFilter 
+    public String[] list(FilenameFilter filter)
+     public File[] listFiles(FilenameFilter filter) 
+</code></pre><h1 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h1><h2 id="InputStream"><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h2><ul>
+<li>InputStream<ul>
+<li>FileInputStream</li>
+<li>BufferedInputStream</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/Leetcode-Dynamic Programma/" rel="next" title="Leetcode-dynamic programma">
+                <i class="fa fa-chevron-left"></i> Leetcode-dynamic programma
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/21/Leetcode-Array-Problem/" rel="prev" title="Leetcode-Array Problem">
+                Leetcode-Array Problem <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -348,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,6 +643,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-IO概述"><span class="nav-number">1.</span> <span class="nav-text">Java IO概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-IO的构成概述"><span class="nav-number">1.1.</span> <span class="nav-text">Java IO的构成概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-IO的分类"><span class="nav-number">1.2.</span> <span class="nav-text">Java IO的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#File类-文件管理"><span class="nav-number">2.</span> <span class="nav-text">File类-文件管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字节流"><span class="nav-number">3.</span> <span class="nav-text">字节流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#InputStream"><span class="nav-number">3.1.</span> <span class="nav-text">InputStream</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
