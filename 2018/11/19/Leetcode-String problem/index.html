@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c302d90cb72b.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c303bd7ddc74.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c30567ca015f.png">
-<meta property="og:updated_time" content="2019-01-05T07:53:39.825Z">
+<meta property="og:updated_time" content="2019-01-05T07:57:18.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-String Problem">
 <meta name="twitter:description" content="Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
@@ -519,7 +519,8 @@ Output: &quot;fl&quot;
 </code></pre>
 <p><strong>算法分析</strong><br>时间复杂度：最坏情况下(所有字符串相同)O(S),一般情况下n*min(Si)<br>空间复杂度：O(1)</p>
 <p><strong>3. 方法三：分而治之</strong>   </p>
-<p>将字符数组分为两组，分别对两组查找最长公共前缀sl,sr，最后再计算sl和sr的公共前缀。<br><img src="https://i.loli.net/2019/01/05/5c303bd7ddc74.png" alt="">     </p>
+<p>将字符数组分为两组，分别对两组查找最长公共前缀sl,sr，最后再计算sl和sr的公共前缀。   </p>
+<p><img src="https://i.loli.net/2019/01/05/5c303bd7ddc74.png" alt="">     </p>
 <pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Longest_Common_Prefix</span> </span>{
     <span class="comment">//分而治之的方法</span>
     <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>{
@@ -548,7 +549,7 @@ Output: &quot;fl&quot;
     }
 }
 </code></pre>
-<p><strong>算法分析</strong><br>时间复杂度：最坏情况下为O(S),(S=m<em>n,m为每个字符串的长度，n为字符串的个数)<br>空间复杂度：<code>`</code>O(m</em>logn)<code>`</code>,算法logn次的递归调用，每次都需要m个存储空间</p>
+<p><strong>算法分析</strong><br>时间复杂度：最坏情况下为O(S),(S=m<em>n,m为每个字符串的长度，n为字符串的个数)<br>空间复杂度：O(m</em>logn),算法logn次的递归调用，每次都需要m个存储空间</p>
 <p><strong>4. 方法四：二分法</strong></p>
 <p>首先找到字符串数组中最短字符串的长度<code>minLen</code>,它也是公共前缀的最大的长度，那么查找最长公共前缀的范围就缩小到每个字符串[0,minLen]之间。 </p>
 <p>将查找范围分为等长的两部分，[0,mid]和[mid+1,minLen]，取第一个字符串的前半部分的子字符串<code>substr1 = str1.subString(0,mid)</code>,去和其他的字符串比较判断<code>substr1</code>是不是公共前缀，这时会有两种情况：</p>
