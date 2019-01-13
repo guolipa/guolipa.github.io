@@ -91,7 +91,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c302d90cb72b.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c303bd7ddc74.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/05/5c30567ca015f.png">
-<meta property="og:updated_time" content="2019-01-05T07:57:18.164Z">
+<meta property="og:image" content="https://i.loli.net/2019/01/13/5c3ab5b2012cb.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/13/5c3ab5b48842f.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/13/5c3ab5b57ae87.png">
+<meta property="og:updated_time" content="2019-01-13T03:52:23.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-String Problem">
 <meta name="twitter:description" content="Longest Substring Without Repeating CharactersDescription  Given a string, find the length of the longest substring without repeating character.    example Input: &amp;quot;abcabcbb&amp;quot;     Output: 3">
@@ -585,24 +588,64 @@ Output: &quot;fl&quot;
 }
 </code></pre>
 <p><strong>算法分析</strong><br>时间复杂度：O(S * logn)<br>空间复杂度：O(1)   </p>
-<h1 id="Palindrome-Number"><a href="#Palindrome-Number" class="headerlink" title="Palindrome Number"></a>Palindrome Number</h1><blockquote>
-<p>判断一个整数是否是回文的</p>
-</blockquote>
-<pre><code>方法：将这个整数的后半段反转，将它和前半段比较是否相同
-特殊情况：
-        x&lt;0 不是回文的
-        x是以0结尾的整数 不是回文的  
-</code></pre><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PalindromeNumber</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{
-        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>) {
-            <span class="keyword">return</span> <span class="keyword">false</span>;
+<h1 id="Valid-Parentheses"><a href="#Valid-Parentheses" class="headerlink" title="Valid Parentheses"></a>Valid Parentheses</h1><p><strong>Description</strong></p>
+<pre><code>Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.
+
+An input string is valid if:
+    1.Open brackets must be closed by the same type of brackets.
+    2.Open brackets must be closed in the correct order.
+
+Note that an empty string is also considered valid.  
+</code></pre><p><strong>Example</strong>    </p>
+<pre><code>Example 1:
+    Input: &quot;()&quot;
+    Output: true
+Example 2:
+    Input: &quot;()[]{}&quot;
+    Output: true
+Example 3:
+    Input: &quot;(]&quot;
+    Output: false
+Example 4:
+    Input: &quot;([)]&quot;
+    Output: false
+Example 5:
+    Input: &quot;{[]}&quot;
+    Output: true
+</code></pre><p><strong>Solution</strong>  </p>
+<p><strong>方法概述-堆栈法</strong></p>
+<p>对于一个有效的字符表达式，字符串中的括号都是成对出现的。正如题中所说，打开的括号必须有相同形式的关闭括号，并且所有打开的括号必须以正确的顺序关闭。 </p>
+<p>从起始位置开始检查字符串，如果第一个字符是关闭字符，那么这个字符串一定不是有效的；如果第一个是某种打开字符，将它压入堆栈 <code>stack.push(char c)</code>，每遇到一个打开字符就做相同的操作；如果遍历字符串中遇到的关闭字符，看栈顶的字符是不是和此关闭字符相匹配的打开字符，如果是，将字符出栈并继续遍历，如果不是，那么就不是有效的字符串；顺利遍历完整个字符串时，检查栈是否为空，如果是空，那么字符串时有效的，否则无效。    </p>
+<p><img src="https://i.loli.net/2019/01/13/5c3ab5b2012cb.png" alt=""><br><img src="https://i.loli.net/2019/01/13/5c3ab5b48842f.png" alt=""><br><img src="https://i.loli.net/2019/01/13/5c3ab5b57ae87.png" alt=""></p>
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">if</span>(s.isEmpty()) {
+            <span class="keyword">return</span> <span class="keyword">true</span>;
         }
-        <span class="keyword">int</span> reverseNumber = <span class="number">0</span>;
-        <span class="keyword">while</span>(x &gt; reverseNumber) {
-            reverseNumber = reverseNumber * <span class="number">10</span> + x % <span class="number">10</span>;
-            x = x / <span class="number">10</span>;
+        <span class="keyword">char</span>[] stack = <span class="keyword">new</span> <span class="keyword">char</span>[s.length()];
+        <span class="keyword">int</span> top = <span class="number">0</span>;
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++) {
+            <span class="keyword">char</span> c = s.charAt(i);
+            <span class="keyword">if</span>(c==<span class="string">'{'</span> || c==<span class="string">'['</span> || c==<span class="string">'('</span>) {
+                stack[top++] = c;
+            }
+            <span class="keyword">if</span>(c==<span class="string">'}'</span>) {
+                <span class="keyword">if</span>(top==<span class="number">0</span> || stack[--top]!=<span class="string">'{'</span>) {
+                    <span class="keyword">return</span> <span class="keyword">false</span>;
+                }
+            }
+            <span class="keyword">if</span>(c==<span class="string">']'</span>) {
+                <span class="keyword">if</span>(top==<span class="number">0</span> || stack[--top]!=<span class="string">'['</span>) {
+                    <span class="keyword">return</span> <span class="keyword">false</span>;
+                }
+            }
+            <span class="keyword">if</span>(c==<span class="string">')'</span>) {
+                <span class="keyword">if</span>(top==<span class="number">0</span> || stack[--top]!=<span class="string">'('</span>) {
+                    <span class="keyword">return</span> <span class="keyword">false</span>;
+                }
+            }
         }
-        <span class="keyword">return</span> x == reverseNumber ||  x== reverseNumber / <span class="number">10</span>;
+        <span class="keyword">return</span> top==<span class="number">0</span>;
     }
 }
 </code></pre>
@@ -729,7 +772,7 @@ Output: &quot;fl&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -812,7 +855,7 @@ Output: &quot;fl&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="nav-number">1.</span> <span class="nav-text">Longest Substring Without Repeating Characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Palindromic-Substring"><span class="nav-number">2.</span> <span class="nav-text">Longest Palindromic Substring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Longest-Common-Substring-最长公共子字符串"><span class="nav-number">2.1.</span> <span class="nav-text">Longest Common Substring 最长公共子字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Common-Prefix"><span class="nav-number">3.</span> <span class="nav-text">Longest Common Prefix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Palindrome-Number"><span class="nav-number">4.</span> <span class="nav-text">Palindrome Number</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="nav-number">1.</span> <span class="nav-text">Longest Substring Without Repeating Characters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Palindromic-Substring"><span class="nav-number">2.</span> <span class="nav-text">Longest Palindromic Substring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Longest-Common-Substring-最长公共子字符串"><span class="nav-number">2.1.</span> <span class="nav-text">Longest Common Substring 最长公共子字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Longest-Common-Prefix"><span class="nav-number">3.</span> <span class="nav-text">Longest Common Prefix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Valid-Parentheses"><span class="nav-number">4.</span> <span class="nav-text">Valid Parentheses</span></a></li></ol></div>
             
 
           </div>
