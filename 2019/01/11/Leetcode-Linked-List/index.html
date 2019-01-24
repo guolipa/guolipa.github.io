@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/01/11/5c3815133d6c6.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/15/5c3d7f3c7de33.png">
-<meta property="og:updated_time" content="2019-01-16T03:04:28.937Z">
+<meta property="og:updated_time" content="2019-01-17T11:05:56.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode-Linked List">
 <meta name="twitter:description" content="Remove Nth Node From End of ListDescription    Given a linked list, remove the n-th node from the end of list and return its head.     Example  Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.">
@@ -592,6 +592,95 @@ Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
     }
 }
 </code></pre>
+<h1 id="Reverse-Nodes-in-k-Group"><a href="#Reverse-Nodes-in-k-Group" class="headerlink" title="Reverse Nodes in k-Group"></a>Reverse Nodes in k-Group</h1><p><strong>Description</strong>  </p>
+<pre><code>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+
+k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+</code></pre><p><strong>Example</strong>  </p>
+<pre><code>Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5
+
+For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5
+
+For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5
+</code></pre><p><strong>Soluton</strong> </p>
+<pre><code class="java"><span class="comment">/**</span>
+<span class="comment"> * Definition for singly-linked list.</span>
+<span class="comment"> * public class ListNode {</span>
+<span class="comment"> *     int val;</span>
+<span class="comment"> *     ListNode next;</span>
+<span class="comment"> *     ListNode(int x) { val = x; }</span>
+<span class="comment"> * }</span>
+<span class="comment"> */</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseKGroup</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>{
+       <span class="comment">/* if(head == null)</span>
+<span class="comment">            return null;</span>
+<span class="comment">        if(k == 1)</span>
+<span class="comment">            return head;*/</span>
+        ListNode dumpy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);
+        dumpy.next = head;
+        ListNode temp = head;
+        <span class="keyword">int</span> count = <span class="number">0</span>;
+        <span class="keyword">while</span>(temp!=<span class="keyword">null</span> &amp;&amp; count!=k) {
+            temp = temp.next;
+            count++;
+        }
+        <span class="keyword">if</span>(count == k) {
+            temp = reverseKGroup(temp,k);
+            ListNode pre = head;
+            ListNode cur = head.next;
+            <span class="keyword">while</span>(k &gt; <span class="number">1</span>) {
+                pre.next = cur.next;
+                cur.next = dumpy.next;
+                dumpy.next = cur;
+                cur = pre.next;
+                k--;
+            }
+            pre.next = temp;
+        }
+        <span class="keyword">return</span> dumpy.next;
+    }
+}
+</code></pre>
+<p>算法分析</p>
+<pre><code>时间复杂度：O(n)
+空间复杂度：O(1)  
+</code></pre><h1 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h1><p>实现翻转链表的功能  </p>
+<h2 id="方法一：原地翻转"><a href="#方法一：原地翻转" class="headerlink" title="方法一：原地翻转"></a>方法一：原地翻转</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseLinkedList</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>{
+        <span class="comment">//原地翻转法</span>
+        <span class="keyword">if</span>(head == <span class="keyword">null</span>) 
+            <span class="keyword">return</span> head;
+        ListNode dumpy = head;
+        ListNode pre = head;
+        ListNode cur = head.next;
+        <span class="keyword">while</span>(cur != <span class="keyword">null</span>) {
+            pre.next = cur.next;
+            cur.next = dumpy.next;
+            dumpy.next = cur;
+            cur = pre.next;
+        }
+        <span class="keyword">return</span> dumpy.next;
+    }
+}
+</code></pre>
+<h2 id="方法二：建立新链表，插入式翻转"><a href="#方法二：建立新链表，插入式翻转" class="headerlink" title="方法二：建立新链表，插入式翻转"></a>方法二：建立新链表，插入式翻转</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseLinkedList</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>{    
+        <span class="comment">//建立新链表，添加节点翻转法</span>
+        <span class="keyword">if</span>(head == <span class="keyword">null</span>)
+            <span class="keyword">return</span> head;
+        ListNode dumpy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);
+        ListNode cur = head;
+        <span class="keyword">while</span>(cur != <span class="keyword">null</span>) {
+            ListNode nex = cur.next;
+            cur.next = dumpy.next;
+            dumpy.next = cur;
+            cur = nex;
+        }
+        <span class="keyword">return</span> dumpy.next;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -632,8 +721,8 @@ Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/16/模型评估/" rel="prev" title="Leetcode-模型评估与选择">
-                Leetcode-模型评估与选择 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/16/机器学习-模型评估/" rel="prev" title="机器学习-模型评估与选择">
+                机器学习-模型评估与选择 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -715,7 +804,7 @@ Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -798,7 +887,7 @@ Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-Nth-Node-From-End-of-List"><span class="nav-number">1.</span> <span class="nav-text">Remove Nth Node From End of List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：两次扫描"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：两次扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法优化提升"><span class="nav-number">1.1.1.</span> <span class="nav-text">方法优化提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：一次扫描法"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：一次扫描法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-Two-Sorted-Lists"><span class="nav-number">2.</span> <span class="nav-text">Merge Two Sorted Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：迭代法"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：递归法"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：递归法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-k-Sorted-Lists"><span class="nav-number">3.</span> <span class="nav-text">Merge k Sorted Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分而治之方法"><span class="nav-number">3.1.</span> <span class="nav-text">分而治之方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swap-nodes-in-pairs"><span class="nav-number">4.</span> <span class="nav-text">Swap nodes in pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代法"><span class="nav-number">4.1.</span> <span class="nav-text">迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归法"><span class="nav-number">4.2.</span> <span class="nav-text">递归法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-Nth-Node-From-End-of-List"><span class="nav-number">1.</span> <span class="nav-text">Remove Nth Node From End of List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：两次扫描"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：两次扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法优化提升"><span class="nav-number">1.1.1.</span> <span class="nav-text">方法优化提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：一次扫描法"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：一次扫描法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-Two-Sorted-Lists"><span class="nav-number">2.</span> <span class="nav-text">Merge Two Sorted Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：迭代法"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：递归法"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：递归法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-k-Sorted-Lists"><span class="nav-number">3.</span> <span class="nav-text">Merge k Sorted Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分而治之方法"><span class="nav-number">3.1.</span> <span class="nav-text">分而治之方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swap-nodes-in-pairs"><span class="nav-number">4.</span> <span class="nav-text">Swap nodes in pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代法"><span class="nav-number">4.1.</span> <span class="nav-text">迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归法"><span class="nav-number">4.2.</span> <span class="nav-text">递归法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse-Nodes-in-k-Group"><span class="nav-number">5.</span> <span class="nav-text">Reverse Nodes in k-Group</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse-Linked-List"><span class="nav-number">6.</span> <span class="nav-text">Reverse Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：原地翻转"><span class="nav-number">6.1.</span> <span class="nav-text">方法一：原地翻转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：建立新链表，插入式翻转"><span class="nav-number">6.2.</span> <span class="nav-text">方法二：建立新链表，插入式翻转</span></a></li></ol></li></ol></div>
             
 
           </div>
