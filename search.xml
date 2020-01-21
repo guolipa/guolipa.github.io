@@ -4,6 +4,9 @@
     <title><![CDATA[personal]]></title>
     <url>%2F2039%2F01%2F21%2Fpersonal%2F</url>
     <content type="text"><![CDATA[Chenwang Zheng is a student from Beijing Jaotong uninversity.]]></content>
+      <tags>
+        <tag>Algorithms</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Leetcode-Sort Problem]]></title>
