@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Algorithms," />
 
 
 
@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="Internet of things">
-<meta name="keywords" content="Java Internet of things Data Structure and Algorithms">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
+<meta name="description" content="“树”是数据结构中常见的非线性存储结构。在“树”结构中有一些常用的术语，总结为下：  父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。 子节点：一个节点含有的子树的根节点称为该节点的子节点。 兄弟节点：拥有共同父节点的节点互称为兄弟节点。 度：节点的子树数目就是节点的度。 叶子节点：度为零的节点就是叶子节点。 节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。">
+<meta name="keywords" content="Algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法-树结构总结">
+<meta property="og:url" content="http://yoursite.com/2020/06/05/数据结构与算法-树结构总结/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="Internet of things">
+<meta property="og:description" content="“树”是数据结构中常见的非线性存储结构。在“树”结构中有一些常用的术语，总结为下：  父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。 子节点：一个节点含有的子树的根节点称为该节点的子节点。 兄弟节点：拥有共同父节点的节点互称为兄弟节点。 度：节点的子树数目就是节点的度。 叶子节点：度为零的节点就是叶子节点。 节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/HJxcy8lFAtugomX.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/l7zS4ZY5uJXoQtT.png">
+<meta property="og:updated_time" content="2020-06-05T08:57:29.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome Hexo">
-<meta name="twitter:description" content="Internet of things">
+<meta name="twitter:title" content="数据结构与算法-树结构总结">
+<meta name="twitter:description" content="“树”是数据结构中常见的非线性存储结构。在“树”结构中有一些常用的术语，总结为下：  父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。 子节点：一个节点含有的子树的根节点称为该节点的子节点。 兄弟节点：拥有共同父节点的节点互称为兄弟节点。 度：节点的子树数目就是节点的度。 叶子节点：度为零的节点就是叶子节点。 节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。">
+<meta name="twitter:image" content="https://i.loli.net/2020/06/05/HJxcy8lFAtugomX.png">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/09/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/05/数据结构与算法-树结构总结/"/>
 
 
 
 
 
-  <title>归档 | Welcome Hexo</title>
+  <title>数据结构与算法-树结构总结 | Welcome Hexo</title>
   
 
 
@@ -144,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/guolipa" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -284,295 +288,202 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 31 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/05/数据结构与算法-树结构总结/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guoLipa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome Hexo">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">数据结构与算法-树结构总结</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-05T15:20:50+08:00">
+                2020-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/29/Java算法-查找（散列表）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找（散列表）</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-29T20:04:28+08:00"
-              content="2018-09-29" >
-          09-29
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/24/Java-Comparable和Comparator的区别/" itemprop="url">
-              
-                <span itemprop="name">Java-Comparable和Comparator的区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-24T17:52:00+08:00"
-              content="2018-09-24" >
-          09-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/22/Java算法-查找（平衡查找树）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找（平衡查找树）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-22T20:02:08+08:00"
-              content="2018-09-22" >
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>“树”是数据结构中常见的非线性存储结构。<br>在“树”结构中有一些常用的术语，总结为下：</p>
+<ul>
+<li>父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。</li>
+<li>子节点：一个节点含有的子树的根节点称为该节点的子节点。</li>
+<li>兄弟节点：拥有共同父节点的节点互称为兄弟节点。</li>
+<li><strong>度</strong>：节点的子树数目就是节点的度。</li>
+<li><strong>叶子节点</strong>：<em>度为零的节点就是叶子节点</em>。</li>
+<li>节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。</li>
+<li><strong>节点深度</strong>：对任意节点x，x节点的深度表示为根节点到x节点的路径长度。例如：根节点深度为0，第二层节点深度为1，以此类推。  <strong>“根节点—&gt;节点的路径长度”</strong></li>
+<li><strong>节点高度</strong>：对任意节点x，叶子节点到x节点的路径长度就是节点x的高度。 <strong>“节点—&gt;叶子节点的路径长度”</strong></li>
+<li>树的深度：一棵树中节点的最大深度就是树的深度，也称为高度。</li>
+</ul>
+<p>数据结构中有很多种树结构：二叉树，二叉搜索树， 红黑树，B+树等，下面对常见的几种树结构的的定义以及用途进行简单的介绍。</p>
+<h2 id="1-二叉树"><a href="#1-二叉树" class="headerlink" title="1. 二叉树"></a>1. 二叉树</h2><ul>
+<li><p><strong>二叉树的定义：</strong>二叉树的每个结点最多只有二棵子树(不存在度大于2的结点)的树结构。每个节点有左右两个子节点。</p>
+<p>  二叉树示例：</p>
+<p>   <img src="https://i.loli.net/2020/06/05/HJxcy8lFAtugomX.png" alt="1.PNG"></p>
+</li>
+<li><p><strong>满二叉树 和 完全二叉树：</strong></p>
+<ul>
+<li><strong>满二叉树</strong>：除最后一层无任何子节点外，每一层上的所有结点都有两个子结点。即除叶子结点外的所有结点均有两个子结点。节点数达到最大值，所有叶子结点都在同一层上。</li>
+<li><p><strong>完全二叉树</strong>：对于一颗二叉树，假设其深度为d（d&gt;1）。除第d层外的所有节点构成满二叉树，且第d层所有节点从左向右连续地紧密排列，这样的二叉树被称为完全二叉树</p>
+<p>示例：</p>
+<p><img src="https://i.loli.net/2020/06/05/l7zS4ZY5uJXoQtT.png" alt="2.PNG"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>二叉树的性质：</strong></p>
+<ul>
+<li>在非空二叉树中，第i层的结点总数不超过2i-1, i&gt;=1;</li>
+<li>深度为d的二叉树最多有2d-1个结点(d&gt;=1)，最少有d个结点;</li>
+<li><strong>具有n个结点的完全二叉树的深度为log2(n+1)</strong>；</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-二叉查找树（二叉搜索树、二叉排序树、BST）"><a href="#2-二叉查找树（二叉搜索树、二叉排序树、BST）" class="headerlink" title="2. 二叉查找树（二叉搜索树、二叉排序树、BST）"></a>2. 二叉查找树（二叉搜索树、二叉排序树、BST）</h2><p>　</p>
+<ul>
+<li><p><strong>二叉查找树定义</strong>:二叉查找树又称二叉搜索树、二叉排序树、BST. 它是具有以下性质的二叉树：</p>
+<ul>
+<li>若左子树不空，则左子树上所有结点的值均小于它的根结点的值；　</li>
+<li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；　</li>
+<li>左、右子树也分别为二叉排序树；　　</li>
+<li>没有键值相等的节点。</li>
+</ul>
+</li>
+<li><strong>对二叉查找树进行中序遍历，即可得到有序的数列。</strong></li>
+<li><strong>它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。</strong></li>
+<li><strong>二叉查找树的高度决定了二叉查找树的查找效率。</strong></li>
+</ul>
+<p><strong>参考：</strong></p>
+<p>书籍《算法 第四版》</p>
+<p><a href="https://www.cnblogs.com/maybe2030/p/4732377.html" target="_blank" rel="noopener">https://www.cnblogs.com/maybe2030/p/4732377.html</a><br><a href="https://blog.csdn.net/u014532217/article/details/79118023" target="_blank" rel="noopener">https://blog.csdn.net/u014532217/article/details/79118023</a><br><a href="https://blog.csdn.net/qq_31709249/article/details/103092783" target="_blank" rel="noopener">https://blog.csdn.net/qq_31709249/article/details/103092783</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/22/Java算法-查找（二叉搜索树）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找（二叉搜索树）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-22T19:50:25+08:00"
-              content="2018-09-22" >
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/08/Java算法-查找-符号表/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找(符号表)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-08T18:16:34+08:00"
-              content="2018-09-08" >
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/04/Java算法-排序（堆排序）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-排序（堆排序）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-04T21:25:04+08:00"
-              content="2018-09-04" >
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/04/Mysql/" itemprop="url">
-              
-                <span itemprop="name">Mysql</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-04T19:32:03+08:00"
-              content="2018-09-04" >
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithms/" rel="tag"><i class="fa fa-tag"></i> Algorithms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/09/Leetcode-Sort Problem/" rel="next" title="Leetcode-Sort Problem">
+                <i class="fa fa-chevron-left"></i> Leetcode-Sort Problem
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2039/01/21/Chenwang Zheng/" rel="prev" title="Chenwang Zheng">
+                Chenwang Zheng <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +491,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -600,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -693,6 +617,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-二叉树"><span class="nav-number">1.</span> <span class="nav-text">1. 二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-二叉查找树（二叉搜索树、二叉排序树、BST）"><span class="nav-number">2.</span> <span class="nav-text">2. 二叉查找树（二叉搜索树、二叉排序树、BST）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -833,6 +773,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
