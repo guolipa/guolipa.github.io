@@ -89,7 +89,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/HJxcy8lFAtugomX.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/05/l7zS4ZY5uJXoQtT.png">
-<meta property="og:updated_time" content="2020-06-05T08:57:29.597Z">
+<meta property="og:image" content="https://i.loli.net/2020/06/05/mZovtxN8V1pfSbk.png">
+<meta property="og:updated_time" content="2020-06-05T13:31:31.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法-树结构总结">
 <meta name="twitter:description" content="“树”是数据结构中常见的非线性存储结构。在“树”结构中有一些常用的术语，总结为下：  父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。 子节点：一个节点含有的子树的根节点称为该节点的子节点。 兄弟节点：拥有共同父节点的节点互称为兄弟节点。 度：节点的子树数目就是节点的度。 叶子节点：度为零的节点就是叶子节点。 节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。">
@@ -411,13 +412,28 @@
 <li>若左子树不空，则左子树上所有结点的值均小于它的根结点的值；　</li>
 <li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；　</li>
 <li>左、右子树也分别为二叉排序树；　　</li>
-<li>没有键值相等的节点。</li>
+<li><p>没有键值相等的节点。</p>
+<p>示例左边的是BST，右边的不是：</p>
+<p><img src="https://i.loli.net/2020/06/05/mZovtxN8V1pfSbk.png" alt="3.PNG"></p>
+</li>
 </ul>
 </li>
-<li><strong>对二叉查找树进行中序遍历，即可得到有序的数列。</strong></li>
+<li><p><strong>对二叉查找树进行中序遍历，即可得到有序的数列。</strong></p>
+</li>
 <li><strong>它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。</strong></li>
 <li><strong>二叉查找树的高度决定了二叉查找树的查找效率。</strong></li>
 </ul>
+<h2 id="3-二叉树的操作"><a href="#3-二叉树的操作" class="headerlink" title="3. 二叉树的操作"></a>3. 二叉树的操作</h2><ul>
+<li><p>二叉树的遍历</p>
+<p>  二叉树有三种遍历方式：</p>
+<ul>
+<li><strong>先序遍历</strong>：先访问根节点，再前序遍历左子树，最后前序遍历右子树。</li>
+<li><strong>中序遍历</strong>：先中序访问左子树，再访问根节点，再中序访问右子树。中序遍历得到一个有序（递增）的数列。</li>
+<li><strong>后序遍历</strong>：先后序访问左子树，再后序访问右子树，再访问根节点。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 二叉树的定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">	TreeNode left = <span class="keyword">null</span>;</span><br><span class="line">	TreeNode right = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.val = val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先序遍历 (根节点-&gt;左子树-&gt;右子树)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PreOrderTraversal</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">	PreOrderTraversal(root.left);</span><br><span class="line">	PreOrderTraversal(root.right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中序遍历 （左子树-&gt;根节点-&gt;右子树）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">InOrderTraversal</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">	InOrderTraversal(root.left);</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">	InOrderTraversal(root.right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后序遍历 (左子树-&gt;右子树-&gt;根节点)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PostOrderTraversal</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">	PostOrderTraversal(root.left);</span><br><span class="line">	PostOrderTraversal(root.right);</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
 <p><strong>参考：</strong></p>
 <p>书籍《算法 第四版》</p>
 <p><a href="https://www.cnblogs.com/maybe2030/p/4732377.html" target="_blank" rel="noopener">https://www.cnblogs.com/maybe2030/p/4732377.html</a><br><a href="https://blog.csdn.net/u014532217/article/details/79118023" target="_blank" rel="noopener">https://blog.csdn.net/u014532217/article/details/79118023</a><br><a href="https://blog.csdn.net/qq_31709249/article/details/103092783" target="_blank" rel="noopener">https://blog.csdn.net/qq_31709249/article/details/103092783</a></p>
@@ -627,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-二叉树"><span class="nav-number">1.</span> <span class="nav-text">1. 二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-二叉查找树（二叉搜索树、二叉排序树、BST）"><span class="nav-number">2.</span> <span class="nav-text">2. 二叉查找树（二叉搜索树、二叉排序树、BST）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-二叉树"><span class="nav-number">1.</span> <span class="nav-text">1. 二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-二叉查找树（二叉搜索树、二叉排序树、BST）"><span class="nav-number">2.</span> <span class="nav-text">2. 二叉查找树（二叉搜索树、二叉排序树、BST）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-二叉树的操作"><span class="nav-number">3.</span> <span class="nav-text">3. 二叉树的操作</span></a></li></ol></div>
             
 
           </div>
