@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/06/12/n5swaT4cUoBzlh7.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/12/g7nztQ9iUEmcVHF.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/12/bHdXtwSK4RjYJ8v.png">
-<meta property="og:updated_time" content="2020-06-13T07:16:04.183Z">
+<meta property="og:updated_time" content="2020-06-13T09:00:02.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库知识">
 <meta name="twitter:description" content="数据库的基本概念 数据库的英文单词： DataBase 简称 ： DB 什么数据库？     用于存储和管理数据的仓库。   数据库的特点： 持久化存储数据的。其实数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库 — SQL    MySQL数据库Mysql的几个操作：       - MySQL服务启动           1. 手动。           2. cmd--">
@@ -556,7 +556,150 @@
 3. 修改数据
     * undate 表名 set 列名1=值1,列名2=值2,... where 条件;
         eg, update db set age=18 where id=3;
-</code></pre><h2 id="DQL：查询表中的记录"><a href="#DQL：查询表中的记录" class="headerlink" title="DQL：查询表中的记录"></a>DQL：查询表中的记录</h2>
+</code></pre><h2 id="DQL：查询表中的记录"><a href="#DQL：查询表中的记录" class="headerlink" title="DQL：查询表中的记录"></a>DQL：查询表中的记录</h2><pre><code>* select * from 表名;
+
+1. 语法
+    select 字段列表
+    from 表名列表
+    where 条件列表
+    group by 分组字段
+    having 分组之后的条件
+    order by 排序
+    limit 分页限定
+
+2. 基础查询
+    * 多个字段的查询
+        * select 字段1，字段2... from 表名;
+            eg, select name, address from student;
+
+    * 去除重复
+        * distinct
+            eg, select distinct address from student;
+
+    * 计算列
+        * 一般可以使用四则运算计算一些列的值。（一般只会进行数值型的计算）
+            eg, select name, math, english, math+english from student;
+        * ifnull(表达式1,表达式2)：null参与的运算，计算结果都为null
+            * 表达式1：哪个字段需要判断是否为null
+            * 表达式如果该字段为null后的替换值。
+            eg, select name, math, english, math + ifnull(english) from student;
+
+    * 起别名
+        * as
+            eg, select name, math, english, math + ifnull(english) as totalscore from student;
+
+3. 条件选择
+    * where子句后跟条件
+    * 运算符
+        * &gt; 、&lt; 、&lt;= 、&gt;= 、= 、&lt;&gt;
+        * BETWEEN...AND  
+        * IN( 集合) 
+        * LIKE：模糊查询
+            * 占位符：
+                * _:单个任意字符
+                * %：多个任意字符
+        * IS NULL  
+        * and  或 &amp;&amp;
+        * or  或 || 
+        * not  或 !
+
+        eg，
+            -- 查询年龄大于20岁
+            SELECT * FROM student WHERE age &gt; 20;
+            SELECT * FROM student WHERE age &gt;= 20;
+
+            -- 查询年龄等于20岁
+            SELECT * FROM student WHERE age = 20;
+
+            -- 查询年龄不等于20岁
+            SELECT * FROM student WHERE age != 20;
+            SELECT * FROM student WHERE age &lt;&gt; 20;
+
+            -- 查询年龄大于等于20 小于等于30
+            SELECT * FROM student WHERE age &gt;= 20 &amp;&amp;  age &lt;=30;
+            SELECT * FROM student WHERE age &gt;= 20 AND  age &lt;=30;
+            SELECT * FROM student WHERE age BETWEEN 20 AND 30;
+
+            -- 查询年龄22岁，18岁，25岁的信息
+            SELECT * FROM student WHERE age = 22 OR age = 18 OR age = 25
+            SELECT * FROM student WHERE age IN (22,18,25);
+
+            -- 查询英语成绩为null
+            SELECT * FROM student WHERE english = NULL; -- 不对的。null值不能使用 = （!=） 判断
+            SELECT * FROM student WHERE english IS NULL;
+
+            -- 查询英语成绩不为null
+            SELECT * FROM student WHERE english IS NOT NULL;
+
+        * 模糊查询 like
+            * 占位符：
+                * _:单个任意字符
+                * %：多个任意字符
+
+            -- 查询姓马的有哪些？ like
+            SELECT * FROM student WHERE NAME LIKE &apos;马%&apos;;
+
+            -- 查询姓名第二个字是化的人
+            SELECT * FROM student WHERE NAME LIKE &quot;_化%&quot;;
+
+            -- 查询姓名是3个字的人
+            SELECT * FROM student WHERE NAME LIKE &apos;___&apos;;
+
+            -- 查询姓名中包含德的人
+            SELECT * FROM student WHERE NAME LIKE &apos;%德%&apos;;
+
+4. 排序查询
+    * 语法： order by 子句;
+        *  order by 排序字段1 排序方式1，排序字段2 排序方式2....;
+    * 排序方式
+        * ASC：升序（默认）
+        * DESC：降序
+    * 注意：
+        * 如果有多个排序条件，当前面的条件值一样时，才会判断第二条件
+        eg， 
+            -- 如果数学成绩一样，则按照英语成绩排名
+            select * from student order by math ASC, english ASC;
+
+5. 聚合函数：将一列数据作为一个整体，进行这一列纵向的计算
+    * count： 计算个数
+        * 一般选择非空的列：主键
+        * count(*)
+    * max： 计算最大值
+    * min： 计算最小值
+    * sum： 计算和
+    * avg： 计算平均值
+
+    *注意：聚合函数的计算会排除null值
+        解决方案：
+            - 选择不包含非空的列进行计算
+            - 使用IFNULL函数
+        eg，
+            -- 统计name的数目 
+            select count(name) from student;
+            select count(ifnull(english, 0)) from student;
+
+6. 分组查询
+    * 语法： group by 分组字段;
+    * 注意：
+        * 分组之后查询字段：分组字段、聚合函数
+        * where 和 having的区别：
+            * where在分组之前进行限定，将不符合where条件的行去掉，在分组前过滤数据，即先过滤后分组；having在分组之后进行限定，筛选满足条件的组，在分组之后过滤数据，即先分组再过滤。
+            * where后不可以使用聚合函数，having可以使用聚合函数。
+
+     eg，
+        -- 按照性别分组，分别查询男、女同学的平均分，人数
+        select sex，avg(math)，count(id) from student group by sex;
+
+        -- 按照性别分组，分别查询男、女同学的平均分，人数 要求：分数低于70的不参与分组
+        select sex，avg(math)，count(id) from student where math &gt; 70 group by sex;
+
+        -- 按照性别分组，分别查询男、女同学的平均分，人数 要求：分数低于70的不参与,分组之后人数要大于2人
+        select sex，avg(math)，count(id) from student where math &gt; 70 group by sex having count(id) &gt; 2;
+        select sex，avg(math)，count(id) usernum from student where math &gt; 70 group by sex having usernum &gt; 2;
+
+7. 分页查询
+    * 语法： limit 开始的索引,每页查询的条数;    
+</code></pre>
       
     </div>
     
@@ -686,7 +829,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -697,7 +840,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
