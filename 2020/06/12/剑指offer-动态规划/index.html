@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcome Hexo">
 <meta property="og:description" content="分治策略：将原问题分解为若干个规模较小但类似于原问题的子问题（Divide），「递归」的求解这些子问题（Conquer），然后再合并这些子问题的解来建立原问题的解。    动态规划: 动态规划其实和分治策略是类似的，也是将一个原问题分解为若干个规模较小的子问题，递归的求解这些子问题，然后合并子问题的解得到原问题的解。  区别在于这些子问题会有重叠，一个子问题在求解后，可能会再次求解，于是我们想到将">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-13T12:36:34.390Z">
+<meta property="og:updated_time" content="2020-06-19T10:22:02.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer-动态规划">
 <meta name="twitter:description" content="分治策略：将原问题分解为若干个规模较小但类似于原问题的子问题（Divide），「递归」的求解这些子问题（Conquer），然后再合并这些子问题的解来建立原问题的解。    动态规划: 动态规划其实和分治策略是类似的，也是将一个原问题分解为若干个规模较小的子问题，递归的求解这些子问题，然后合并子问题的解得到原问题的解。  区别在于这些子问题会有重叠，一个子问题在求解后，可能会再次求解，于是我们想到将">
@@ -400,7 +400,7 @@
 若dp[i-1]&gt;0, dp[i]=a[i]+dp[i-1], 因为当前数加上正数一定会变大;
 若dp[i-1]&lt;0, dp[i]=a[i], 因为当前数加上负数一定会变小；
 使用max记录最大的dp值。 max=Math.max(max, dp[i]).
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FindGreatestSumOfSubArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">            array[i] += array[i-<span class="number">1</span>] &gt; <span class="number">0</span> ? array[i-<span class="number">1</span>]: <span class="number">0</span>;</span><br><span class="line">            max = Math.max(max, array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FindGreatestSumOfSubArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">            array[i] += array[i-<span class="number">1</span>] &gt; <span class="number">0</span> ? array[i-<span class="number">1</span>]: <span class="number">0</span>;</span><br><span class="line">            max = Math.max(max, array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>  
       
     </div>
     
@@ -523,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
