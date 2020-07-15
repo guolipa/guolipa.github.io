@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Welcome Hexo">
 <meta property="og:description" content="web相关概念回顾1. 软件架构     1. C/S：客户端/服务器端     2. B/S：浏览器/服务器端  2. 资源分类     1. 静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析         * 如： html,css,JavaScript     2. 动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-13T13:07:03.583Z">
+<meta property="og:updated_time" content="2020-07-14T14:13:21.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Web-Servlet &amp; HTTP">
 <meta name="twitter:description" content="web相关概念回顾1. 软件架构     1. C/S：客户端/服务器端     2. B/S：浏览器/服务器端  2. 资源分类     1. 静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析         * 如： html,css,JavaScript     2. 动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访">
@@ -412,13 +412,11 @@
     * 在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目
     * web容器
 
-
 * 常见的java相关的web服务器软件：
     * webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
     * webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
     * JBOSS：JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
     * Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源的，免费的。
-
 
 * JavaEE：Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范
 
@@ -662,7 +660,7 @@
         * 1.0：每一次请求响应都会建立新的连接
         * 1.1：复用连接
 
-* 请求消息数据格式
+* 1. 请求消息数据格式
     1. 请求行
         请求方式 请求url 请求协议/版本
         GET /login.html    HTTP/1.1
@@ -706,8 +704,47 @@
 
         username=zhangsan    
 
+*2. 响应消息：服务器端发送给客户端的数据
+    * 数据格式：
+        1. 响应行
+            1. 组成：协议/版本 响应状态码 状态码描述
+            2. 响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态
+                1. 状态码都是3位数字 
+                2. 分类：
+                    1. 1xx：服务器就收客户端消息，但没有接受完成，等待一段时间后，发送1xx多状态码
+                    2. 2xx：成功。代表：200
+                    3. 3xx：重定向。代表：302(重定向)，304(访问缓存)
+                    4. 4xx：客户端错误
+                        * 代表：
+                            * 404（请求路径没有对应的资源） 
+                            * 405：请求方式没有对应的doXxx方法
+                    5. 5xx：服务器端错误。代表：500(服务器内部出现异常)
 
-* 响应消息数据格式
+        2. 响应头：
+            1. 格式：头名称： 值
+            2. 常见的响应头：
+                1. Content-Type：服务器告诉客户端本次响应体数据格式以及编码格式
+                2. Content-disposition：服务器告诉客户端以什么格式打开响应体数据
+                    * 值：
+                        * in-line:默认值,在当前页面内打开
+                        * attachment;filename=xxx：以附件形式打开响应体。文件下载
+        3. 响应空行
+        4. 响应体:传输的数据
+
+    * 响应字符串格式
+        HTTP/1.1 200 OK
+        Content-Type: text/html;charset=UTF-8
+        Content-Length: 101
+        Date: Wed, 06 Jun 2018 07:08:42 GMT
+
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;title&gt;$Title$&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+          hello , response
+          &lt;/body&gt;
+        &lt;/html&gt;
 </code></pre><h2 id="Request："><a href="#Request：" class="headerlink" title="Request："></a>Request：</h2><pre><code>1. request对象和response对象的原理
     1. request和response对象是由服务器创建的。我们来使用它们
     2. request对象是来获取请求消息，response对象是来设置响应消息
@@ -733,11 +770,11 @@
                 4. 获取get方式请求参数：name=zhangsan
                     * String getQueryString()
                 5. (*)获取请求URI：/day14/demo1
-                    * String getRequestURI():        /day14/demo1
-                    * StringBuffer getRequestURL()  :http://localhost/day14/demo1
+                    * String getRequestURI(): /day14/demo1
+                    * StringBuffer getRequestURL():  http://localhost/day14/demo1
 
-                    * URL:统一资源定位符 ： http://localhost/day14/demo1    中华人民共和国
-                    * URI：统一资源标识符 : /day14/demo1                    共和国
+                    * URL:统一资源定位符 ： http://localhost/day14/demo1    
+                    * URI：统一资源标识符 : /day14/demo1                    
 
                 6. 获取协议及版本：HTTP/1.1
                     * String getProtocol()
@@ -795,6 +832,138 @@
 
         4. 获取ServletContext：
             * ServletContext getServletContext()
+</code></pre><h2 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h2><pre><code>* 功能：设置响应消息
+    1. 设置响应行
+        1. 格式：HTTP/1.1 200 ok
+        2. 设置状态码：setStatus(int sc) 
+    2. 设置响应头：setHeader(String name, String value) 
+
+    3. 设置响应体：
+        * 使用步骤：
+            1. 获取输出流
+                * 字符输出流：PrintWriter getWriter()
+
+                * 字节输出流：ServletOutputStream getOutputStream()
+
+            2. 使用输出流，将数据输出到客户端浏览器
+
+* 案例：
+    1. 完成重定向
+        * 重定向：资源跳转的方式
+        * 代码实现：
+            //1. 设置状态码为302
+            response.setStatus(302);
+            //2.设置响应头location
+            response.setHeader(&quot;location&quot;,&quot;/day15/responseDemo2&quot;);
+
+
+            //简单的重定向方法
+            response.sendRedirect(&quot;/day15/responseDemo2&quot;);
+
+        * 重定向的特点:redirect
+            1. 地址栏发生变化
+            2. 重定向可以访问其他站点(服务器)的资源
+            3. 重定向是两次请求。不能使用request对象来共享数据
+        * 转发的特点：forward
+            1. 转发地址栏路径不变
+            2. 转发只能访问当前服务器下的资源
+            3. 转发是一次请求，可以使用request对象来共享数据
+
+        * forward 和 redirect 区别
+
+        * 路径写法：
+            1. 路径分类
+                1. 相对路径：通过相对路径不可以确定唯一资源
+                    * 如：./index.html
+                    * 不以/开头，以.开头路径
+
+                    * 规则：找到当前资源和目标资源之间的相对位置关系
+                        * ./：当前目录
+                        * ../:后退一级目录
+                2. 绝对路径：通过绝对路径可以确定唯一资源
+                    * 如：http://localhost/day15/responseDemo2        /day15/responseDemo2
+                    * 以/开头的路径
+
+                    * 规则：判断定义的路径是给谁用的？判断请求将来从哪儿发出
+                        * 给客户端浏览器使用：需要加虚拟目录(项目的访问路径)
+                            * 建议虚拟目录动态获取：request.getContextPath()
+                            * &lt;a&gt; , &lt;form&gt; 重定向...
+                        * 给服务器使用：不需要加虚拟目录
+                            * 转发路径
+
+    2. 服务器输出字符数据到浏览器
+        * 步骤：
+            1. 获取字符输出流
+            2. 输出数据
+
+        * 注意：
+            * 乱码问题：
+                1. PrintWriter pw = response.getWriter();获取的流的默认编码是ISO-8859-1
+                2. 设置该流的默认编码
+                3. 告诉浏览器响应体使用的编码
+
+                //简单的形式，设置编码，是在获取流之前设置
+                response.setContentType(&quot;text/html;charset=utf-8&quot;);
+    3. 服务器输出字节数据到浏览器
+        * 步骤：
+            1. 获取字节输出流
+            2. 输出数据
+
+    4. 验证码
+        1. 本质：图片
+        2. 目的：防止恶意表单注册
+</code></pre><h2 id="ServletContext对象："><a href="#ServletContext对象：" class="headerlink" title="ServletContext对象："></a>ServletContext对象：</h2><pre><code>1. 概念：代表整个web应用，可以和程序的容器(服务器)来通信
+2. 获取：
+    1. 通过request对象获取
+        request.getServletContext();
+    2. 通过HttpServlet获取
+        this.getServletContext();
+3. 功能：
+    1. 获取MIME类型：
+        * MIME类型:在互联网通信过程中定义的一种文件数据类型
+            * 格式： 大类型/小类型   text/html        image/jpeg
+
+        * 获取：String getMimeType(String file)  
+    2. 域对象：共享数据
+        1. setAttribute(String name,Object value)
+        2. getAttribute(String name)
+        3. removeAttribute(String name)
+
+        * ServletContext对象范围：所有用户所有请求的数据
+    3. 获取文件的真实(服务器)路径
+        1. 方法：String getRealPath(String path)  
+             String b = context.getRealPath(&quot;/b.txt&quot;);//web目录下资源访问
+             System.out.println(b);
+
+            String c = context.getRealPath(&quot;/WEB-INF/c.txt&quot;);//WEB-INF目录下的资源访问
+            System.out.println(c);
+
+            String a = context.getRealPath(&quot;/WEB-INF/classes/a.txt&quot;);//src目录下的资源访问
+            System.out.println(a);
+</code></pre><h2 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h2><pre><code>* 文件下载需求：
+    1. 页面显示超链接
+    2. 点击超链接后弹出下载提示框
+    3. 完成图片文件下载
+
+* 分析：
+    1. 超链接指向的资源如果能够被浏览器解析，则在浏览器中展示，如果不能解析，则弹出下载提示框。不满足需求
+    2. 任何资源都必须弹出下载提示框
+    3. 使用响应头设置资源的打开方式：
+        * content-disposition:attachment;filename=xxx
+
+* 步骤：
+    1. 定义页面，编辑超链接href属性，指向Servlet，传递资源名称filename
+    2. 定义Servlet
+        1. 获取文件名称
+        2. 使用字节输入流加载文件进内存
+        3. 指定response的响应头： content-disposition:attachment;filename=xxx
+        4. 将数据写出到response输出流
+
+* 问题：
+    * 中文文件问题
+        * 解决思路：
+            1. 获取客户端使用的浏览器版本信息
+            2. 根据不同的版本信息，设置filename的编码方式不同
 </code></pre><h2 id="案例：用户登录"><a href="#案例：用户登录" class="headerlink" title="案例：用户登录"></a>案例：用户登录</h2><pre><code>* 用户登录案例需求：
     1.编写login.html登录页面
         username &amp; password 两个输入框
@@ -802,7 +971,6 @@
     3.使用JdbcTemplate技术封装JDBC
     4.登录成功跳转到SuccessServlet展示：登录成功！用户名,欢迎您
     5.登录失败跳转到FailServlet展示：登录失败，用户名或密码错误
-
 
 * 分析
 
@@ -1064,12 +1232,10 @@
                 4. 提供公共setter和getter方法
             2. 功能：封装数据
 
-
         2. 概念：
             成员变量：
             属性：setter和getter方法截取后的产物
                 例如：getUsername() --&gt; Username--&gt; username
-
 
         3. 方法：
             1. setProperty()
@@ -1108,6 +1274,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/15/JavaWeb-Cookie-Session/" rel="prev" title="JavaWeb-Cookie & Session">
+                JavaWeb-Cookie & Session <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1188,7 +1358,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1271,7 +1441,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web相关概念回顾"><span class="nav-number">1.</span> <span class="nav-text">web相关概念回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务器软件："><span class="nav-number">2.</span> <span class="nav-text">web服务器软件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet：-server-applet"><span class="nav-number">3.</span> <span class="nav-text">Servlet：  server applet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA与tomcat的相关配置"><span class="nav-number">4.</span> <span class="nav-text">IDEA与tomcat的相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet："><span class="nav-number">5.</span> <span class="nav-text">Servlet：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP："><span class="nav-number">6.</span> <span class="nav-text">HTTP：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request："><span class="nav-number">7.</span> <span class="nav-text">Request：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：用户登录"><span class="nav-number">8.</span> <span class="nav-text">案例：用户登录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web相关概念回顾"><span class="nav-number">1.</span> <span class="nav-text">web相关概念回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务器软件："><span class="nav-number">2.</span> <span class="nav-text">web服务器软件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet：-server-applet"><span class="nav-number">3.</span> <span class="nav-text">Servlet：  server applet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA与tomcat的相关配置"><span class="nav-number">4.</span> <span class="nav-text">IDEA与tomcat的相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet："><span class="nav-number">5.</span> <span class="nav-text">Servlet：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP："><span class="nav-number">6.</span> <span class="nav-text">HTTP：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request："><span class="nav-number">7.</span> <span class="nav-text">Request：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response对象"><span class="nav-number">8.</span> <span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext对象："><span class="nav-number">9.</span> <span class="nav-text">ServletContext对象：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例："><span class="nav-number">10.</span> <span class="nav-text">案例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：用户登录"><span class="nav-number">11.</span> <span class="nav-text">案例：用户登录</span></a></li></ol></div>
             
 
           </div>
