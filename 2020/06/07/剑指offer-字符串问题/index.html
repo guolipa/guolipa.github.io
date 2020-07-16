@@ -88,7 +88,7 @@
 <meta property="og:description" content="1. 字符串的排列题目描述    输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。  解题思路利用递归的思想，首先固定第一个字符，将剩余的部分看做一个新的字符串，递归的取得首位后面各种字符串的组合。再第一个字符串与后面的每一个字符串进行交换，同样递归的获得其字符串组合。 代">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2020/06/07/9g1hXEu37k62AKo.png">
-<meta property="og:updated_time" content="2020-07-14T13:19:27.093Z">
+<meta property="og:updated_time" content="2020-07-15T14:13:10.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer-字符串问题">
 <meta name="twitter:description" content="1. 字符串的排列题目描述    输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。  解题思路利用递归的思想，首先固定第一个字符，将剩余的部分看做一个新的字符串，递归的取得首位后面各种字符串的组合。再第一个字符串与后面的每一个字符串进行交换，同样递归的获得其字符串组合。 代">
@@ -407,6 +407,11 @@
 <p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。</p>
 </blockquote>
 <p><strong>解题思路</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">LeftRotateString</span><span class="params">(String str,<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &gt; str.length())&#123;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> k = n % str.length();</span><br><span class="line">        String s1 = str.substring(<span class="number">0</span>, k);</span><br><span class="line">        String s2 = str.substring(k);</span><br><span class="line">        <span class="keyword">return</span> s2+s1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>  </p>
+<h1 id="4-翻转单词顺序列"><a href="#4-翻转单词顺序列" class="headerlink" title="4. 翻转单词顺序列"></a>4. 翻转单词顺序列</h1><p><strong>题目描述</strong></p>
+<blockquote>
+<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+</blockquote>
+<p><strong>解题思路</strong> </p>
 
       
     </div>
@@ -530,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-字符串的排列"><span class="nav-number">1.</span> <span class="nav-text">1. 字符串的排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-第一个只出现一次的字符"><span class="nav-number">2.</span> <span class="nav-text">2. 第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-左旋转字符串"><span class="nav-number">3.</span> <span class="nav-text">3. 左旋转字符串</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-字符串的排列"><span class="nav-number">1.</span> <span class="nav-text">1. 字符串的排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-第一个只出现一次的字符"><span class="nav-number">2.</span> <span class="nav-text">2. 第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-左旋转字符串"><span class="nav-number">3.</span> <span class="nav-text">3. 左旋转字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-翻转单词顺序列"><span class="nav-number">4.</span> <span class="nav-text">4. 翻转单词顺序列</span></a></li></ol></div>
             
 
           </div>

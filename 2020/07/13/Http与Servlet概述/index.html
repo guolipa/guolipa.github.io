@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaWeb," />
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="Internet of things">
-<meta name="keywords" content="Java Internet of things Data Structure and Algorithms">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/Algorithms/page/2/index.html">
+<meta name="description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
+<meta name="keywords" content="JavaWeb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb-Http与Servlet概述">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/Http与Servlet概述/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="Internet of things">
+<meta property="og:description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/12/08/5c0b336ab1426.png">
+<meta property="og:updated_time" content="2020-07-15T03:43:48.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome Hexo">
-<meta name="twitter:description" content="Internet of things">
+<meta name="twitter:title" content="JavaWeb-Http与Servlet概述">
+<meta name="twitter:description" content="Servlet Servlet的概述 Servlet的定义及其作用：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。  Servlet的实现  Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法  Servlet实现方法：定义一个类imple">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/08/5c0b336ab1426.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Algorithms/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/13/Http与Servlet概述/"/>
 
 
 
 
 
-  <title>分类: Algorithms | Welcome Hexo</title>
+  <title>JavaWeb-Http与Servlet概述 | Welcome Hexo</title>
   
 
 
@@ -144,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/guolipa" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -284,199 +287,313 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Algorithms<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Http与Servlet概述/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guoLipa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/22/Java算法-查找（二叉搜索树）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找（二叉搜索树）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">JavaWeb-Http与Servlet概述</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-22T19:50:25+08:00"
-              content="2018-09-22" >
-          09-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-13T09:58:27+08:00">
+                2020-07-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/08/Java算法-查找-符号表/" itemprop="url">
-              
-                <span itemprop="name">Java算法-查找(符号表)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-08T18:16:34+08:00"
-              content="2018-09-08" >
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><ol>
+<li><p>Servlet的概述<br> <strong>Servlet的定义及其作用</strong>：Servlet是运行在Web服务器(eg.Tomcat)上的java程序，通过HTTP协议接收好响应来自Web客户端的请求。</p>
+</li>
+<li><p>Servlet的实现</p>
+<p> Servlet接口定义了初始化servlet的方法、为请求提供服务的方法和从服务器移除servlet的方法,这些方法成为生命周期方法</p>
+<p> Servlet实现方法：定义一个类implements Servlet 或者 Extends GenericServlet/HttpServlet(最常用)</p>
+<p> Servlet中的生命周期方法是按以下顺序调用的：  </p>
+<ul>
+<li><p>构造Servlet，使用init方法初始化  </p>
+<pre><code>创建Servlet实例的时候回执行init方法
+一个Servlet只会初始化一次，init方法只会被执行一次  
+</code></pre></li>
+<li><p>处理客户端的请求对service方法的调用</p>
+<pre><code>当客户端有请求的时候回调用service方法
+一次请求对应着service的执行，所以它可以被多次执行  
+</code></pre></li>
+<li><p>从服务器中一处Servlet，并用destroy销毁它，最后垃圾回收终止它 </p>
+<pre><code>Servlet销毁时会执行：
+    当Servlet从服务器移除时执行；
+    当关闭服务器时执行 
+</code></pre><p>下面是实现了Servlet的代码：</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sever_servlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;  </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest arg0, ServletResponse arg1)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>Servlet的配置 </p>
+<p> 在一个Web工程中当我们实现了一个Servlet的时候，我们应该在Web工程中将这的Servlet加入到配置文件Web。xml文件中，配置Servlet。</p>
+<p> 下面是在web.xml天剑一个Servlet的写法<br> <img src="https://i.loli.net/2018/12/08/5c0b336ab1426.png" alt=""></p>
+</li>
+<li><p>获取Servlet配置信息</p>
+<pre><code>//1. 得到servlet配置对象 专门用于在配置servlet的信息
+ServletConfig config = getServletConfig();
+//获取到的是配置servlet里面servlet-name 的文本内容
+String servletName = config.getServletName();
+System.out.println(&quot;servletName=&quot;+servletName);
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+//2. 可以获取具体的某一个参数。 
+String address = config.getInitParameter(&quot;address&quot;);
+System.out.println(&quot;address=&quot;+address);
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/04/Java算法-排序（堆排序）/" itemprop="url">
-              
-                <span itemprop="name">Java算法-排序（堆排序）</span>
-              
-            </a>
-        
-      </h2>
+//3. 获取所有的参数名称
+Enumeration&lt;String&gt; names = config.getInitParameterNames();
+//遍历取出所有的参数名称
+while (names.hasMoreElements()) {
+    String key = (String) names.nextElement();
+    String value = config.getInitParameter(key);
+    System.out.println(&quot;key===&quot;+key + &quot;   value=&quot;+value);    
+}
+</code></pre></li>
+</ol>
+<h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><blockquote>
+<p>每个web工程都只有一个ServletContext对象。 在同一个Web工程中不管是哪个servlet，获取到的这个类的对象都是同一个</p>
+</blockquote>
+<p>ServletContext主要有三个作用：  </p>
+<ul>
+<li>获取Web工程的全局配置参数</li>
+<li>获得Web工程中的资源（properities）</li>
+<li>存取数据，Servlet间共享数据，即域对象</li>
+</ul>
+<h3 id="获取全局配置参数"><a href="#获取全局配置参数" class="headerlink" title="获取全局配置参数"></a>获取全局配置参数</h3><p>在web.xml文件中有定义全局参数，每个Servlet都可以访问，而Servlet内部的参数只可以由自己访</p>
+<blockquote>
+<p><a href="img/img01.png">icon</a>  </p>
+</blockquote>
+<p>通过调用getServletContext()方法可以获得Web工程的ServletContext对象，通过这个对象来访问全局参数  </p>
+<blockquote>
+<p><a href="img/img02.png">icon</a></p>
+</blockquote>
+<h3 id="获取Web工程中的资源"><a href="#获取Web工程中的资源" class="headerlink" title="获取Web工程中的资源"></a>获取Web工程中的资源</h3><p>Web工程里的properities文件资源  </p>
+<pre><code>//获取Web工程的ServletContext对象
+ServletContext context=getServletContext();
+//获得对去加载读取资源的对象property
+Properities property=new Properities();
+//获取输入流，就是资源
+InputStream in=null;
+//加载资源并读取
+property.load(in);
+String city=property.getProperty();
+</code></pre><p>这里的关键是如何读入资源，获得资源的输入流InputStream，有三种方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得Servlet对象</span></span><br><span class="line">ServletContext context=getServletContext();</span><br><span class="line">Properties properity=<span class="keyword">new</span> Properties();</span><br><span class="line"><span class="comment">//方法一：通过ServletContext的getRealpath()方法获得资源输入流，只需要传入资源的相对路径</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * getRealPath("")这个得到的是运行在服务器TomCat中Web项目的根路径</span></span><br><span class="line"><span class="comment"> * 	 D:\tomcat\apache-tomcat-7.0.52\apache-tomcat-7.0.52\wtpwebapps\Web\</span></span><br><span class="line"><span class="comment"> * getRealPath("file/file.properties")这个会将传入的相对路径拼接到上面的项目根路径的后面</span></span><br><span class="line"><span class="comment"> * 	 D:\tomcat\apache-tomcat-7.0.52\apache-tomcat-7.0.52\wtpwebapps\Web\file/file.properties</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line">String path= context.getRealPath(<span class="string">"file/file.properties"</span>);</span><br><span class="line">InputStream in=<span class="keyword">new</span> FileInputStream(path);</span><br><span class="line"><span class="comment">//方式二：通过context.getResourceAsStream("file/file.properties")直接过得资源的输入流</span></span><br><span class="line">InputStream in=context.getResourceAsStream(<span class="string">"file/file.properties"</span>);</span><br><span class="line"><span class="comment">//方式三：通过类加载器直接获得资源的输入流</span></span><br><span class="line">InputStream in=<span class="keyword">this</span>.getClass().getClassLoader().getResourceAsStream(<span class="string">"../../file/file.properities"</span>);</span><br><span class="line">properity.load(in);</span><br><span class="line">String city=properity.getProperty(<span class="string">"city"</span>);</span><br><span class="line">System.out.println(<span class="string">"city:"</span>+city);  </span><br><span class="line">```    </span><br><span class="line">## HttpServletRequest  </span><br><span class="line"></span><br><span class="line">### 获取客户端的信息</span><br><span class="line">&gt;HttpServletRequest中封装了客户端所有的信息  </span><br><span class="line">&gt;通过request可以获得客户端请求头的全部信息和客户端传递的参数</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Request</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">//取出客户端请求里面的所有头信息(名称-值)</span></span><br><span class="line">		Enumeration&lt;String&gt;headers=request.getHeaderNames();</span><br><span class="line">		<span class="keyword">while</span>(headers.hasMoreElements()) &#123;</span><br><span class="line">			String name=headers.nextElement();</span><br><span class="line">			String value=request.getHeader(name);</span><br><span class="line">			System.out.println(name+<span class="string">":"</span>+value);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//获得客户端上传的参数</span></span><br><span class="line">		<span class="comment">//1.利用枚举方法获得参数</span></span><br><span class="line">		Enumeration&lt;String&gt;parameter=request.getParameterNames();</span><br><span class="line">		<span class="keyword">while</span>(parameter.hasMoreElements()) &#123;</span><br><span class="line">			String name=parameter.nextElement();</span><br><span class="line">			String value=request.getParameter(name);</span><br><span class="line">			System.out.println(name+<span class="string">":"</span>+value);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//2.利用Map来获取参数</span></span><br><span class="line">		Map&lt;String,String[]&gt;parameter=request.getParameterMap();</span><br><span class="line">		Set&lt;String&gt; paras=parameter.keySet();</span><br><span class="line">		Iterator&lt;String&gt; it=paras.iterator();</span><br><span class="line">		<span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">			String name=it.next();</span><br><span class="line">			String value=parameter.get(name)[<span class="number">0</span>];</span><br><span class="line">			System.out.println(name+<span class="string">":"</span>+value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><blockquote>
+<p>当客户端提交的数据中有中文的时候会出现乱码的现象，Get和POST方式的解决方法不同</p>
+</blockquote>
+<ul>
+<li><p>Get请求方式  </p>
+<p>  由于Get请求方式上传提交的数据是在Url地址中的，所以服务器接收的时候已经过编码了，服务器端直接获得的数据是乱码的  </p>
+<pre><code>//tomcat收到了这批数据，getParameter 默认使用ISO-8859-1去解码  
+String username = request.getParameter(&quot;username&quot;);
+String password = request.getParameter(&quot;password&quot;);
+//先让文字回到ISO-8859-1对应的字节数组 ， 然后再按utf-8组拼字符串
+username = new String(username.getBytes(&quot;ISO-8859-1&quot;) , &quot;UTF-8&quot;);
+System.out.println(&quot;userName=&quot;+username+&quot;==password=&quot;+password);
+</code></pre></li>
+</ul>
+<pre><code>直接在tomcat里面做配置，以后get请求过来的数据永远都是用UTF-8编码。
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-04T21:25:04+08:00"
-              content="2018-09-04" >
-          09-04
-        </time>
-      </div>
+    可以在tomcat里面做设置处理 conf/server.xml 加上URIEncoding=&quot;utf-8&quot;  
 
-    </header>
-  </article>
+     &lt;Connector connectionTimeout=&quot;20000&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot;/&gt; 
+</code></pre><ul>
+<li><p>Post请求<br>  在getParameter之前加入这行代码，是在设置请求体的编码方式  </p>
+<pre><code>request.setCharacterEncoding(&quot;UTF-8&quot;);       
+</code></pre></li>
+</ul>
+<h2 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a>HttpServletResponse</h2><blockquote>
+<p>它的作用是响应返回数据给客户端输出数据到页面上</p>
+</blockquote>
+<pre><code>//以字符流的方式写数据    
+response.getWriter().write(&quot;&lt;h1&gt;hello response...&lt;/h1&gt;&quot;);
 
+//以字节流的方式写数据 
+response.getOutputStream().write(&quot;hello&quot;.getBytes());
+</code></pre><h3 id="中文乱码-1"><a href="#中文乱码-1" class="headerlink" title="中文乱码"></a>中文乱码</h3><ul>
+<li>以字符流输出</li>
+</ul>
+<blockquote>
+<p>response.getWriter()</p>
+</blockquote>
+<pre><code>//1. 指定输出到客户端的时候，这些文字使用UTF-8编码
+response.setCharacterEncoding(&quot;UTF-8&quot;);
 
-      
-        
+//2. 直接规定浏览器看这份数据的时候，使用什么编码来看。
+response.setHeader(&quot;Content-Type&quot;, &quot;text/html; charset=UTF-8&quot;);
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+response.getWriter().write(&quot;北京&quot;);
+</code></pre><ul>
+<li>以字节流输出 </li>
+</ul>
+<blockquote>
+<p>response.getOutputStream()</p>
+</blockquote>
+<pre><code>//1. 指定浏览器看这份数据使用的码表
+response.setHeader(&quot;Content-Type&quot;, &quot;text/html;charset=UTF-8&quot;);
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/20/Java算法-排序（简单排序）/" itemprop="url">
-              
-                <span itemprop="name">算法-排序（简单排序）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-20T20:37:26+08:00"
-              content="2018-08-20" >
-          08-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/18/Java算法-排序（快速排序）/" itemprop="url">
-              
-                <span itemprop="name">算法-排序（快速排序）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-18T17:08:35+08:00"
-              content="2018-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/18/Java算法-基础/" itemprop="url">
-              
-                <span itemprop="name">算法-基本数据结构</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-18T16:17:34+08:00"
-              content="2018-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+//2. 指定输出的中文用的码表
+response.getOutputStream().write(&quot;我爱北京&quot;.getBytes(&quot;UTF-8&quot;));
+</code></pre><p><strong>不管是字节流还是字符流，直接使用一行代码，然后再写数据</strong></p>
+<pre><code>response.setContentType(&quot;text/html;charset=UTF-8&quot;);
+</code></pre><p>id: 96</p>
+<p>论文名称：Attention-based Dynamic Preference Model for Next Point-of-Interest Recommendation</p>
+<p>作者：Chenwang Zheng and Dan    Tao</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/19/剑指offer-链表/" rel="next" title="剑指offer-链表">
+                <i class="fa fa-chevron-left"></i> 剑指offer-链表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/13/Java-Web-Servlet-HTTP/" rel="prev" title="Java Web-Servlet & HTTP">
+                Java Web-Servlet & HTTP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/Algorithms/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/Algorithms/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -484,6 +601,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -504,8 +625,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,6 +727,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">1.</span> <span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext"><span class="nav-number">2.</span> <span class="nav-text">ServletContext</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取全局配置参数"><span class="nav-number">2.1.</span> <span class="nav-text">获取全局配置参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Web工程中的资源"><span class="nav-number">2.2.</span> <span class="nav-text">获取Web工程中的资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中文乱码"><span class="nav-number">2.3.</span> <span class="nav-text">中文乱码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpServletResponse"><span class="nav-number">3.</span> <span class="nav-text">HttpServletResponse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中文乱码-1"><span class="nav-number">3.1.</span> <span class="nav-text">中文乱码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -737,6 +883,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
