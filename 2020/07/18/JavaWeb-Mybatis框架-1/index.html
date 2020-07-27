@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/18/9sc2PDb1zly3FEA.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/23/fmanWx6jdMQPNlZ.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/23/NsvAY76DTjSPQaZ.png">
-<meta property="og:updated_time" content="2020-07-23T13:53:22.844Z">
+<meta property="og:updated_time" content="2020-07-25T07:20:18.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-Mybatis框架(1)">
 <meta name="twitter:description" content="MVC模式  Model（模型）是应用程序中用于处理应用程序数据逻辑的部分。　　通常模型对象负责在数据库中存取数据。 View（视图）是应用程序中处理数据显示的部分。　　通常视图是依据模型数据创建的。 Controller（控制器）是应用程序中处理用户交互的部分。　　通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。   三层架构概述：    表现层UL：主要是指与用户交互的界面。用于">
@@ -399,7 +399,7 @@
 <li><strong>View（视图）</strong>是应用程序中处理数据显示的部分。<br>　　通常视图是依据模型数据创建的。</li>
 <li><strong>Controller（控制器）</strong>是应用程序中处理用户交互的部分。<br>　　通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</li>
 </ul>
-<p><img src="https:/i.loli.net/2020/07/18/5EesCtkoQ2ZBAz3.jpg" alt="b03533fa828ba61edbddc04d4034970a304e59a4.jpg"></p>
+<p><img src="https:i.loli.net/2020/07/18/5EesCtkoQ2ZBAz3.jpg" alt="b03533fa828ba61edbddc04d4034970a304e59a4.jpg"></p>
 <p><strong>三层架构概述：</strong>  </p>
 <ul>
 <li><strong>表现层UL：</strong>主要是指与用户交互的界面。用于接收用户输入的数据和显示处理后用户需要的数据。</li>
@@ -552,16 +552,19 @@ public interface UserDao {
     public interface UserDao {
         /*
         查询所有操作
-         */
-
+         */        
         @Select(&quot;select * from user&quot;)
         List&lt;user&gt; findAll();
     }
 </code></pre><p>并改变SqlMapconfig.xml中 mappers配置</p>
-<pre><code>&lt;!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 --&gt;
-   &lt;mappers&gt;
-       &lt;mapper class=&quot;bjtu.dao.UserDao&quot;/&gt;
-   &lt;/mappers&gt;
+<pre><code> &lt;!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 --&gt;
+&lt;!--&lt;mappers&gt;--&gt;
+    &lt;!--&lt;mapper resource=&quot;bjtu/dao/UserDao.xml&quot;/&gt;--&gt;
+&lt;!--&lt;/mappers&gt;--&gt;
+&lt;!--如果使用注解的方式配置，此处应使用class属性指定被注解的dao的全限定类名--&gt;
+&lt;mappers&gt;
+    &lt;mapper class=&quot;bjtu.dao.UserDao&quot;/&gt;
+&lt;/mappers&gt;
 </code></pre>
       
     </div>
@@ -595,6 +598,10 @@ public interface UserDao {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/25/JavaWeb-Mybatis框架-2/" rel="prev" title="JavaWeb-Mybatis框架(2)">
+                JavaWeb-Mybatis框架(2) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -675,7 +682,7 @@ public interface UserDao {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
