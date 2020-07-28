@@ -94,7 +94,13 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/27/bDFYl6VuKx4OUtJ.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/27/cVZrlwnIEJ3Qfhg.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/27/MsQ5tfoHuSLqcKP.jpg">
-<meta property="og:updated_time" content="2020-07-27T13:39:58.514Z">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/g4Je6wdhv18iVZk.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/godWnHZLwNOpXJ6.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/AL1J9dtmPyv7O8Y.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/HMqn1gma4lJzO5Y.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/wRE861QmJZsN3hB.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/28/NeEs1SigWPDGu87.jpg">
+<meta property="og:updated_time" content="2020-07-28T08:29:08.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-Mybatis框架(2)">
 <meta name="twitter:description" content="Mybatis对数据库的单表CUDA操作1. 配置Mybatis的主配置文件SqlMapConfig，配置数据库的基本信息以及操作的映射配置文件 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;!DOCTYPE configuration         PUBLIC &amp;quot;-//mybatis.org">
@@ -762,7 +768,148 @@ insert  into `user_role`(`UID`,`RID`) values (41,1),(45,1),(41,2);DROP TABLE IF 
     &lt;/select&gt;
 
 &lt;/mapper&gt;
-</code></pre>
+</code></pre><h1 id="Mybatis的缓存"><a href="#Mybatis的缓存" class="headerlink" title="Mybatis的缓存"></a>Mybatis的缓存</h1><ol>
+<li><p>Mybatis中的延迟加载</p>
+<pre><code>问题：在一对多中，当我们有一个用户，它有100个账户。
+      在查询用户的时候，要不要把关联的账户查出来？
+      在查询账户的时候，要不要把关联的用户查出来？
+
+      在查询用户时，用户下的账户信息应该是，什么时候使用，什么时候查询的。
+      在查询账户时，账户的所属用户信息应该是随着账户查询时一起查询出来。
+</code></pre><ul>
+<li><p><strong>什么是延迟加载?</strong></p>
+<blockquote>
+<p>在真正使用数据时才发起查询，不用的时候不查询。按需加载（懒加载）</p>
+</blockquote>
+</li>
+<li><p><strong>什么是立即加载?</strong></p>
+<blockquote>
+<p>不管用不用，只要一调用方法，马上发起查询。</p>
+</blockquote>
+<p>在对应的四种表关系中：一对多，多对一，一对一，多对多。 一对多，多对多：通常情况下我们都是采用延迟加载； 多对一，一对一：通常情况下我们都是采用立即加载。</p>
+</li>
+</ul>
+</li>
+<li><p>Mybatis中的缓存</p>
+<ul>
+<li><p>什么是缓存</p>
+<blockquote>
+<p>存在于内存中的临时数据。</p>
+</blockquote>
+</li>
+<li><p>为什么使用缓存</p>
+<blockquote>
+<p>减少和数据库的交互次数，提高执行效率。</p>
+</blockquote>
+</li>
+<li><p>什么样的数据能使用缓存，什么样的数据不能使用</p>
+<pre><code>适用于缓存：  
+    经常查询并且不经常改变的。
+    数据的正确与否对最终结果影响不大的。
+不适用于缓存：
+    经常改变的数据
+    数据的正确与否对最终结果影响很大的。
+    例如：商品的库存，银行的汇率，股市的牌价。
+</code></pre></li>
+<li><p>Mybatis中的一级缓存和二级缓存</p>
+<pre><code>一级缓存：
+    * 它指的是Mybatis中SqlSession对象的缓存。
+    * 当我们执行查询之后，查询的结果会同时存入到SqlSession为我们提供一块区域中。该区域的结构是一个Map。当我们再次查询同样的数据，mybatis会先去sqlsession中查询是否有，有的话直接拿出来用。
+    * 当SqlSession对象消失时，mybatis的一级缓存也就消失了。
+    * 如果sqlSession去执行commit操作（执行插入、更新、删除），清空SqlSession中的一级缓存，这样做的目的为了让缓存中存储的是最新的信息，避免脏读。
+
+二级缓存:
+    * 它指的是Mybatis中SqlSessionFactory对象的缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。
+    * 二级缓存的使用步骤：
+        * 第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
+        * 第二步：让当前的映射文件支持二级缓存（在IUserDao.xml中配置）
+        * 第三步：让当前的操作支持二级缓存（在select标签中配置）
+</code></pre><p>  <img src="https://i.loli.net/2020/07/28/g4Je6wdhv18iVZk.jpg" alt="cash1.JPG"><br>  <img src="https://i.loli.net/2020/07/28/godWnHZLwNOpXJ6.jpg" alt="cash2.JPG"><br>  <img src="https://i.loli.net/2020/07/28/AL1J9dtmPyv7O8Y.jpg" alt="cash3.JPG"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="Mybatis中的注解开发"><a href="#Mybatis中的注解开发" class="headerlink" title="Mybatis中的注解开发"></a>Mybatis中的注解开发</h1><p>这几年来注解开发越来越流行，Mybatis也可以使用注解开发方式，这样我们就可以减少编写Mapper(即UserDap.xml、AccountDao.xml等配置文件)映射文件了。在Mybatis中只能使用映射配置文件和注解配置一种方式，所以使用注解配置时，应将映射配置文件移除。</p>
+<h2 id="1-单表的CUDA操作"><a href="#1-单表的CUDA操作" class="headerlink" title="1. 单表的CUDA操作"></a>1. 单表的CUDA操作</h2><p>首先针对单表的CUDA操作，只需要在UserDao接口文件的相关方法上添加配置即可。Mybatis中有四种SQL相关的语句配置：</p>
+<ul>
+<li><strong>@Insert: 实现新增</strong> </li>
+<li><strong>@Update: 实现更新</strong> </li>
+<li><strong>@Delete: 实现删除</strong> </li>
+<li><strong>@Select: 实现查询</strong></li>
+</ul>
+<p>以User类的接口UserDao为例，程序改写如下：</p>
+<pre><code>public interface UserDao {
+    /*
+    查询所有用户，同时获取用户下所有的账户信息
+   */
+    @Select(&quot;select * from user&quot;)
+    @Results(id = &quot;userMap&quot;, value={
+            @Result(id = true, column = &quot;id&quot;, property = &quot;id&quot;),
+            @Result(column = &quot;username&quot;, property = &quot;username&quot;),
+            @Result(column = &quot;address&quot;, property = &quot;address&quot;),
+            @Result(column = &quot;sex&quot;, property = &quot;sex&quot;),
+            @Result(column = &quot;birthday&quot;, property = &quot;birthday&quot;),
+    })
+    List&lt;User&gt; findAll();
+
+    /**
+     * 按ID查询用户信息
+     * @param userID
+     */
+    @Select(&quot;select * from user where id = #{uid}&quot;)
+    @ResultMap(value = {&quot;userMap&quot;})
+    User findById(Integer userID);
+
+    /**
+     * 插入保存user
+     * @param u
+     */
+    @Insert(&quot;insert into user(username,address,sex,birthday) values(#{username},#{address},#{sex},#{birthday})&quot;)
+    @ResultMap(value = {&quot;userMap&quot;})
+    void saveUser(User u);
+
+    /**
+     * 更新信息
+     * @param u
+     */
+    @Update(&quot;update user set username=#{username},address=#{address},sex=#{sex},birthday=#{birthday} where id=#{id}&quot;)
+    @ResultMap(value = {&quot;userMap&quot;})
+    void updateUser(User u);
+
+    /**
+     * 删除用户
+     * @param userID
+     */
+    @Delete(&quot;delete from user where id = #{id}&quot;)
+    @ResultMap(value = {&quot;userMap&quot;})
+    void deleteUser(Integer userID);
+
+    /**
+     * 按名称模糊查询用户信息
+     */
+    @Select(&quot;select * from user where username like #{username}&quot; )
+    @ResultMap(value = {&quot;userMap&quot;})
+    //@Select(&quot;select * from user where username like &apos;%${value}%&apos;&quot; )
+    List&lt;User&gt; findByName(String username);
+
+    /**
+     * 聚合函数：查询总记录条数
+     */
+    @Select(&quot;select count(id) from user&quot;)
+    @ResultMap(value = {&quot;userMap&quot;})
+    int findTotal();
+}
+</code></pre><ul>
+<li>只需要在方法之上添加 @Select(“SQL语句”)，@Insert(“SQL语句”)，@Update(“SQL语句”)，@Delect(“SQL语句”)。</li>
+<li>另外，若User类中的属性与数据库中user表的列名不一致，需要增加 @Results() 注解配置，类似于UserDao.xml中的<resultmap></resultmap>配置。<br><img src="https://i.loli.net/2020/07/28/HMqn1gma4lJzO5Y.jpg" alt="userMap.jpg"></li>
+</ul>
+<h2 id="2-多表操作配置"><a href="#2-多表操作配置" class="headerlink" title="2. 多表操作配置"></a>2. 多表操作配置</h2><ul>
+<li><p><strong>一对一配置</strong><br><img src="https://i.loli.net/2020/07/28/wRE861QmJZsN3hB.jpg" alt="onetoone.jpg"></p>
+</li>
+<li><p><strong>一对多配置</strong><br><img src="https://i.loli.net/2020/07/28/NeEs1SigWPDGu87.jpg" alt="many.jpg"></p>
+</li>
+</ul>
+
       
     </div>
     
@@ -958,7 +1105,7 @@ insert  into `user_role`(`UID`,`RID`) values (41,1),(45,1),(41,2);DROP TABLE IF 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis对数据库的单表CUDA操作"><span class="nav-number">1.</span> <span class="nav-text">Mybatis对数据库的单表CUDA操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis连接池和事务"><span class="nav-number">2.</span> <span class="nav-text">Mybatis连接池和事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis多表查询"><span class="nav-number">3.</span> <span class="nav-text">Mybatis多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据库创建表"><span class="nav-number">3.1.</span> <span class="nav-text">1. 数据库创建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-一对一和一对多查询"><span class="nav-number">3.2.</span> <span class="nav-text">2. 一对一和一对多查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多对多查询"><span class="nav-number">3.3.</span> <span class="nav-text">3. 多对多查询</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis对数据库的单表CUDA操作"><span class="nav-number">1.</span> <span class="nav-text">Mybatis对数据库的单表CUDA操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis连接池和事务"><span class="nav-number">2.</span> <span class="nav-text">Mybatis连接池和事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis多表查询"><span class="nav-number">3.</span> <span class="nav-text">Mybatis多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据库创建表"><span class="nav-number">3.1.</span> <span class="nav-text">1. 数据库创建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-一对一和一对多查询"><span class="nav-number">3.2.</span> <span class="nav-text">2. 一对一和一对多查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多对多查询"><span class="nav-number">3.3.</span> <span class="nav-text">3. 多对多查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis的缓存"><span class="nav-number">4.</span> <span class="nav-text">Mybatis的缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis中的注解开发"><span class="nav-number">5.</span> <span class="nav-text">Mybatis中的注解开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-单表的CUDA操作"><span class="nav-number">5.1.</span> <span class="nav-text">1. 单表的CUDA操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-多表操作配置"><span class="nav-number">5.2.</span> <span class="nav-text">2. 多表操作配置</span></a></li></ol></li></ol></div>
             
 
           </div>
