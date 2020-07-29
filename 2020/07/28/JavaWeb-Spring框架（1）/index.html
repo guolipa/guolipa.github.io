@@ -90,7 +90,10 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/28/PaVvNlMQxUJZWDY.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/28/kcwizQxKTNORuso.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/28/nI1pVb83da9teQ4.jpg">
-<meta property="og:updated_time" content="2020-07-29T03:55:11.267Z">
+<meta property="og:image" content="https://i.loli.net/2020/07/29/DdSeyHx3j9VMkL6.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/29/HgECouIxdjNMVzU.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/29/bhWA41YHmRKGekB.jpg">
+<meta property="og:updated_time" content="2020-07-29T08:53:20.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-Spring框架（1）">
 <meta name="twitter:description" content="Spring框架概述 Spring框架是什么？  Spring是分层的Java SE/EE应用 full-stack轻量级开源框架，以IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层Spring MVC和持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众">
@@ -429,10 +432,146 @@
 <p>基于XML的配置</p>
 <ol>
 <li>导入Spring jar包</li>
-<li>在resources目录下创建任意.xml文件</li>
+<li><p>在resources目录下创建任意.xml文件</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&gt; 	&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&gt; 		&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">&gt; 		       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">&gt; 		       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">&gt; 		      http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; 		    &lt;!--把对象的创建交给spring来管理--&gt;</span><br><span class="line">&gt; 		    &lt;bean id="accountService" class="bjtu.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		    &lt;bean id="accountDao" class="bjtu.dao.impl.AccountDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		&lt;/beans </span><br><span class="line">&gt; 	</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>使用spring</p>
+</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">	&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">	       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">	       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">	      http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;!--把对象的创建交给spring来管理--&gt;</span><br><span class="line">	    &lt;bean id="accountService" class="bjtu.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	    &lt;bean id="accountDao" class="bjtu.dao.impl.AccountDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">	&lt;/beans&gt;  </span><br></pre></td></tr></table></figure>      
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 模拟一个表现层，用于调用业务层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取spring的Ioc核心容器，并根据id获取对象</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * ApplicationContext的三个常用实现类：</span></span><br><span class="line"><span class="comment">     *      ClassPathXmlApplicationContext：它可以加载类路径下的配置文件，要求配置文件必须在类路径下。不在的话，加载不了。(更常用)</span></span><br><span class="line"><span class="comment">     *      FileSystemXmlApplicationContext：它可以加载磁盘任意路径下的配置文件(必须有访问权限）</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     *      AnnotationConfigApplicationContext：它是用于读取注解创建容器的，是明天的内容。</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 核心容器的两个接口引发出的问题：</span></span><br><span class="line"><span class="comment">     *  ApplicationContext:     单例对象适用              采用此接口</span></span><br><span class="line"><span class="comment">     *      它在构建核心容器时，创建对象采取的策略是采用立即加载的方式。也就是说，只要一读取完配置文件马上就创建配置文件中配置的对象。</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     *  BeanFactory:            多例对象使用</span></span><br><span class="line"><span class="comment">     *      它在构建核心容器时，创建对象采取的策略是采用延迟加载的方式。也就是说，什么时候根据id获取对象了，什么时候才真正的创建对象。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.获取核心容器对象</span></span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"bean.xml"</span>);</span><br><span class="line">		<span class="comment">//ApplicationContext ac = new FileSystemXmlApplicationContext("C:\\Users\\zhy\\Desktop\\bean.xml");</span></span><br><span class="line">        <span class="comment">//2.根据id获取Bean对象</span></span><br><span class="line">        IAccountService as  = (IAccountService)ac.getBean(<span class="string">"accountService"</span>);</span><br><span class="line">        IAccountDao adao = ac.getBean(<span class="string">"accountDao"</span>,IAccountDao.class);</span><br><span class="line"></span><br><span class="line">        System.out.println(as);</span><br><span class="line">        System.out.println(adao);</span><br><span class="line">        as.saveAccount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	   </span><br></pre></td></tr></table></figure>
+<h2 id="Spring基于XML的IOC细节"><a href="#Spring基于XML的IOC细节" class="headerlink" title="Spring基于XML的IOC细节"></a>Spring基于XML的IOC细节</h2><h3 id="1-spring中工厂的类结构图"><a href="#1-spring中工厂的类结构图" class="headerlink" title="1. spring中工厂的类结构图"></a>1. spring中工厂的类结构图</h3><p><img src="https://i.loli.net/2020/07/29/DdSeyHx3j9VMkL6.jpg" alt="bean.jpg"></p>
+<ul>
+<li><p><strong>BeanFactory 和ApplicationContext 的区别</strong></p>
+<pre><code>* BeanFactory 才是Spring 容器中的顶层接口。
+* ApplicationContext 是它的子接口。
+* BeanFactory 和 ApplicationContext 的区别：
+    创建对象的时间点不一样。
+    - ApplicationContext： 它在构建核心容器时，创建对象采取的策略是采用立即加载的方式。也就是说，只要一读取完配置文件马上就创建配置文件中配置的对象。
+    - BeanFactory：它在构建核心容器时，创建对象采取的策略是采用延迟加载的方式。也就是说，什么时候根据id获取对象了，什么时候才真正的创建对象。
+</code></pre></li>
+<li><p><strong>ApplicationContext 接口的实现类</strong></p>
+<pre><code>* ClassPathXmlApplicationContext：
+    它是从类的根路径下加载配置文件 推荐使用这种
+* FileSystemXmlApplicationContext：
+    它是从磁盘路径上加载配置文件，配置文件可以在磁盘的任意位置。
+* AnnotationConfigApplicationContext:
+    当我们使用注解配置容器对象时，需要使用此类来创建spring 容器。它用来读取注解。
+</code></pre></li>
+</ul>
+<h3 id="2-IOC中bean标签和管理对象细节"><a href="#2-IOC中bean标签和管理对象细节" class="headerlink" title="2. IOC中bean标签和管理对象细节"></a>2. IOC中bean标签和管理对象细节</h3><h5 id="1）创建Bean的三种方式"><a href="#1）创建Bean的三种方式" class="headerlink" title="1）创建Bean的三种方式"></a>1）创建Bean的三种方式</h5><p><strong>第一种方式：使用默认无参构造函数</strong></p>
+<blockquote>
+<p>在Spring的配置文件中使用bean标签，配以id和class属性之后，没有其他属性标签时，根据默认无参构造函数来创建类对象。如果bean中没有默认无参构造函数，将会创建失败。</p>
+</blockquote>
+<pre><code>&lt;bean id=&quot;accountService&quot; class=&quot;bjtu.service.impl.AccountServiceImpl&quot;/&gt;
+</code></pre><p><strong>第二种方式：使用普通工厂中的方法创建对象（使用某个类中的方法创建对象，并存入spring容器）</strong></p>
+<p><img src="https://i.loli.net/2020/07/29/HgECouIxdjNMVzU.jpg" alt="beanc2.JPG"></p>
+<p><strong>第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象，并存入spring容器）</strong></p>
+<p><img src="https://i.loli.net/2020/07/29/bhWA41YHmRKGekB.jpg" alt="beanc1.JPG"></p>
+<h5 id="2）Bean的作用范围和生命周期"><a href="#2）Bean的作用范围和生命周期" class="headerlink" title="2）Bean的作用范围和生命周期"></a>2）Bean的作用范围和生命周期</h5><ul>
+<li><p>bean的作用范围</p>
+<pre><code>bean标签的scope属性：   
+    作用：用于指定bean的作用范围
+    取值： 常用的就是单例的和多例的
+        singleton：单例的（默认值）-一个应用只有一个对象的实例。它的作用范围就是整个引用。
+        prototype：多例的-每次访问对象时，都会重新创建对象实例。
+        request：作用于web应用的请求范围
+        session：作用于web应用的会话范围
+        global-session：作用于集群环境的会话范围（全局会话范围），当不是集群环境时，它就是session
 
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot; scope=&quot;prototype&quot;&gt;&lt;/bean&gt;--&gt;
+</code></pre></li>
+<li><p>bean的生命周期</p>
+<pre><code>&lt;!-- bean对象的生命周期
+    单例对象
+        出生：当容器创建时对象出生
+        活着：只要容器还在，对象一直活着
+        死亡：容器销毁，对象消亡
+        总结：单例对象的生命周期和容器相同
+    多例对象
+        出生：当我们使用对象时spring框架为我们创建
+        活着：对象只要是在使用过程中就一直活着。
+        死亡：当对象长时间不用，且没有别的对象引用时，由Java的垃圾回收器回收
+--&gt;
+</code></pre></li>
+</ul>
+<h3 id="3-Spring中的依赖注入"><a href="#3-Spring中的依赖注入" class="headerlink" title="3. Spring中的依赖注入"></a>3. Spring中的依赖注入</h3><pre><code>* 依赖注入：
+    Dependency Injection
+* IOC的作用：
+    降低程序间的耦合（依赖关系）
+* 依赖关系的管理：
+    以后都交给spring来维护
+    在当前类需要用到其他类的对象，由spring为我们提供，我们只需要在配置文件中说明
+* 依赖关系的维护：
+    就称之为依赖注入。
+
+*依赖注入：
+   1. 能注入的数据：有三类
+        1) 基本类型和String
+        2) 其他bean类型（在配置文件中或者注解配置过的bean）
+        3) 复杂类型/集合类型
+   2. 注入的方式：有三种
+        1) 第一种：使用构造函数提供
+        2) 第二种：使用set方法提供
+        3) 第三种：使用注解提供
+</code></pre><h5 id="1-构造函数注入"><a href="#1-构造函数注入" class="headerlink" title="1)构造函数注入"></a>1)构造函数注入</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceImpl</span> <span class="keyword">implements</span> <span class="title">IAccountService</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> String name; </span><br><span class="line">    <span class="keyword">private</span> Integer age; </span><br><span class="line">    <span class="keyword">private</span> Date birthday; </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AccountServiceImpl</span><span class="params">(String name, Integer age, Date birthday)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">this</span>.name = name; </span><br><span class="line">        <span class="keyword">this</span>.age = age; </span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday; &#125;</span><br><span class="line">    <span class="meta">@Override</span> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveAccount</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        ystem.out.println(name+<span class="string">","</span>+age+<span class="string">","</span>+birthday); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用的标签:constructor-arg   </li>
+<li><p>标签出现的位置：bean标签的内部</p>
+<pre><code>标签中的属性
+    type：用于指定要注入的数据的数据类型，该数据类型也是构造函数中某个或某些参数的类型
+    index：用于指定要注入的数据给构造函数中指定索引位置的参数赋值。索引的位置是从0开始
+    name：用于指定给构造函数中指定名称的参数赋值                                        常用的
+    =============以上三个用于指定给构造函数中哪个参数赋值===============================
+    value：用于提供基本类型和String类型的数据
+    ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核心容器中出现过的bean对象
+
+优势：
+    在获取bean对象时，注入数据是必须的操作，否则对象无法创建成功。
+弊端：
+    改变了bean对象的实例化方式，使我们在创建对象时，如果用不到这些数据，也必须提供。
+
+--&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
+    &lt;constructor-arg name=&quot;name&quot; value=&quot;泰斯特&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;constructor-arg name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;constructor-arg name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/constructor-arg&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置一个日期对象 --&gt;
+&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h5 id="2-set方法注入"><a href="#2-set方法注入" class="headerlink" title="2) set方法注入"></a>2) set方法注入</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceImpl</span> <span class="keyword">implements</span> <span class="title">IAccountService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AccountServiceImpl</span><span class="params">(String name, Integer age, Date birthday)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(Date birthday)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveAccount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ystem.out.println(name+<span class="string">","</span>+age+<span class="string">","</span>+birthday);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>涉及的标签：property</li>
+<li><p>出现的位置：bean标签的内部</p>
+<pre><code>标签的属性
+    name：用于指定注入时所调用的set方法名称
+    value：用于提供基本类型和String类型的数据
+    ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核心容器中出现过的bean对象
+优势：
+    创建对象时没有明确的限制，可以直接使用默认构造函数
+弊端：
+    如果有某个成员必须有值，则获取对象是有可能set方法没有执行。
+--&gt;
+&lt;bean id=&quot;accountService2&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl2&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;TEST&quot; &gt;&lt;/property&gt;
+    &lt;property name=&quot;age&quot; value=&quot;21&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h5 id="3）注入集合"><a href="#3）注入集合" class="headerlink" title="3）注入集合"></a>3）注入集合</h5><p>顾名思义，就是给类中的集合成员传值，它用的也是set方法注入的方式，只不过变量的数据类型都是集合。我们这里介绍注入数组，List,Set,Map,Properties。具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceImpl</span> <span class="keyword">implements</span> <span class="title">IAccountService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String[] myStrs;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; myList;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;String&gt; mySet;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,String&gt; myMap;</span><br><span class="line">    <span class="keyword">private</span> Properties myProps;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyStrs</span><span class="params">(String[] myStrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myStrs = myStrs;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyList</span><span class="params">(List&lt;String&gt; myList)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myList = myList;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMySet</span><span class="params">(Set&lt;String&gt; mySet)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mySet = mySet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyMap</span><span class="params">(Map&lt;String, String&gt; myMap)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myMap = myMap;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMyProps</span><span class="params">(Properties myProps)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myProps = myProps;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveAccount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Arrays.toString(myStrs));</span><br><span class="line">        System.out.println(myList);</span><br><span class="line">        System.out.println(mySet);</span><br><span class="line">        System.out.println(myMap);</span><br><span class="line">        System.out.println(myProps);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>复杂类型的注入/集合类型的注入          
+    *用于给List结构集合注入的标签：
+        list array set
+    * 用于个Map结构集合注入的标签:
+        map  props
+    结构相同，标签可以互换
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&lt;bean id=<span class="string">"accountService3"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.itheima.service.impl.AccountServiceImpl3"</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">"myStrs"</span>&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">            &lt;value&gt;AAA&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;BBB&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;CCC&lt;/value&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property name=<span class="string">"myList"</span>&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">            &lt;value&gt;AAA&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;BBB&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;CCC&lt;/value&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property name=<span class="string">"mySet"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;value&gt;AAA&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;BBB&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;CCC&lt;/value&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property name=<span class="string">"myMap"</span>&gt;</span><br><span class="line">        &lt;props&gt;</span><br><span class="line">            &lt;prop key="testC"&gt;ccc&lt;/prop&gt;</span><br><span class="line">            &lt;prop key="testD"&gt;ddd&lt;/prop&gt;</span><br><span class="line">        &lt;/props&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property name=<span class="string">"myProps"</span>&gt;</span><br><span class="line">        &lt;map&gt;</span><br><span class="line">            &lt;entry key="testA" value="aaa"&gt;&lt;/entry&gt;</span><br><span class="line">            &lt;entry key=<span class="string">"testB"</span>&gt;</span><br><span class="line">                &lt;value&gt;BBB&lt;/value&gt;</span><br><span class="line">            &lt;/entry&gt;</span><br><span class="line">        &lt;/map&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;   </span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -632,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring框架概述"><span class="nav-number">1.</span> <span class="nav-text">Spring框架概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IoC的概念和作用"><span class="nav-number">2.</span> <span class="nav-text">IoC的概念和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的耦合与工程模式解耦"><span class="nav-number">2.1.</span> <span class="nav-text">程序的耦合与工程模式解耦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC的概念"><span class="nav-number">2.2.</span> <span class="nav-text">IoC的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Spring-Ioc解决程序耦合"><span class="nav-number">2.3.</span> <span class="nav-text">使用Spring Ioc解决程序耦合</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring框架概述"><span class="nav-number">1.</span> <span class="nav-text">Spring框架概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IoC的概念和作用"><span class="nav-number">2.</span> <span class="nav-text">IoC的概念和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序的耦合与工程模式解耦"><span class="nav-number">2.1.</span> <span class="nav-text">程序的耦合与工程模式解耦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC的概念"><span class="nav-number">2.2.</span> <span class="nav-text">IoC的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Spring-Ioc解决程序耦合"><span class="nav-number">2.3.</span> <span class="nav-text">使用Spring Ioc解决程序耦合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring基于XML的IOC细节"><span class="nav-number">2.4.</span> <span class="nav-text">Spring基于XML的IOC细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-spring中工厂的类结构图"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. spring中工厂的类结构图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IOC中bean标签和管理对象细节"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）创建Bean的三种方式"><span class="nav-number">2.4.2.0.1.</span> <span class="nav-text">1）创建Bean的三种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）Bean的作用范围和生命周期"><span class="nav-number">2.4.2.0.2.</span> <span class="nav-text">2）Bean的作用范围和生命周期</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Spring中的依赖注入"><span class="nav-number">2.4.3.</span> <span class="nav-text">3. Spring中的依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-构造函数注入"><span class="nav-number">2.4.3.0.1.</span> <span class="nav-text">1)构造函数注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-set方法注入"><span class="nav-number">2.4.3.0.2.</span> <span class="nav-text">2) set方法注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）注入集合"><span class="nav-number">2.4.3.0.3.</span> <span class="nav-text">3）注入集合</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
