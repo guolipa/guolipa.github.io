@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/29/DdSeyHx3j9VMkL6.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/29/HgECouIxdjNMVzU.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/29/bhWA41YHmRKGekB.jpg">
-<meta property="og:updated_time" content="2020-07-29T08:53:20.841Z">
+<meta property="og:updated_time" content="2020-07-29T12:44:09.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-Spring框架（1）">
 <meta name="twitter:description" content="Spring框架概述 Spring框架是什么？  Spring是分层的Java SE/EE应用 full-stack轻量级开源框架，以IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层Spring MVC和持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众">
@@ -346,6 +346,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -434,7 +456,7 @@
 <li>导入Spring jar包</li>
 <li><p>在resources目录下创建任意.xml文件</p>
 <blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&gt; 	&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&gt; 		&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">&gt; 		       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">&gt; 		       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">&gt; 		      http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; 		    &lt;!--把对象的创建交给spring来管理--&gt;</span><br><span class="line">&gt; 		    &lt;bean id="accountService" class="bjtu.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		    &lt;bean id="accountDao" class="bjtu.dao.impl.AccountDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		&lt;/beans </span><br><span class="line">&gt; 	</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&gt; 	&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&gt; 		&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">&gt; 		   xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">&gt; 		   xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">&gt; 		  http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt; 		&lt;!--把对象的创建交给spring来管理--&gt;</span><br><span class="line">&gt; 		&lt;bean id="accountService" class="bjtu.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		&lt;bean id="accountDao" class="bjtu.dao.impl.AccountDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&gt; 		&lt;/beans </span><br><span class="line">&gt; 	</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>使用spring</p>
@@ -595,8 +617,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/25/JavaWeb-Mybatis框架-2/" rel="next" title="JavaWeb-Mybatis框架(2)">
-                <i class="fa fa-chevron-left"></i> JavaWeb-Mybatis框架(2)
+              <a href="/2020/07/26/Java基础知识总结/" rel="next" title="Java基础知识总结">
+                <i class="fa fa-chevron-left"></i> Java基础知识总结
               </a>
             
           </div>
@@ -688,7 +710,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
