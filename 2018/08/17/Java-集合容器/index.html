@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="计算机网络," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
-<meta name="keywords" content="计算机网络">
+<meta name="description" content="容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。  Collection接口的子接口包括：Set接口和List接口 Set接口的实现类主要有：HashSet、TreeSet、LinkedHashSet等 List接口的实现类主要有：ArrayList、LinkedList、Stack以及Vector等">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java-网络编程">
-<meta property="og:url" content="http://yoursite.com/2018/08/11/Java-网络编程/index.html">
+<meta property="og:title" content="Java-集合（容器）">
+<meta property="og:url" content="http://yoursite.com/2018/08/17/Java-集合容器/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
+<meta property="og:description" content="容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。  Collection接口的子接口包括：Set接口和List接口 Set接口的实现类主要有：HashSet、TreeSet、LinkedHashSet等 List接口的实现类主要有：ArrayList、LinkedList、Stack以及Vector等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
-<meta property="og:updated_time" content="2020-06-13T12:20:08.586Z">
+<meta property="og:image" content="https://i.loli.net/2018/08/17/5b76c7bcdd000.png">
+<meta property="og:image" content="https://i.loli.net/2018/08/18/5b777897623d3.png">
+<meta property="og:image" content="https://i.loli.net/2018/08/18/5b779aa84be99.png">
+<meta property="og:updated_time" content="2020-08-19T02:59:25.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java-网络编程">
-<meta name="twitter:description" content="网络编程的三要素IP地址 概念：IP地址是网络中计算机的唯一标识   IP的组成：网络号+主机号">
-<meta name="twitter:image" content="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg">
+<meta name="twitter:title" content="Java-集合（容器）">
+<meta name="twitter:description" content="容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。  Collection接口的子接口包括：Set接口和List接口 Set接口的实现类主要有：HashSet、TreeSet、LinkedHashSet等 List接口的实现类主要有：ArrayList、LinkedList、Stack以及Vector等">
+<meta name="twitter:image" content="https://i.loli.net/2018/08/17/5b76c7bcdd000.png">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/11/Java-网络编程/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/17/Java-集合容器/"/>
 
 
 
 
 
-  <title>Java-网络编程 | Welcome Hexo</title>
+  <title>Java-集合（容器） | Welcome Hexo</title>
   
 
 
@@ -301,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/11/Java-网络编程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/Java-集合容器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guoLipa">
@@ -318,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java-网络编程</h1>
+          <h1 class="post-title" itemprop="name headline">Java-集合（容器）</h1>
         
 
         <div class="post-meta">
@@ -330,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T16:27:28+08:00">
-                2018-08-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T20:48:20+08:00">
+                2018-08-17
               </time>
             
 
@@ -353,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -390,126 +392,335 @@
       
 
       
-        <p><img src="https://i.loli.net/2018/08/12/5b6f95eb734e0.jpg" alt="网络结构"></p>
-<h2 id="网络编程的三要素"><a href="#网络编程的三要素" class="headerlink" title="网络编程的三要素"></a>网络编程的三要素</h2><h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a><strong>IP地址</strong></h3><ul>
-<li><strong>概念</strong>：IP地址是网络中计算机的唯一标识  </li>
-<li><p><strong>IP的组成</strong>：网络号+主机号  </p>
-<a id="more"></a>  
-<p><strong>java提供了InetAddress类来对IP地址解析和操作</strong></p>
-<blockquote>
-<p>确定主机名称的IP地址<br><code>public static InetAddress getByName(String host)</code><br>获取此IP地址的主机名<br> <code>public String getHostName()</code></p>
-</blockquote>
-</li>
+        <p>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。</p>
+<ul>
+<li>Collection接口的子接口包括：Set接口和List接口<ul>
+<li>Set接口的实现类主要有：HashSet、TreeSet、LinkedHashSet等</li>
+<li>List接口的实现类主要有：ArrayList、LinkedList、Stack以及Vector等</li>
 </ul>
-<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a><strong>端口</strong></h3><ul>
-<li>端口是正在运行程序的标识</li>
-</ul>
-<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a><strong>协议</strong></h3><ul>
-<li><p>UDP<br> 将数据源和目的地封装在数据包中，无连接，是不可靠协议，不需要建立连接，速度快</p>
 </li>
-<li><p>TCP<br> 建立连接，形成传输数据的通道，在连接中进行大数据量的传输，通过三次握手完成连接，是可靠地，效率会低</p>
-</li>
+<li>Map接口的实现类主要有：HashMap、TreeMap、Hashtable、ConcurrentHashMap以及Properties等</li>
 </ul>
-<h2 id="Socket网络编程"><a href="#Socket网络编程" class="headerlink" title="Socket网络编程"></a>Socket网络编程</h2><p>Socket包含了IP地址和端口号<br>Socket原理机制：通信的两端都有Socket，网络通信其实是Socket间的通信，数据在两个Socket间通过IO传输  </p>
-<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p> UDP使用<strong>DatagramSocket</strong>类用于发送和接收数据报数据包  </p>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p>网上博客教程：<br><a href="https://blog.csdn.net/feiyanaffection/article/details/81394745" title="集合" target="_blank" rel="noopener">https://blog.csdn.net/feiyanaffection/article/details/81394745</a></p>
 <blockquote>
-<p>构造方法：<br><code>public DatagramSocket()</code>—发送数据使用的构造方法<br><code>public DatagramSocket(int port)</code>—接收数据使用的构造方法<br>主要成员方法：<br><code>public void close()</code>关闭此数据报套接字<br><code>public void send(DatagramPacket p)</code>从此套接字发送数据报包<br><code>public void receive(DatagramPacket p)</code>从此套接字接收数据报包</p>
-</blockquote>
-<p>发送和接收的数据是DatagramPacket类的，该类表示数据报包，send方法中需要传递DatagramPacket对象</p>
-<blockquote>
-<p>构造方法：<br><code>public DatagramPacket(byte[] buf,int length,InetAddress address,int port)</code>–发送数据使用的构造方法<br><code>public DatagramPacket(byte[] buf,int length)</code>  –接收数据使用的构造方法<br>buf - 分组数据<br>length - 包长度<br>address - 目的地址<br>port - 目的端口号<br>主要成员方法：<br><code>public byte[] getData()</code>返回数据缓冲区<br><code>public int getLength()</code>返回要发送的数据的长度或接收到的数据的长度<br><code>public InetAddress getAddress()</code>返回该数据报发送或接收数据报的计算机的IP地址  </p>
-</blockquote>
-<p>UDP协议发送数据<br>  1.创建发送端Socket对象<br>  2.创建数据并打包<br>  3.调用Socket对象的发送方法发送数据<br>  4.释放资源    </p>
-<p>下面为实现UDP协议发送数据  </p>
-<blockquote>
-<pre><code>public class send{  
-      public static void main(String[] args){
-      //创建发送端Socket
-          DatagramSocket ds=new DatagramSocket();
-      //创建数据并打包
-          byte[] bys=&quot;UDP协议发送的数据&quot;.getBytes();
-          int length=bys.length;
-          //发送数据的目的IP地址
-          InetAddress address=InetAddress.getByName(&quot;主机名&quot;)；
-          //发送端计算机的端口
-          int port=10086;
-          DatagramPacket dp=new DatagramPacket(bys,length,address,port);
-      //发送数据
-          ds.send(dp);
-      //释放资源
-          ds.close();
-    }
-}
+<pre><code>public interface Collection&lt;E&gt;  
+extends Iterable&lt;E&gt; 
 </code></pre></blockquote>
-<p>UDP协议接收数据<br>1.创建接收端Socket<br>2.创建数据包接收数据（接受容器）<br>3.用Socket接受方法接收数据<br>4.解析数据输出<br>5.释放资源  </p>
-<p>下面为实现UDP协议接收数据</p>
-<blockquote>
-<pre><code> public class Receive {
-     public static void main(String[] args) throws IOException {
-       // TODO Auto-generated method stub
-       //创建接收端Socket
-       DatagramSocket ds=new DatagramSocket(10086);
-       //创建数据包接收
-       byte[] bys=new byte[1024];
-       int length=bys.length;
-       DatagramPacket dp=new DatagramPacket(bys,length);
-       //接收数据
-       ds.receive(dp);
-       //解析数据
-       InetAddress address=dp.getAddress();
-       String ip=address.getHostAddress();
-       byte[] bys2=dp.getData();
-       int len=dp.getLength();
-       String s=new String(bys2,0,len);
-       System.out.println(ip+&quot;:&quot;+s);
-       //释放资源
-       ds.close();
-    }
-}
+<p><img src="https://i.loli.net/2018/08/17/5b76c7bcdd000.png" alt="Collection">  </p>
+<h2 id="Collection接口的常用方法"><a href="#Collection接口的常用方法" class="headerlink" title="Collection接口的常用方法"></a>Collection接口的常用方法</h2><blockquote>
+<p>添加功能  </p>
+<pre><code>boolean add(E e)   
+boolean addAll(Collection&lt;? extends E&gt; c) 添加一个集合的元素
+</code></pre><p>删除功能  </p>
+<pre><code>void clear() 从此集合中删除所有元素
+boolean remove(Object o)
+boolean removeAll(Collection&lt;?&gt; c) 删除指定集合中包含的所有此集合的元素
+</code></pre><p>判断功能</p>
+<pre><code>boolean contains(Object o)  如果此集合包含指定的元素，则返回true 
+boolean containsAll(Collection&lt;?&gt; c)  如果此集合包含指定 集合中的所有元素，则返回true
+boolean isEmpty()  如果此集合不包含元素，则返回 true   
+</code></pre><p>长度功能  </p>
+<pre><code>int size() 返回此集合中的元素数
 </code></pre></blockquote>
-<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP协议发送数据 （客户端）<br>1.创建发送端Socket<br>2.获取输出流写数据<br>3.释放资源      </p>
-<p>TCP发送客户端使用的是Socket类  </p>
+<p>交集功能</p>
 <blockquote>
-<p>构造方法：<br><code>public Socket(InetAddress address,int port)</code><br><code>public Socket(String host,int port)</code><br>主要成员方法：<br><code>public void close()</code>关闭<br><code>public OutputStream getOutputStream()</code>返回此套接字的输出流   </p>
+<pre><code>boolean retainAll(Collection&lt;?&gt; c)  两个集合都有的元素
+a.retainAll(b)  a和b做交集，结果保存在a中，b不变，返回的boolean值表示a是否发生变化
+</code></pre></blockquote>
+<h2 id="一、List"><a href="#一、List" class="headerlink" title="一、List"></a>一、List</h2><blockquote>
 </blockquote>
+<pre><code>public interface List&lt;E&gt;  
+extends Collection&lt;E&gt;  
+</code></pre><p>List-有序集合（存储和取出的元素一致）（也称为序列 ），可以精确控制列表中每个元素的插入位置，通过整数索引（列表中的位置）访问元素，并搜索列表中的元素，列表通常允许重复的元素  </p>
+<h3 id="1-List的特有方法"><a href="#1-List的特有方法" class="headerlink" title="1. List的特有方法"></a>1. List的特有方法</h3><blockquote>
+<pre><code>void add(int index,E element) 将指定的元素插入此列表中的指定位置
+</code></pre></blockquote>
 <blockquote>
-<pre><code>public class TSend {  
+<pre><code>E get(int index) 返回此列表中指定位置的元素
+</code></pre></blockquote>
+<blockquote>
+<pre><code>ListIterator&lt;E&gt; listIterator() 返回列表中的列表迭代器（按适当的顺序）
+</code></pre></blockquote>
+<blockquote>
+<pre><code>E remove(int index) 删除该列表中指定位置的元素
+</code></pre></blockquote>
+<blockquote>
+<pre><code>E set(int index, E element) 用指定的元素替换此列表中指定位置的元素
+</code></pre></blockquote>
+<h3 id="2-List的类型分类"><a href="#2-List的类型分类" class="headerlink" title="2. List的类型分类"></a>2. List的类型分类</h3><p><strong>各类型特点对比：</strong></p>
+<ul>
+<li>ArrarList：底层数据结构是数组，支持随机访问，查询快，增删慢  <ul>
+<li><strong>线程不安全，效率高</strong>      </li>
+</ul>
+</li>
+<li>Vector：    底层数据结构是数组，查询快，增删慢  <ul>
+<li><strong>线程安全，效率低 </strong> </li>
+</ul>
+</li>
+<li>LinkedList：低层数据结构是双向链表，查询慢（只能顺序访问），但是可以快速地在链表中间插入和删除元素增删快。LinkedList还可以用作栈、队列、双向队列  <ul>
+<li><strong>线程不安全，效率高</strong> </li>
+</ul>
+</li>
+</ul>
+<h3 id="3-LinkedList"><a href="#3-LinkedList" class="headerlink" title="3. LinkedList"></a>3. LinkedList</h3><p>LinkedList的基本方法：</p>
+<blockquote>
+<pre><code> public void addFirst(E e) 在列表的头部插入元素
+ public void addLast(E e) 在列表尾部插入元素
 
-    public static void main(String[] args) throws IOException {
-        //创建Socket
-        Socket s=new Socket(&quot;daw-PC&quot;,10086);
-        //获取输出流写数据
-        OutputStream os=s.getOutputStream();
-        os.write(&quot;TCP发送数据&quot;.getBytes());
-        //释放资源
-        s.close();
-    }  
+ public E getFirst() 返回此列表中的第一个元素。 
+ public E getLast() 返回此列表中的最后一个元素
+
+public E removeFirst() 从此列表中删除并返回第一个元素
+ public E removeLast() 从此列表中删除并返回最后一个元素
+</code></pre></blockquote>
+<h3 id="4-ArrayList与LinkedList的区别和适用场景"><a href="#4-ArrayList与LinkedList的区别和适用场景" class="headerlink" title="4. ArrayList与LinkedList的区别和适用场景"></a>4. ArrayList与LinkedList的区别和适用场景</h3><ul>
+<li><p>Arraylist：</p>
+<ul>
+<li>优点：ArrayList是实现了基于动态数组的数据结构,因为地址连续，一旦数据存储好了，查询操作效率会比较高（在内存里是连着放的）。</li>
+<li>缺点：因为地址连续， ArrayList要移动数据,所以插入和删除操作效率比较低。</li>
+</ul>
+</li>
+<li><p>LinkedList：</p>
+<ul>
+<li>优点：LinkedList基于链表的数据结构,地址是任意的，所以在开辟内存空间的时候不需要等一个连续的地址，对于新增和删除操作add和remove，LinedList比较占优势。LinkedList 适用于要头尾操作或插入指定位置的场景</li>
+<li>缺点：因为LinkedList要移动指针,所以查询操作性能比较低。</li>
+</ul>
+</li>
+<li><p>适用场景分析：</p>
+<ul>
+<li>当需要对数据进行对此访问的情况下选用ArrayList，</li>
+<li>当需要对数据进行多次增加删除修改时采用LinkedList。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-ArrayList与Vector的区别和适用场景"><a href="#5-ArrayList与Vector的区别和适用场景" class="headerlink" title="5. ArrayList与Vector的区别和适用场景"></a>5. ArrayList与Vector的区别和适用场景</h3><ul>
+<li><p>ArrayList有三个构造方法：</p>
+<pre><code>public ArrayList(int initialCapacity)//构造一个具有指定初始容量的空列表。    
+public ArrayList()      //默认构造一个初始容量为10的空列表。    
+public ArrayList(Collection&lt;? extends E&gt; c)//构造一个包含指定 collection 的元素的列表
+</code></pre></li>
+<li><p>Vector有四个构造方法：</p>
+<pre><code>public Vector()//使用指定的初始容量和等于0的容量增量构造一个空向量。    
+public Vector(int initialCapacity)//构造一个空向量，使其内部数据数组的大小，其标准容量增量为零。    
+public Vector(Collection&lt;? extends E&gt; c)//构造一个包含指定 collection 中的元素的向量    
+public Vector(int initialCapacity,int capacityIncrement)//使用指定的初始容量和容量增量构造一个空的向量    
+</code></pre></li>
+<li><p>ArrayList和Vector都是用数组实现的，主要有这么三个区别：</p>
+<ul>
+<li>1）.Vector是多线程安全的，线程安全就是说多线程访问同一代码，不会产生不确定的结果。而ArrayList不是，这个可以从源码中看出，Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比；</li>
+<li>2）两个都是采用的线性连续空间存储元素，但是当空间不足的时候，两个类的增加方式是不同。</li>
+<li>3）Vector可以设置增长因子，而ArrayList不可以。</li>
+<li>4）Vector是一种老的动态数组，是线程同步的，效率很低，一般不赞成使用。</li>
+</ul>
+</li>
+</ul>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>Vector是线程同步的，所以它也是线程安全的，而ArrayList是线程异步的，是不安全的。如果不考虑到线程的安全因素，一般用ArrayList效率比较高。</li>
+<li>如果集合中的元素的数目大于目前集合数组的长度时，在集合中使用数据量比较大的数据，用Vector有一定的优势。</li>
+</ul>
+<h2 id="二、迭代器"><a href="#二、迭代器" class="headerlink" title="二、迭代器"></a>二、迭代器</h2><p><img src="https://i.loli.net/2018/08/18/5b777897623d3.png" alt="迭代器"></p>
+<p>迭代器是一种对象，它的功能是遍历并选择序列中的对象。  </p>
+<h3 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h3><p>Collection 实现了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。</p>
+<p>Collection获取迭代器的方法：  </p>
+<blockquote>
+</blockquote>
+<pre><code>Iterator&lt;E&gt; iterator()  返回此集合中的元素的迭代器  
+</code></pre><p>Iterator接口的常用方法：</p>
+<blockquote>
+</blockquote>
+<pre><code>boolean hasNext() 判断集合里是否有元素
+E next() 获取元素并移动到下一个元素  
+</code></pre><p><strong>集合的使用步骤</strong>：  </p>
+<blockquote>
+</blockquote>
+<pre><code>A:创建集合对象    
+    Collection c = new ArrayList();  
+B:创建元素对象    
+    Object obj=.....  
+C：元素添加到集合        
+    c.add(obj)  
+D：遍历集合元素  
+    a:用过集合获取迭代器对象    
+        Iterator it = c.iterator()  
+    b:通过迭代器对象的hasNext()方法判断是否有元素    
+        boolean flag = it.hasNext()  
+    c:通过迭代器next()方法获取元素        
+        Object obje = it.next()  
+</code></pre><p><strong>集合的遍历</strong>（以List类型为例，Set同理）<br>第一种：<strong>迭代器遍历</strong> </p>
+<blockquote>
+</blockquote>
+<pre><code>//部分伪代码，E代表某种类型
+List&lt;E&gt; list=new List&lt;E&gt;();
+list.add(E a);
+list.add(E b);
+//假设list里已经添加多个E类型的对象，可以遍历
+Iterator it=list.iterator();
+while(it.hasNext()){
+    E e=it.next();
+    print(e);
+}
+</code></pre><p>第二种：<strong>foreach方法</strong>（增强for循环）  </p>
+<blockquote>
+<!--lang:java-->
+<pre><code>List&lt;E&gt; list=new List&lt;E&gt;();
+list.add(E a);
+list.add(E b);
+.......
+for(E e:list){
+    print(e);
+</code></pre></blockquote>
+<pre><code>}
+-------------------
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;a&quot;);
+list.add(&quot;b&quot;);
+for (String item : list) {
+    System.out.println(item);
 } 
-</code></pre></blockquote>
-<p>TCP协议接收数据（服务器）<br>1.创建接收端Socket<br>2.监听客户端连接，返回对应的Socket对象<br>3.获取输入流读数据<br>4.释放资源      </p>
-<p>TCP接收客户端使用的是ServeSocket类</p>
+</code></pre><h3 id="ListIterator"><a href="#ListIterator" class="headerlink" title="ListIterator"></a>ListIterator</h3><p>ListIterator是Iterator的子类，只用于List类集合，Iterator只能单向移动，而ListIterator可以双向移动<br>主要方法：</p>
 <blockquote>
-<p>构造方法：<br><code>public ServerSocket(int port)</code><br>成员方法：<br><code>public Socket accept()</code>监听 ，返回的是Scoket类，所以需要Socket类的方法<br>Socket类的—<code>public InputStream getInputStream()</code>返回此套接字的输入流</p>
 </blockquote>
-<blockquote>
-<pre><code>public class TReceive {
-    public static void main(String[] args) throws IOException {
-        //创建接收端Socket
-        ServerSocket ss=new ServerSocket(10086);
-        //监听客户端
-        Socket s=ss.accept();
-        //获取输入流写数据
-        InputStream is=s.getInputStream();
-        byte[] bys=new byte[1024];
-        int len=is.read(bys);
-        String str=new String(bys,0,len);
-        System.out.println(str);
-        //释放资源，注意不关闭服务器
-        s.close();
-    }
-}
-</code></pre></blockquote>
+<pre><code>继承了Iterator的功能（hasNext(),next())
+</code></pre><blockquote>
+</blockquote>
+<pre><code>boolean hasPrevious() 返回true如果遍历反向列表，列表迭代器有多个元素
+E previous() 返回列表中的上一个元素，并向后移动光标位置
+int nextIndex() 返回由后续调用返回的元素的索引next() 
+int previousIndex() 返回由后续调用previous()返回的元素的索引
+</code></pre><h2 id="三、Set"><a href="#三、Set" class="headerlink" title="三、Set"></a>三、Set</h2><h3 id="1-Set类型"><a href="#1-Set类型" class="headerlink" title="1. Set类型"></a>1. Set类型</h3><p>与List集合不同的是，Set集合不保存重复的元素  </p>
+<ul>
+<li><p><strong>TreeSet</strong>：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素&gt;的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1),TreeSet 则为 O(logN)</p>
+</li>
+<li><p><strong>HashSet</strong>：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的</p>
+</li>
+<li><p><strong>LinkedHashSet</strong>：具有 HashSet的查找效率，且内部使用双向链表维护元素的插入顺序 </p>
+</li>
+<li><p><strong>HashSet提供最快的查询速度，TreeSet保持元素处于排序状态，LinkedHashSet以插入顺序保存元素</strong></p>
+</li>
+</ul>
+<h4 id="1）HashSet"><a href="#1）HashSet" class="headerlink" title="1）HashSet"></a>1）HashSet</h4><p><strong>HashSet保证集合元素唯一性的原理：</strong>  </p>
+<ul>
+<li><p>HashSet线程不安全，效率高，可以存储null元素，元素的唯一性是靠所存储元素类型是否重写hashCode()和equals()方法来保证的，如果没有重写这两个方法，则无法保证元素的唯一性。</p>
+</li>
+<li><p>具体实现唯一性的比较过程：</p>
+<ul>
+<li><p>存储元素首先会使用hash()算法函数生成一个int类型hashCode散列值，然后已经的所存储的元素的hashCode值比较：</p>
+<ul>
+<li>如果hashCode不相等，则所存储的两个对象一定不相等，此时存储当前的新的hashCode值处的元素对象；</li>
+<li>如果hashCode相等，存储元素的对象还是不一定相等，此时会调用equals()方法判断两个对象的内容是否相等，如果内容相等，那么就是同一个对象，无需存储；如果比较的内容不相等，那么就是不同的对象，就该存储了，此时就要采用哈希的解决地址冲突算法，在当前hashCode值处类似一个新的链表， 在同一个hashCode值的后面存储存储不同的对象，这样就保证了元素的唯一性。</li>
+</ul>
+</li>
+<li><p>Set的实现类的集合对象中不能够有重复元素，HashSet也一样他是使用了一种标识来确定元素的不重复，HashSet用一种算法来保证HashSet中的元素是不重复的， HashSet采用哈希算法，底层用数组存储数据。默认初始化容量16，加载因子0.75。</p>
+</li>
+<li><p>Object类中的hashCode()的方法是所有子类都会继承这个方法，这个方法会用Hash算法算出一个Hash（哈希）码值返回，HashSet会用Hash码值去和数组长度取模， 模（这个模就是对象要存放在数组中的位置）相同时才会判断数组中的元素和要加入的对象的内容是否相同，如果不同才会添加进去。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2）TreeSet"><a href="#2）TreeSet" class="headerlink" title="2）TreeSet"></a>2）TreeSet</h4><ul>
+<li><p>TreeSet底层数据结构采用<strong>二叉树</strong>来实现，元素唯一且已经排好序；<strong>唯一性同样需要重写hashCode和equals()方法，二叉树结构保证了元素的有序性</strong>。</p>
+</li>
+<li><p>根据构造方法不同，分为<strong>自然排序（无参构造）</strong>和<strong>比较器排序（有参构造）</strong>：</p>
+<ul>
+<li>自然排序要求元素必须实现Compareable接口，并重写里面的compareTo()方法，元素通过比较返回的int值来判断排序序列，返回0说明两个对象相同，不需要存储；</li>
+<li><p>比较器排需要在TreeSet初始化是时候传入一个实现Comparator接口的比较器对象，或者采用匿名内部类的方式new一个Comparator对象，重写里面的compare()方法；</p>
+<p>基于TreeMap实现，使用元素的自然顺序对元素进行排序，或者使用set提供的comparator方法排序，<br>具体使用时取决于使用的构造方法  </p>
+<p>  A:自然排序：真正依赖于compareTo()方法，</p>
+<pre><code>这个方法定义在Comparable中，所以想重写该方法，就要实现Comparable接口，这个接口表示自然排序
+例如：定义学生类时实现Comparable接口
+public class Student implements Comparable&lt;T&gt;{
+         @override
+         public int compareTo(T t){
+         ..........
+         主要条件
+         次要条件
+         }
+ }  
+</code></pre><p>  B:比较器排序:comparator方法,</p>
+<pre><code>TreeSet的add()方法，是基于TreeMap方法的put()方法
+public TreeSet(Comparator&lt;? super E&gt; comparator    )
+  构造一个新的，空的树集，根据指定的比较器进行排序
 
+TreeSet&lt;Student&gt; ts = new TreeSet&lt;Student&gt;(new Comparator&lt;Student&gt;(){
+   public int compare(Student s1,Student s2){
+      ...........
+   }
+};)
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-适用场景分析"><a href="#2-适用场景分析" class="headerlink" title="2. 适用场景分析"></a>2. 适用场景分析</h3><ul>
+<li>TreeSet 是二插树（红黑树的树据结构）实现的,Treeset中的数据是自动排好序的，不允许放入null值</li>
+<li>HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，就如数据库中唯一约束</li>
+<li>HashSet要求放入的对象必须实现HashCode()方法，放入的对象，是以hashcode码作为标识的，而具有相同内容的String对象，hashcode是一样，所以放入的内容不能重复。但是同一个类的对象可以放入不同的实例</li>
+</ul>
+<p><strong>适用场景分析:</strong><br>HashSet是基于Hash算法实现的，其性能通常都优于TreeSet。为快速查找而设计的Set，我们通常都应该使用HashSet，在我们需要排序的功能时，我们才使用TreeSet。</p>
+<h2 id="四、Map"><a href="#四、Map" class="headerlink" title="四、Map"></a>四、Map</h2><pre><code>public interface Map&lt;K,V&gt;  
+</code></pre><p><img src="https://i.loli.net/2018/08/18/5b779aa84be99.png" alt="Map"> </p>
+<p>Map将键映射到值的对象。 地图不能包含重复的键; 每个键可以映射到最多一个值 </p>
+<h3 id="1-Map的基本类型"><a href="#1-Map的基本类型" class="headerlink" title="1. Map的基本类型"></a>1. Map的基本类型</h3><ul>
+<li><strong>TreeMap：</strong>基于红黑树实现，保证唯一性和排序</li>
+<li><strong>HashMap：</strong>基于哈希表实现</li>
+<li><strong>HashTable</strong>：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。  </li>
+<li><strong>ConcurrentHashMap</strong>：现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</li>
+<li><strong>LinkedHashMap</strong>：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序    </li>
+<li><strong>HashMap用来快速访问，TreeMap保持键排序，LinkedHashMap保持元素插入的顺序，也通过散列提供快速访问能力</strong></li>
+</ul>
+<h3 id="2-Map基本方法功能"><a href="#2-Map基本方法功能" class="headerlink" title="2. Map基本方法功能"></a>2. Map基本方法功能</h3><blockquote>
+<pre><code>   添加
+       V put(K key,V value) 将指定的值与该映射中的指定键相关联
+       如果键是第一次存储，直接存储元素，返回null；
+       如果不是第一次添加键值，就用新的值替换旧的值，并返回旧的值。
+
+删除
+void clear()  
+    从该地图中删除所有的映射
+V remove(Object key) 删除并返回
+    删除集合里存在的键，返回建的值，如果不存在返回null
+
+判断
+boolean containsKey(Object key) 
+    如果此映射包含指定键的映射，则返回true 
+boolean containsValue(Object value) 
+    如果此映射将一个或多个键映射到指定的值，则返回true
+boolean isEmpty() 
+    判断集合是否为空
+
+获取
+V get(Object key)  返回到指定键所映射的值        
+Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()  返回此地图中包含的映射的Set视图        
+Set&lt;K&gt; keySet()  返回此地图中包含的键的Set视图        
+Collection&lt;V&gt; values()  返回此地图中包含的值的Collection视图
+
+长度
+int size()  返回此地图中键值映射的数量
+</code></pre></blockquote>
+<h3 id="Map集合的遍历"><a href="#Map集合的遍历" class="headerlink" title="Map集合的遍历"></a>Map集合的遍历</h3><blockquote>
+<pre><code>//创建集合
+Map&lt;String,String&gt; map=new Map&lt;String,String&gt;();
+//添加数据
+map.put(&quot;德国&quot;,&quot;克罗斯&quot;);
+map.put(&quot;法国&quot;,&quot;格列兹曼&quot;);
+map.put(&quot;比利时&quot;,&quot;德布劳内&quot;);
+</code></pre></blockquote>
+<p>方式一：</p>
+<pre><code>//获取键值集合
+Set&lt;String&gt; set=map.keySet();
+for(String s:set){
+    v=map.get(s);
+    System.out.println(s+&quot;---&gt;&quot;+v);    
+}  
+</code></pre><p>方式二：</p>
+<pre><code>//获取映射Set集合
+Set&lt;Map.Entry&lt;String,String&gt; set=map.entrySet();
+for(Map.Entry&lt;String,String&gt; m:set){
+    key=m.getKey();
+    value=m.getValue();
+    System.out.println(key+&quot;---&gt;&quot;+value);    
+}
+</code></pre>
       
     </div>
     
@@ -526,7 +737,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
         </div>
       
@@ -539,8 +750,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/21/Chenwang Zheng/" rel="next" title="Chenwang Zheng">
-                <i class="fa fa-chevron-left"></i> Chenwang Zheng
+              <a href="/2018/08/11/Java-网络编程/" rel="next" title="Java-网络编程">
+                <i class="fa fa-chevron-left"></i> Java-网络编程
               </a>
             
           </div>
@@ -549,8 +760,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/17/Java-集合容器/" rel="prev" title="Java-集合（容器）">
-                Java-集合（容器） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/18/Java算法-基础/" rel="prev" title="算法-基本数据结构">
+                算法-基本数据结构 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -715,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程的三要素"><span class="nav-number">1.</span> <span class="nav-text">网络编程的三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址"><span class="nav-number">1.1.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口"><span class="nav-number">1.2.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket网络编程"><span class="nav-number">2.</span> <span class="nav-text">Socket网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP"><span class="nav-number">2.1.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">2.2.</span> <span class="nav-text">TCP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">1.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection接口的常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Collection接口的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、List"><span class="nav-number">1.2.</span> <span class="nav-text">一、List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-List的特有方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. List的特有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-List的类型分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. List的类型分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LinkedList"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-ArrayList与LinkedList的区别和适用场景"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. ArrayList与LinkedList的区别和适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ArrayList与Vector的区别和适用场景"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. ArrayList与Vector的区别和适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、迭代器"><span class="nav-number">1.3.</span> <span class="nav-text">二、迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator迭代器"><span class="nav-number">1.3.1.</span> <span class="nav-text">Iterator迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListIterator"><span class="nav-number">1.3.2.</span> <span class="nav-text">ListIterator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Set"><span class="nav-number">1.4.</span> <span class="nav-text">三、Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Set类型"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. Set类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）HashSet"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">1）HashSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）TreeSet"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">2）TreeSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-适用场景分析"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 适用场景分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Map"><span class="nav-number">1.5.</span> <span class="nav-text">四、Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Map的基本类型"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. Map的基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Map基本方法功能"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. Map基本方法功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map集合的遍历"><span class="nav-number">1.5.3.</span> <span class="nav-text">Map集合的遍历</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
