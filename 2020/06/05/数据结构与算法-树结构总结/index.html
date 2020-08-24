@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/06/05/mZovtxN8V1pfSbk.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/21/KzVTrMHnQevdNER.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/21/Jcegmsu1NnO6HQ4.png">
-<meta property="og:updated_time" content="2020-08-16T03:06:54.573Z">
+<meta property="og:updated_time" content="2020-08-22T11:44:43.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法-树结构总结">
 <meta name="twitter:description" content="“树”是数据结构中常见的非线性存储结构。在“树”结构中有一些常用的术语，总结为下：  父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点。 子节点：一个节点含有的子树的根节点称为该节点的子节点。 兄弟节点：拥有共同父节点的节点互称为兄弟节点。 度：节点的子树数目就是节点的度。 叶子节点：度为零的节点就是叶子节点。 节点的层次：从根节点开始，根节点为第一层，根的子节点为第二层，以此类推。">
@@ -418,8 +418,16 @@
 </li>
 </ul>
 </li>
-<li><p><strong>二叉树的性质：</strong></p>
+<li><p>判断一颗二叉树是否为完全二叉树</p>
 <ul>
+<li><p>思路：利用层序遍历，如果我们当前遍历到了NULL结点，如果后续还有非NULL结点，说明是非完全二叉树</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">isBCT</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> Queue&lt;TreeNode&gt;();</span><br><span class="line">    <span class="keyword">boolean</span> leaf = <span class="keyword">false</span>;</span><br><span class="line">    q.push(root);</span><br><span class="line">    <span class="keyword">while</span>(q!=<span class="keyword">null</span>)&#123;</span><br><span class="line">        node = q.pop();</span><br><span class="line">        <span class="comment">//如果已经碰到叶子结点，判断之后是否遇到非叶子节点</span></span><br><span class="line">        <span class="keyword">if</span>((leaf&amp;&amp;(node.left!=<span class="keyword">null</span>||node.right!=<span class="keyword">null</span>))||(node.left==<span class="keyword">null</span>&amp;&amp;node.right!=<span class="keyword">null</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>（node.left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            q.push(node.left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            q.push(node.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断是否为叶子节点</span></span><br><span class="line">        <span class="keyword">if</span>((node.left!=<span class="keyword">null</span>&amp;&amp;node.right==<span class="keyword">null</span>)||(node.left==<span class="keyword">null</span>&amp;&amp;node.right==<span class="keyword">null</span>))&#123;</span><br><span class="line">            leaf=<span class="keyword">true</span>;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    reurn <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>二叉树的性质：</strong><ul>
 <li>在非空二叉树中，第i层的结点总数不超过2i-1, i&gt;=1;</li>
 <li>深度为d的二叉树最多有2d-1个结点(d&gt;=1)，最少有d个结点;</li>
 <li><strong>具有n个结点的完全二叉树的深度为log2(n+1)</strong>；</li>
@@ -434,6 +442,13 @@
 <li>左、右子树也分别为二叉排序树；　　</li>
 <li><p>没有键值相等的节点。</p>
 <p>示例左边的是BST，右边的不是：<br><img src="https://i.loli.net/2020/06/05/mZovtxN8V1pfSbk.png" alt="3.PNG"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>判断一颗二叉树是否为BST树</strong></p>
+<ul>
+<li><p>思路：根据二叉查找树的性质我们可以知道：<strong>如果我们用中序遍历遍历二叉查找树的话，遍历到的每个节点是依次增大的。根据这个思路，我们可以遍历一遍树，将遍历到的值保存到数组中，然后再判断这个数组是否为递增数组就可以了</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归实现    </span></span><br><span class="line"><span class="keyword">int</span> last = Integer.MIN_VALUE;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">isBST</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!isBST(root.left))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(root.val &lt;= last)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    last = root.val;</span><br><span class="line">    <span class="keyword">if</span>(!isBST(root.right))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;   </span><br><span class="line"><span class="comment">//非递归实现</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
