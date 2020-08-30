@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/08/27/toeROByMuE3SFUQ.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/kOKzbjgNV9flY2S.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/c3y7NVljniuPAUf.png">
-<meta property="og:updated_time" content="2020-08-27T13:57:50.173Z">
+<meta property="og:updated_time" content="2020-08-27T14:26:58.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库系统原理总结">
 <meta name="twitter:description" content="一、事务概念事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 事务的四大特征：ACID1. 原子性（Atomicity）事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。 2. 一">
@@ -409,7 +409,7 @@
 <h3 id="3-隔离性（Isolation）"><a href="#3-隔离性（Isolation）" class="headerlink" title="3. 隔离性（Isolation）"></a>3. 隔离性（Isolation）</h3><p>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</p>
 <h3 id="4-持久性（Durability）"><a href="#4-持久性（Durability）" class="headerlink" title="4. 持久性（Durability）"></a>4. 持久性（Durability）</h3><p>一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务执行的结果也不能丢失。</p>
 <p>系统发生奔溃可以用重做日志（Redo Log）进行恢复，从而实现持久性。与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
-<p>######———————————————————————————————————————-</p>
+<p>#####———————————————————————————————————————-</p>
 <p>事务的 ACID 特性概念简单，但不是很好理解，主要是因为这几个特性不是一种平级关系：</p>
 <ul>
 <li>只有满足一致性，事务的执行结果才是正确的。</li>
