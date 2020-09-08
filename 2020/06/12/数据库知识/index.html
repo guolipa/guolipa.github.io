@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/06/12/n5swaT4cUoBzlh7.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/12/g7nztQ9iUEmcVHF.png">
 <meta property="og:image" content="https://i.loli.net/2020/06/12/bHdXtwSK4RjYJ8v.png">
-<meta property="og:updated_time" content="2020-06-14T14:47:34.216Z">
+<meta property="og:updated_time" content="2020-08-30T10:53:08.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库知识">
 <meta name="twitter:description" content="数据库的基本概念 数据库的英文单词： DataBase 简称 ： DB 什么数据库？     用于存储和管理数据的仓库。   数据库的特点： 持久化存储数据的。其实数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库 — SQL    MySQL数据库Mysql的几个操作：       - MySQL服务启动           1. 手动。           2. cmd--">
@@ -539,11 +539,19 @@
 <p>数据库的数据类型<br><img src="https://i.loli.net/2020/06/12/g7nztQ9iUEmcVHF.png" alt="type.PNG"><br><img src="https://i.loli.net/2020/06/12/bHdXtwSK4RjYJ8v.png" alt="type2.PNG"></p>
 <h2 id="DML-增删改表中数据"><a href="#DML-增删改表中数据" class="headerlink" title="DML: 增删改表中数据"></a>DML: 增删改表中数据</h2><pre><code>1. 增添数据
     * insert into 表名(列名1, ..., 列名n) values（值1, ..., 值n);
-    * 注意：
+    1） 普通插入：
         * 列名和值要一一对应
         * 如果表名后，不定义列名，则默认给所有列添加值
             insert into 表名 values(值1,值2,...值n);
         * 除了数字类型，其他类型需要使用引号(单双都可以)引起来
+    2） 插入检索出来的数据
+        INSERT INTO mytable1(col1, col2)
+        SELECT col1, col2
+        FROM mytable2;
+
+    3） 将一个表的内容插入到一个新表
+        CREATE TABLE newtable AS
+        SELECT * FROM mytable;
 
 2. 删除数据
     * delete from 表名 where条件;
@@ -1217,7 +1225,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1228,7 +1236,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1239,7 +1247,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
