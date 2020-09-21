@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="一、事务概念事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 事务的四大特征：ACID1. 原子性（Atomicity）事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。 2. 一">
+<meta name="description" content="一、事务概念事务指的是满足 ACID 特性的对数据库的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 当事务被提交给了数据库管理系统（DataBaseManagerService，DBMS），则DBMS需要确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如果事务中有的操作没有成功完成，则事务中的所有操作都需要回滚，回到事务执行前的状态；同时，">
 <meta name="keywords" content="Database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库系统原理总结">
 <meta property="og:url" content="http://yoursite.com/2020/08/12/数据库系统原理总结/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="一、事务概念事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 事务的四大特征：ACID1. 原子性（Atomicity）事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。 2. 一">
+<meta property="og:description" content="一、事务概念事务指的是满足 ACID 特性的对数据库的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 当事务被提交给了数据库管理系统（DataBaseManagerService，DBMS），则DBMS需要确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如果事务中有的操作没有成功完成，则事务中的所有操作都需要回滚，回到事务执行前的状态；同时，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/jFxz25VBpWv4sRC.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/WUJxzpilaXSmrG4.png">
@@ -100,10 +100,11 @@
 <meta property="og:image" content="https://i.loli.net/2020/08/27/toeROByMuE3SFUQ.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/kOKzbjgNV9flY2S.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/27/c3y7NVljniuPAUf.png">
-<meta property="og:updated_time" content="2020-08-27T14:26:58.916Z">
+<meta property="og:image" content="https://i.loli.net/2020/09/21/SkGxbLYUmuj1aIt.png">
+<meta property="og:updated_time" content="2020-09-21T03:04:46.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库系统原理总结">
-<meta name="twitter:description" content="一、事务概念事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 事务的四大特征：ACID1. 原子性（Atomicity）事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。 回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。 2. 一">
+<meta name="twitter:description" content="一、事务概念事务指的是满足 ACID 特性的对数据库的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。 当事务被提交给了数据库管理系统（DataBaseManagerService，DBMS），则DBMS需要确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如果事务中有的操作没有成功完成，则事务中的所有操作都需要回滚，回到事务执行前的状态；同时，">
 <meta name="twitter:image" content="https://i.loli.net/2020/08/27/jFxz25VBpWv4sRC.png">
 
 
@@ -402,15 +403,15 @@
       
 
       
-        <h1 id="一、事务"><a href="#一、事务" class="headerlink" title="一、事务"></a>一、事务</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</p>
-<h2 id="事务的四大特征：ACID"><a href="#事务的四大特征：ACID" class="headerlink" title="事务的四大特征：ACID"></a>事务的四大特征：ACID</h2><h3 id="1-原子性（Atomicity）"><a href="#1-原子性（Atomicity）" class="headerlink" title="1. 原子性（Atomicity）"></a>1. 原子性（Atomicity）</h3><p>事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。</p>
+        <h1 id="一、事务"><a href="#一、事务" class="headerlink" title="一、事务"></a>一、事务</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>事务指的是满足 ACID 特性的对数据库的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</p>
+<p>当事务被提交给了数据库管理系统（DataBaseManagerService，DBMS），则DBMS需要<font color="red">确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如果事务中有的操作没有成功完成，则事务中的所有操作都需要回滚，回到事务执行前的状态</font>；同时，该事务对数据库或者其他事务的执行无影响，所有的事务都好像在独立的运行。</p>
+<h2 id="事务的四大特征：ACID"><a href="#事务的四大特征：ACID" class="headerlink" title="事务的四大特征：ACID"></a>事务的四大特征：ACID</h2><h3 id="1-原子性（Atomicity）"><a href="#1-原子性（Atomicity）" class="headerlink" title="1. 原子性（Atomicity）"></a>1. 原子性（Atomicity）</h3><font color="red">事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。</font>
+
 <p>回滚可以用回滚日志（Undo Log）来实现，回滚日志记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</p>
-<h3 id="2-一致性（Consistency）"><a href="#2-一致性（Consistency）" class="headerlink" title="2. 一致性（Consistency）"></a>2. 一致性（Consistency）</h3><p>数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</p>
-<h3 id="3-隔离性（Isolation）"><a href="#3-隔离性（Isolation）" class="headerlink" title="3. 隔离性（Isolation）"></a>3. 隔离性（Isolation）</h3><p>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</p>
-<h3 id="4-持久性（Durability）"><a href="#4-持久性（Durability）" class="headerlink" title="4. 持久性（Durability）"></a>4. 持久性（Durability）</h3><p>一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务执行的结果也不能丢失。</p>
+<h3 id="2-一致性（Consistency）"><a href="#2-一致性（Consistency）" class="headerlink" title="2. 一致性（Consistency）"></a>2. 一致性（Consistency）</h3><font color="red">数据库在事务执行前后都保持一致性状态</font>。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。<br><br>一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。<br><br>拿转账来说，假设用户A和用户B两者的钱加起来一共是5000，那么不管A和B之间如何转账，转几次账，事务结束后两个用户的钱相加起来应该还得是5000，这就是事务的一致性。<br><br>### 3. 隔离性（Isolation）<br>一个事务所做的修改在最终提交以前，对其它事务是不可见的。<br><br>隔离性是当多个用户并发访问数据库时，比如操作同一张表时，<font color="red">数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离</font>。<br><br>### 4. 持久性（Durability）<br><font color="red">一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务执行的结果也不能丢失。</font>
+
 <p>系统发生奔溃可以用重做日志（Redo Log）进行恢复，从而实现持久性。与回滚日志记录数据的逻辑修改不同，重做日志记录的是数据页的物理修改。</p>
-<p>#####———————————————————————————————————————-</p>
-<p>事务的 ACID 特性概念简单，但不是很好理解，主要是因为这几个特性不是一种平级关系：</p>
+<h5 id="———————————————————————————————————————"><a href="#———————————————————————————————————————" class="headerlink" title="———————————————————————————————————————-"></a>———————————————————————————————————————-</h5><p>事务的 ACID 特性概念简单，但不是很好理解，主要是因为这几个特性不是一种平级关系：</p>
 <ul>
 <li>只有满足一致性，事务的执行结果才是正确的。</li>
 <li>在无并发的情况下，事务串行执行，隔离性一定能够满足。此时只要能满足原子性，就一定能满足一致性。</li>
@@ -419,19 +420,22 @@
 </ul>
 <p><img src="https://i.loli.net/2020/08/27/jFxz25VBpWv4sRC.png" alt="1.png"></p>
 <h3 id="AUTOCOMMIT"><a href="#AUTOCOMMIT" class="headerlink" title="AUTOCOMMIT"></a>AUTOCOMMIT</h3><p>MySQL 默认采用自动提交模式。也就是说，如果不显式使用START TRANSACTION语句来开始一个事务，那么每个查询操作都会被当做一个事务并自动提交。</p>
+<p>数据库事务的三个常用命令：Begin Transaction(开启事务)、Commit Transaction（提交事务）、RollBack Transaction（回滚事务）。</p>
 <h1 id="二、并发一致性问题"><a href="#二、并发一致性问题" class="headerlink" title="二、并发一致性问题"></a>二、并发一致性问题</h1><p>在并发环境下，事务的隔离性很难保证，因此会出现很多并发一致性问题。</p>
-<h2 id="丢失修改"><a href="#丢失修改" class="headerlink" title="丢失修改"></a>丢失修改</h2><p>丢失修改指<strong>一个事务的更新操作被另外一个事务的更新操作替换</strong>。一般在现实生活中常会遇到，例如：T1 和 T2 两个事务都对一个数据进行修改，T1 先修改并提交生效，T2 随后修改，T2 的修改覆盖了 T1 的修改。</p>
-<h2 id="读脏数据"><a href="#读脏数据" class="headerlink" title="读脏数据"></a>读脏数据</h2><p>读脏数据指在不同的事务下，<strong>当前事务可以读到另外事务未提交的数据</strong>。例如：T1 修改一个数据但未提交，T2 随后读取这个数据。如果 T1 撤销了这次修改，那么 T2 读取的数据是脏数据。</p>
-<h2 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h2><p>不可重复读指在一个事务内多次读取同一数据集合。在这一事务还未结束前，另一事务也访问了该同一数据集合并做了修改，由于第二个事务的修改，<strong>第一次事务的两次读取的数据可能不一致</strong>。例如：T2 读取一个数据，T1 对该数据做了修改。如果 T2 再次读取这个数据，此时读取的结果和第一次读取的结果不同</p>
+<h2 id="丢失修改"><a href="#丢失修改" class="headerlink" title="丢失修改"></a>丢失修改</h2><p>丢失修改指<font color="red"><strong>一个事务的更新操作被另外一个事务的更新操作替换</strong></font>。一般在现实生活中常会遇到，例如：T1 和 T2 两个事务都对一个数据进行修改，T1 先修改并提交生效，T2 随后修改，T2 的修改覆盖了 T1 的修改。</p>
+<h2 id="读脏数据"><a href="#读脏数据" class="headerlink" title="读脏数据"></a>读脏数据</h2><p>读脏数据指在不同的事务下，<font color="red"><strong>当前事务可以读到另外事务未提交的数据</strong></font>。例如：T1 修改一个数据但未提交，T2 随后读取这个数据。如果 T1 撤销了这次修改，那么 T2 读取的数据是脏数据。</p>
+<h2 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h2><p>不可重复读指在一个事务内多次读取同一数据集合。在这一事务还未结束前，另一事务也访问了该同一数据集合并做了修改，由于第二个事务的修改，<font color="red"><strong>第一次事务的两次读取的数据可能不一致</strong></font>。例如：T2 读取一个数据，T1 对该数据做了修改。如果 T2 再次读取这个数据，此时读取的结果和第一次读取的结果不同</p>
 <h2 id="幻影读"><a href="#幻影读" class="headerlink" title="幻影读"></a>幻影读</h2><p>幻读本质上也属于不可重复读的情况，T1 读取某个范围的数据，T2 在这个范围内插入新的数据，T1 再次读取这个范围的数据，此时读取的结果和和第一次读取的结果不同。</p>
-<h6 id="——————————————————————————————————————"><a href="#——————————————————————————————————————" class="headerlink" title="——————————————————————————————————————"></a>——————————————————————————————————————</h6><p>产生并发不一致性问题的主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己控制，相当复杂。<strong>数据库管理系统提供了事务的隔离级别</strong>，让用户以一种更轻松的方式处理并发一致性问题。</p>
+<font color="red">幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</font>
+
+<h6 id="——————————————————————————————————————"><a href="#——————————————————————————————————————" class="headerlink" title="——————————————————————————————————————"></a>——————————————————————————————————————</h6><p>产生并发不一致性问题的主要原因是<font color="red">破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己控制，相当复杂。<strong>数据库管理系统提供了事务的隔离级别</strong>，让用户以一种更轻松的方式处理并发一致性问题</font>。</p>
 <h1 id="三、封锁"><a href="#三、封锁" class="headerlink" title="三、封锁"></a>三、封锁</h1><h2 id="封锁粒度"><a href="#封锁粒度" class="headerlink" title="封锁粒度"></a>封锁粒度</h2><p>MySQL 中提供了两种封锁粒度：<strong>行级锁以及表级锁</strong>。</p>
 <p>应该<strong>尽量只锁定需要修改的那部分数据</strong>，而不是所有的资源。锁定的数据量越少，发生锁争用的可能就越小，系统的并发程度就越高。</p>
-<p>但是<strong>加锁需要消耗资源，锁的各种操作（包括获取锁、释放锁、以及检查锁状态）都会增加系统开销。因此封锁粒度越小，系统开销就越大</strong>。</p>
+<p>但是<font color="red"><strong>加锁需要消耗资源，锁的各种操作（包括获取锁、释放锁、以及检查锁状态）都会增加系统开销。因此封锁粒度越小，系统开销就越大</strong>。</font></p>
 <p>在选择封锁粒度时，需要在锁开销和并发程度之间做一个权衡。</p>
 <h2 id="封锁类型"><a href="#封锁类型" class="headerlink" title="封锁类型"></a>封锁类型</h2><h3 id="1-读写锁"><a href="#1-读写锁" class="headerlink" title="1. 读写锁"></a>1. 读写锁</h3><ul>
-<li>互斥锁（Exclusive），简写为 X 锁，又称写锁。</li>
-<li>共享锁（Shared），简写为 S 锁，又称读锁。</li>
+<li><strong>互斥锁</strong>（Exclusive），简写为 X 锁，又称<strong>写锁</strong>。</li>
+<li><strong>共享锁</strong>（Shared），简写为 S 锁，又称<strong>读锁</strong>。</li>
 </ul>
 <p>有以下两个规定：</p>
 <ul>
@@ -499,6 +503,11 @@ SELECT ... FOR UPDATE;
 <p>高级别范式的依赖于低级别的范式，1NF 是最低级别的范式。</p>
 <p>目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。</p>
 <p>满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称为第二范式（2NF），其余范式以次类推。一般说来，数据库只需满足第三范式(3NF）就行了。</p>
+<ul>
+<li><strong>第一范式：</strong>表中每个字段都不能再分。所有字段值都是不可分解的原子值</li>
+<li><strong>第二范式：</strong>满足第一范式并且表中的非主键字段都完全函数依赖于主键字段。（在1NF基础上消除非主属性对主码的部分函数依赖 ） </li>
+<li><strong>第三范式：</strong>满足第二范式并且表中的非主键字段必须不传递依赖于主键字段。 （在2NF基础上消除传递依赖）   </li>
+</ul>
 <h3 id="1-第一范式"><a href="#1-第一范式" class="headerlink" title="1. 第一范式"></a>1. 第一范式</h3><p>第一范式(1NF)：数据库表的每一列都是不可分割的原子数据项，不能是集合、数组等非原子数据项。即第一范式每一列不可再拆分，称为<strong>原子性</strong>。</p>
 <h3 id="2-第二范式"><a href="#2-第二范式" class="headerlink" title="2.第二范式"></a>2.第二范式</h3><p><strong>每个非主属性完全函数依赖于键码（在1NF基础上消除非主属性对主码的部分函数依赖）。可以通过分解来满足</strong>。</p>
 <h4 id="分解前："><a href="#分解前：" class="headerlink" title="分解前："></a>分解前：</h4><p><img src="https://i.loli.net/2020/08/27/6SHdXJCsbjLgf1r.png" alt="2.png"></p>
@@ -536,6 +545,174 @@ SELECT ... FOR UPDATE;
 <li>如果是一对一，画两个带箭头的线段；</li>
 <li>如果是多对多，画两个不带箭头的线段。</li>
 </ul>
+<h1 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h1><h2 id="1-什么叫视图？游标是什么？"><a href="#1-什么叫视图？游标是什么？" class="headerlink" title="1. 什么叫视图？游标是什么？"></a>1. 什么叫视图？游标是什么？</h2><h3 id="视图："><a href="#视图：" class="headerlink" title="视图："></a>视图：</h3><p>为了简化复杂SQL语句编写，以及提高数据库安全性，MySQL数据库视图特性。视图是一张虚拟表，不在数据库中以储存的数据值形式存在。在开发中，开发者往往只对某些特定数据和所负责的特定任务感兴趣,只需要看到这一部分数据即可。这时候就可以用到视图来完成。</p>
+<font color="red">视图是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作。视图通常是有一个表或者多个表的行或列的子集。<strong>它同真实表一样，包含一系列带有名称的行和列数据</strong>。行和列数据来自由定义视图查询所引用的表，并且在应用视图时动态生成。另外，视图还可以在已经存在的视图的基础上定义。</font> 对视图的修改会影响基本表。它使得我们获取数据更容易，相比多表查询。<br><br>### 游标：<br><br>是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。<br><br>## 2.视图的优缺点<br><br>### 优点：<br><br>与直接从真实数据表中进行数据操作相比，视图具有以下的有点：<br><br><font color="red"><strong>（1）简单化</strong></font>
+
+<p> 看到的就是需要的。<strong>视图不仅可以简化用户对数据的理解，也可以简化他们的操作</strong>。那些被<strong>经常使用的查询可以被定义为视图</strong>，从而用户不必为以后的每一次操作指定全部的条件。</p>
+<font color="red"><strong>（2）安全性</strong></font>
+
+<p> <strong>通过视图用户只能查询和修改他们所能看到的数据。数据库中的其他数据则既看不见也取不到。</strong>数据库授权命令可以使每个用户对数据库的检索限制到特定的数据库对象上，但不能限制到特定行和特定列上。但通过视图，用户可以被限制到数据库的行列级别的子集上。</p>
+<font color="red"><strong>（3）逻辑数据独立性</strong></font>
+
+<p> <strong>视图可以帮助用户屏蔽真实表结构变化带来的影响</strong></p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p><strong>性能差：</strong>查询视图时，数据库必须把视图的查询转化成对基本表的查询，如果这个视图是由一个复杂的多表查询所定义，那么，即使是视图的一个简单查询，数据库也要把它变成一个复杂的结合体，需要花费一定的时间。</p>
+<p><strong>修改限制：</strong> 当用户试图修改视图的某些信息时，数据库必须把它转化为对基本表的某些信息的修改，对于简单的视图来说，这是很方便的，但是，对于比较复杂的试图，可能是不可修改的。</p>
+<h2 id="3-存储过程"><a href="#3-存储过程" class="headerlink" title="3. 存储过程"></a>3. 存储过程</h2><h3 id="什么是存储过程？"><a href="#什么是存储过程？" class="headerlink" title="什么是存储过程？"></a>什么是存储过程？</h3><p>存储过程是一个预编译的SQL语句，也可以看成是对一系列 SQL 操作的批处理，一组为了完成特定功能的SQL语句集，它存储在数据库中，一次编译后永久有效，用户通过指定存储过程的名字并给出参数（如果该存储过程带有参数）来调用执行它。</p>
+<p>命令行中创建存储过程需要自定义分隔符，因为命令行是以 ; 为结束符，而存储过程中也包含了分号，因此会错误把这部分分号当成是结束符，造成语法错误。</p>
+<p>包含 in、out 和 inout 三种参数。</p>
+<p>给变量赋值都需要用 select into 语句。</p>
+<p>每次只能给一个变量赋值，不支持集合的操作。</p>
+<pre><code>delimiter //
+
+create procedure myprocedure( out ret int )
+    begin
+        declare y int;
+        select sum(col1)
+        from mytable
+        into y;
+        select y*y into ret;
+    end //
+
+delimiter ;
+
+call myprocedure(@ret);
+select @ret;
+</code></pre><h3 id="存储过程的优点"><a href="#存储过程的优点" class="headerlink" title="存储过程的优点"></a>存储过程的优点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>1）存储过程是预编译过的，执行效率高。</p>
+<p>2）存储过程的代码直接存放于数据库中，通过存储过程名直接调用，减少网络通讯。</p>
+<p>3）安全性高，代码封装， 执行存储过程需要有一定权限的用户。</p>
+<p>4）代码复用，存储过程可以重复使用，可减少数据库开发人员的工作量。</p>
+<p><strong>缺点：</strong></p>
+<p>1）调试麻烦（没有像开发程序那样容易）</p>
+<p>2）可移植性不灵活（因为存储过程依赖于具体的数据库）</p>
+<h3 id="存储过程和函数的区别"><a href="#存储过程和函数的区别" class="headerlink" title="存储过程和函数的区别"></a>存储过程和函数的区别</h3><ol>
+<li><p>一般来说，<font color="red">存储过程实现的功能要复杂一点，而函数的实现的功能针对性比较强</font>。<font color="red">存储过程，功能强大，可以执行包括修改表等一系列数据库操作</font>；用户定义函数不能用于执行一组修改全局数据库状态的操作。</p>
+</li>
+<li><p>对于<font color="red">存储过程来说可以返回参数</font>，如记录集，而<font color="red">函数只能返回值或者表对象。函数只能返回一个变量；而存储过程可以返回多个</font>。存储过程的参数可以有IN,OUT,INOUT三种类型，而函数只能有IN类~~存储过程声明时不需要返回类型，而函数声明时需要描述返回类型，且函数体中必须包含一个有效的RETURN语句。</p>
+</li>
+<li><p><font color="red">存储过程一般是作为一个独立的部分来执行，而函数可以作为查询语句的一个部分来调用</font>，由于函数可以返回一个表对象，因此它可以在查询语句中位于FROM关键字的后面。<font color="red">SQL语句中不可用存储过程，而可以使用函数</font>。函数是可以嵌入在sql中使用的,可以在select中调用，而存储过程不行。</p>
+</li>
+<li><p>当存储过程和函数被执行的时候，SQL Manager会到procedure cache中去取相应的查询语句，如果在procedure cache里没有相应的查询语句，SQL Manager就会对存储过程和函数进行编译。</p>
+</li>
+</ol>
+<p>注：sql语句执行的时候要先编译，然后执行。存储过程（Stored Procedure）是一组为了完成特定功能的SQL语句集，经编译后存储在数据库中。用户通过指定存储过程的名字并给出参数（如果该存储过程带有参数）来执行它。存储过程是数据库中的一个重要对象，任何一个设计良好的数据库应用程序都应该用到存储过程</p>
+<h2 id="4-触发器"><a href="#4-触发器" class="headerlink" title="4. 触发器"></a>4. 触发器</h2><p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
+<p>触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。<strong>BEFORE 用于数据验证和净化</strong>，<strong>AFTER 用于审计跟踪，将修改记录到另外一张表中</strong>。</p>
+<p><strong>作用：</strong>触发器是与表事件相关的特殊的存储过程，它的执行不是由程序调用，也不是手工启动，而<strong>是由事件来触发</strong>，比如当对一个表进行操作（ insert，delete， update）时就会激活它执行。它可以强化约束，<strong>来维护数据的完整性和一致性</strong>，可以跟踪数据库内的操作从而不允许未经许可的更新和变化。</p>
+<h2 id="5-事务管理"><a href="#5-事务管理" class="headerlink" title="5. 事务管理"></a>5. 事务管理</h2><p>基本术语：</p>
+<ul>
+<li>事务（transaction）指一组 SQL 语句；</li>
+<li>回退（rollback）指撤销指定 SQL 语句的过程；</li>
+<li>提交（commit）指将未存储的 SQL 语句结果写入数据库表；<br>= 保留点（savepoint）指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）。</li>
+</ul>
+<p>不能回退 SELECT 语句，回退 SELECT 语句也没意义；也不能回退 CREATE 和 DROP 语句。</p>
+<p>MySQL 的事务提交默认是隐式提交，每执行一条语句就把这条语句当成一个事务然后进行提交。当出现 START TRANSACTION 语句时，会关闭隐式提交；当 COMMIT 或 ROLLBACK 语句执行后，事务会自动关闭，重新恢复隐式提交。</p>
+<p>设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
+<p>如果没有设置保留点，ROLLBACK 会回退到 START TRANSACTION 语句处；如果设置了保留点，并且在 ROLLBACK 中指定该保留点，则会回退到该保留点。</p>
+<h2 id="6-非关系型数据库和关系型数据库区别，优势比较"><a href="#6-非关系型数据库和关系型数据库区别，优势比较" class="headerlink" title="6. 非关系型数据库和关系型数据库区别，优势比较?"></a>6. 非关系型数据库和关系型数据库区别，优势比较?</h2><p><font color="red">成本：</font> NoSql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。 </p>
+<p><font color="red">存储数据的格式：</font> NoSql的存储格式是key,value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。</p>
+<p><font color="red">查询速度：</font> NoSql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。 </p>
+<p><font color="red">扩展性：</font>关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难</p>
+<h3 id="非关系性数据库的优势："><a href="#非关系性数据库的优势：" class="headerlink" title="非关系性数据库的优势："></a>非关系性数据库的优势：</h3><p><font color="red">性能：</font>NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高</p>
+<p><font color="red">可扩展性:</font>同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</p>
+<h3 id="关系型数据库的优势："><a href="#关系型数据库的优势：" class="headerlink" title="关系型数据库的优势："></a>关系型数据库的优势：</h3><p><font color="red">使用方便,SQL语句通用： </font>复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。  </p>
+<p><font color="red">事务支持: </font>使得对于安全性能很高的数据访问要求得以实现, NoSql不支持事务</p>
+<p>对于这两类数据库，对方的优势就是自己的弱势，反之亦然。</p>
+<h2 id="7-SQL语句分类"><a href="#7-SQL语句分类" class="headerlink" title="7. SQL语句分类"></a>7. SQL语句分类</h2><ul>
+<li><p><strong>DDL(Data Definition Language) 数据定义语言</strong><br>  用来定义数据库对象：数据库，表，列等。关键字：create, drop,alter 等</p>
+</li>
+<li><p><strong>DML(Data Manipulation Language) 数据操作语言</strong><br>  用来对数据库中表的数据进行增删改。关键字：insert, delete, update 等</p>
+</li>
+<li><p><strong>DQL(Data Query Language )数据查询语言</strong><br>  用来查询数据库中表的记录(数据)。关键字：select, where 等</p>
+</li>
+<li><p><strong>DCL(Data Control Language) 数据控制语言</strong><br>  用来定义数据库的访问权限和安全级别，及创建用户。用来授予或回收访问数据库的某种特权，并控制数据库操纵事务发生的时间及效果，对数据库实行监视等 关键字：GRANT(授权)， REVOKE 等</p>
+</li>
+</ul>
+<h2 id="7-varchar和char的使用场景"><a href="#7-varchar和char的使用场景" class="headerlink" title="7. varchar和char的使用场景?"></a>7. varchar和char的使用场景?</h2><ul>
+<li><p><strong>char的长度是不可变的，而varchar的长度是可变的</strong><br>定义一个char[10]和varchar[10]。<br>如果存进去的是‘csdn’,那么char所占的长度依然为10，除了字符‘csdn’外，后面跟六个空格，varchar就立马把长度变为4了，取数据的时候，char类型的要用trim()去掉多余的空格，而varchar是不需要的。</p>
+</li>
+<li><p><strong>char的存取速度还是要比varchar要快得多，因为其长度固定，方便程序的存储与查找</strong><br>char也为此付出的是空间的代价，因为其长度固定，所以难免会有多余的空格占位符占据空间，可谓是以空间换取时间效率。varchar是以空间效率为首位。</p>
+</li>
+<li><p><strong>存储方式不同</strong></p>
+<ul>
+<li>char的存储方式是：对英文字符（ASCII）占用1个字节，对一个汉字占用两个字节。</li>
+<li>varchar的存储方式是：对每个英文字符占用2个字节，汉字也占用2个字节。</li>
+</ul>
+</li>
+<li><p><strong>两者的存储数据都非unicode的字符数据</strong></p>
+</li>
+</ul>
+<h2 id="8-drop、truncate、-delete区别"><a href="#8-drop、truncate、-delete区别" class="headerlink" title="8. drop、truncate、 delete区别"></a>8. drop、truncate、 delete区别</h2><ul>
+<li>drop直接删掉表。</li>
+<li>truncate删除表中数据，再插入时自增长id又从1开始。</li>
+<li>delete删除表中数据，可以加where字句。</li>
+</ul>
+<h2 id="9-like-和-的区别"><a href="#9-like-和-的区别" class="headerlink" title="9. like %和-的区别"></a>9. like %和-的区别</h2><ul>
+<li>%百分号通配符:表示任何字符出现任意次数(可以是0次).</li>
+<li>_下划线通配符:表示只能匹配单个字符,不能多也不能少,就是一个字符.</li>
+</ul>
+<p>注意NULL,<font color="red">%通配符可以匹配任意字符,但是不能匹配NULL</font>,也就是说SELECT * FROM products WHERE products.prod_name like ‘%;是匹配不到products.prod_name为NULL的的记录.</p>
+<h2 id="10-聚合函数："><a href="#10-聚合函数：" class="headerlink" title="10. 聚合函数："></a>10. 聚合函数：</h2><p>将一列数据作为一个整体，进行这一列纵向的计算</p>
+<ul>
+<li><strong>count</strong>： 计算个数<ul>
+<li>一般选择非空的列：主键</li>
+<li>count(*)</li>
+</ul>
+</li>
+<li><strong>max</strong>： 计算最大值</li>
+<li><strong>min</strong>： 计算最小值</li>
+<li><strong>sum</strong>： 计算和</li>
+<li><strong>avg</strong>： 计算平均值</li>
+</ul>
+<p>*注意：聚合函数的计算不会排除null值</p>
+<pre><code>解决方案：
+    - 选择不包含非空的列进行计算
+    - 使用IFNULL函数
+eg，
+    -- 统计name的数目 
+    select count(name) from student;
+    select count(ifnull(english, 0)) from student;
+</code></pre><h2 id="11-where-和-having的区别："><a href="#11-where-和-having的区别：" class="headerlink" title="11. where 和 having的区别："></a>11. where 和 having的区别：</h2><ul>
+<li>where在分组之前进行限定，将不符合where条件的行去掉，在分组前过滤数据，即先过滤后分组；having在分组之后进行限定，筛选满足条件的组，在分组之后过滤数据，即先分组再过滤。</li>
+<li>where后不可以使用聚合函数，having可以使用聚合函数。</li>
+</ul>
+<h2 id="12-什么是-内连接、外连接、交叉连接、笛卡尔积等"><a href="#12-什么是-内连接、外连接、交叉连接、笛卡尔积等" class="headerlink" title="12. 什么是 内连接、外连接、交叉连接、笛卡尔积等?"></a>12. 什么是 内连接、外连接、交叉连接、笛卡尔积等?</h2><ul>
+<li><strong>交叉连接、笛卡尔内积</strong>：它不使用任何匹配或者选取条件，而是直接将一个数据源中的每个行与另一个数据源的每个行都一一匹配， 取这两个集合的所有组成情况。</li>
+<li><p><strong>内连接</strong>：只连接两个表匹配的行。</p>
+<ul>
+<li><p>隐式内连接：使用where条件消除无用数据</p>
+<pre><code>*例子：
+    -- 查询所有员工信息和对应的部门信息
+    SELECT * FROM emp,dept WHERE emp.`dept_id` = dept.`id`;
+</code></pre></li>
+<li><p>显式内连接： 利用join on语法</p>
+<pre><code>* 语法： select 字段列表 from 表名1 [inner] join 表名2 on 条件
+* 例如：
+    * SELECT * FROM emp INNER JOIN dept ON emp.`dept_id` = dept.`id`;    
+    * SELECT * FROM emp JOIN dept ON emp.`dept_id` = dept.`id`;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>外连接</strong></p>
+<ul>
+<li><p><strong>左外连接：</strong>包含左边表的全部行（不管右边的表中是否存在与它们匹配的行），以及右边表中全部匹配的行</p>
+<pre><code>*语法：select 字段列表 from 表1 left [outer] join 表2 on 条件；
+*查询的是左表所有数据以及其交集部分。
+* 例子：
+    -- 查询所有员工信息，如果员工有部门，则查询部门名称，没有部门，则不显示部门名称
+    SELECT t1.*,t2.`name` FROM emp t1 LEFT JOIN dept t2 ON t1.`dept_id` = t2.`id`;
+</code></pre></li>
+<li><p><strong>右外连接：</strong>包含右边表的全部行（不管左边的表中是否存在与它们匹配的行），以及左边表中全部匹配的行</p>
+<pre><code>* 语法：select 字段列表 from 表1 right [outer] join 表2 on 条件；
+* 查询的是右表所有数据以及其交集部分。
+* 例子：
+    SELECT * FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="13-主键与外键的区别"><a href="#13-主键与外键的区别" class="headerlink" title="13. 主键与外键的区别"></a>13. 主键与外键的区别</h2><p><img src="https://i.loli.net/2020/09/21/SkGxbLYUmuj1aIt.png" alt="1.png"></p>
 
       
     </div>
@@ -659,7 +836,7 @@ SELECT ... FOR UPDATE;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -742,7 +919,7 @@ SELECT ... FOR UPDATE;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、事务"><span class="nav-number">1.</span> <span class="nav-text">一、事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特征：ACID"><span class="nav-number">1.2.</span> <span class="nav-text">事务的四大特征：ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原子性（Atomicity）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 原子性（Atomicity）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-一致性（Consistency）"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 一致性（Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-隔离性（Isolation）"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 隔离性（Isolation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-持久性（Durability）"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 持久性（Durability）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUTOCOMMIT"><span class="nav-number">1.2.5.</span> <span class="nav-text">AUTOCOMMIT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、并发一致性问题"><span class="nav-number">2.</span> <span class="nav-text">二、并发一致性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#丢失修改"><span class="nav-number">2.1.</span> <span class="nav-text">丢失修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读脏数据"><span class="nav-number">2.2.</span> <span class="nav-text">读脏数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可重复读"><span class="nav-number">2.3.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#幻影读"><span class="nav-number">2.4.</span> <span class="nav-text">幻影读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#——————————————————————————————————————"><span class="nav-number">2.4.0.0.0.1.</span> <span class="nav-text">——————————————————————————————————————</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、封锁"><span class="nav-number">3.</span> <span class="nav-text">三、封锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁粒度"><span class="nav-number">3.1.</span> <span class="nav-text">封锁粒度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁类型"><span class="nav-number">3.2.</span> <span class="nav-text">封锁类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-读写锁"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 读写锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-意向锁"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 意向锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁协议"><span class="nav-number">3.3.</span> <span class="nav-text">封锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-三级封锁协议"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 三级封锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一级封锁协议"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">一级封锁协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二级封锁协议"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">二级封锁协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三级封锁协议"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">三级封锁协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-两段锁协议"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 两段锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-隐式与显示锁定"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">MySQL 隐式与显示锁定</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、隔离级别"><span class="nav-number">4.</span> <span class="nav-text">四、隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交（READ-UNCOMMITTED）"><span class="nav-number">4.1.</span> <span class="nav-text">读未提交（READ UNCOMMITTED）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读提交（READ-COMMITTED）"><span class="nav-number">4.2.</span> <span class="nav-text">读提交（READ COMMITTED）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重复读（REPEATABLE-READ）"><span class="nav-number">4.3.</span> <span class="nav-text">可重复读（REPEATABLE READ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可串行化（SERIALIZABLE）"><span class="nav-number">4.4.</span> <span class="nav-text">可串行化（SERIALIZABLE）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、关系数据库设计理论"><span class="nav-number">5.</span> <span class="nav-text">五、关系数据库设计理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数依赖"><span class="nav-number">5.1.</span> <span class="nav-text">函数依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-number">5.2.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范式"><span class="nav-number">5.3.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一范式"><span class="nav-number">5.3.1.</span> <span class="nav-text">1. 第一范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二范式"><span class="nav-number">5.3.2.</span> <span class="nav-text">2.第二范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分解前："><span class="nav-number">5.3.2.1.</span> <span class="nav-text">分解前：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分解后："><span class="nav-number">5.3.2.2.</span> <span class="nav-text">分解后：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第三范式"><span class="nav-number">5.3.3.</span> <span class="nav-text">3. 第三范式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-ER-图"><span class="nav-number">6.</span> <span class="nav-text">六、 ER 图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实体的三种联系"><span class="nav-number">6.1.</span> <span class="nav-text">实体的三种联系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、事务"><span class="nav-number">1.</span> <span class="nav-text">一、事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特征：ACID"><span class="nav-number">1.2.</span> <span class="nav-text">事务的四大特征：ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原子性（Atomicity）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 原子性（Atomicity）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-一致性（Consistency）"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 一致性（Consistency）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#———————————————————————————————————————"><span class="nav-number">1.2.2.0.1.</span> <span class="nav-text">———————————————————————————————————————-</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUTOCOMMIT"><span class="nav-number">1.2.3.</span> <span class="nav-text">AUTOCOMMIT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、并发一致性问题"><span class="nav-number">2.</span> <span class="nav-text">二、并发一致性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#丢失修改"><span class="nav-number">2.1.</span> <span class="nav-text">丢失修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读脏数据"><span class="nav-number">2.2.</span> <span class="nav-text">读脏数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可重复读"><span class="nav-number">2.3.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#幻影读"><span class="nav-number">2.4.</span> <span class="nav-text">幻影读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#——————————————————————————————————————"><span class="nav-number">2.4.0.0.0.1.</span> <span class="nav-text">——————————————————————————————————————</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、封锁"><span class="nav-number">3.</span> <span class="nav-text">三、封锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁粒度"><span class="nav-number">3.1.</span> <span class="nav-text">封锁粒度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁类型"><span class="nav-number">3.2.</span> <span class="nav-text">封锁类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-读写锁"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 读写锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-意向锁"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 意向锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封锁协议"><span class="nav-number">3.3.</span> <span class="nav-text">封锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-三级封锁协议"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 三级封锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一级封锁协议"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">一级封锁协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二级封锁协议"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">二级封锁协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三级封锁协议"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">三级封锁协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-两段锁协议"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 两段锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-隐式与显示锁定"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">MySQL 隐式与显示锁定</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、隔离级别"><span class="nav-number">4.</span> <span class="nav-text">四、隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交（READ-UNCOMMITTED）"><span class="nav-number">4.1.</span> <span class="nav-text">读未提交（READ UNCOMMITTED）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读提交（READ-COMMITTED）"><span class="nav-number">4.2.</span> <span class="nav-text">读提交（READ COMMITTED）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重复读（REPEATABLE-READ）"><span class="nav-number">4.3.</span> <span class="nav-text">可重复读（REPEATABLE READ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可串行化（SERIALIZABLE）"><span class="nav-number">4.4.</span> <span class="nav-text">可串行化（SERIALIZABLE）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、关系数据库设计理论"><span class="nav-number">5.</span> <span class="nav-text">五、关系数据库设计理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数依赖"><span class="nav-number">5.1.</span> <span class="nav-text">函数依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-number">5.2.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范式"><span class="nav-number">5.3.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一范式"><span class="nav-number">5.3.1.</span> <span class="nav-text">1. 第一范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二范式"><span class="nav-number">5.3.2.</span> <span class="nav-text">2.第二范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分解前："><span class="nav-number">5.3.2.1.</span> <span class="nav-text">分解前：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分解后："><span class="nav-number">5.3.2.2.</span> <span class="nav-text">分解后：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第三范式"><span class="nav-number">5.3.3.</span> <span class="nav-text">3. 第三范式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-ER-图"><span class="nav-number">6.</span> <span class="nav-text">六、 ER 图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实体的三种联系"><span class="nav-number">6.1.</span> <span class="nav-text">实体的三种联系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题总结"><span class="nav-number">7.</span> <span class="nav-text">常见问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么叫视图？游标是什么？"><span class="nav-number">7.1.</span> <span class="nav-text">1. 什么叫视图？游标是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视图："><span class="nav-number">7.1.1.</span> <span class="nav-text">视图：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">7.1.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-存储过程"><span class="nav-number">7.2.</span> <span class="nav-text">3. 存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是存储过程？"><span class="nav-number">7.2.1.</span> <span class="nav-text">什么是存储过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储过程的优点"><span class="nav-number">7.2.2.</span> <span class="nav-text">存储过程的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">7.2.2.1.</span> <span class="nav-text">优点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储过程和函数的区别"><span class="nav-number">7.2.3.</span> <span class="nav-text">存储过程和函数的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-触发器"><span class="nav-number">7.3.</span> <span class="nav-text">4. 触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-事务管理"><span class="nav-number">7.4.</span> <span class="nav-text">5. 事务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-非关系型数据库和关系型数据库区别，优势比较"><span class="nav-number">7.5.</span> <span class="nav-text">6. 非关系型数据库和关系型数据库区别，优势比较?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非关系性数据库的优势："><span class="nav-number">7.5.1.</span> <span class="nav-text">非关系性数据库的优势：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系型数据库的优势："><span class="nav-number">7.5.2.</span> <span class="nav-text">关系型数据库的优势：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-SQL语句分类"><span class="nav-number">7.6.</span> <span class="nav-text">7. SQL语句分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-varchar和char的使用场景"><span class="nav-number">7.7.</span> <span class="nav-text">7. varchar和char的使用场景?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-drop、truncate、-delete区别"><span class="nav-number">7.8.</span> <span class="nav-text">8. drop、truncate、 delete区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-like-和-的区别"><span class="nav-number">7.9.</span> <span class="nav-text">9. like %和-的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-聚合函数："><span class="nav-number">7.10.</span> <span class="nav-text">10. 聚合函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-where-和-having的区别："><span class="nav-number">7.11.</span> <span class="nav-text">11. where 和 having的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-什么是-内连接、外连接、交叉连接、笛卡尔积等"><span class="nav-number">7.12.</span> <span class="nav-text">12. 什么是 内连接、外连接、交叉连接、笛卡尔积等?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-主键与外键的区别"><span class="nav-number">7.13.</span> <span class="nav-text">13. 主键与外键的区别</span></a></li></ol></li></ol></div>
             
 
           </div>

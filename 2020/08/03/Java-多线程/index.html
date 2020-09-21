@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="多线程并行和并发 并行：多个处理器或多核处理器同时处理在同一时刻 多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源调度和分配的基本单位，是正运行的程序。 线程是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多">
+<meta name="description" content="多线程并行和并发 并行：多个处理器或多核处理器在同一时刻同时处理多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源分配的基本单位，是正运行的程序。 线程是CPU调度的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多个线程，它们共">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-多线程">
 <meta property="og:url" content="http://yoursite.com/2020/08/03/Java-多线程/index.html">
 <meta property="og:site_name" content="Welcome Hexo">
-<meta property="og:description" content="多线程并行和并发 并行：多个处理器或多核处理器同时处理在同一时刻 多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源调度和分配的基本单位，是正运行的程序。 线程是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多">
+<meta property="og:description" content="多线程并行和并发 并行：多个处理器或多核处理器在同一时刻同时处理多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源分配的基本单位，是正运行的程序。 线程是CPU调度的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多个线程，它们共">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2020/08/25/9ecXOKIYZmgzujt.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/08/25/HyLDJ3tpa9TvUi8.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/25/aV6Hq2YRLoejxNG.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/25/p6BGidxHCShj3PR.jpg">
-<meta property="og:updated_time" content="2020-08-26T08:33:27.141Z">
+<meta property="og:updated_time" content="2020-09-16T12:56:46.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-多线程">
-<meta name="twitter:description" content="多线程并行和并发 并行：多个处理器或多核处理器同时处理在同一时刻 多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源调度和分配的基本单位，是正运行的程序。 线程是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多">
+<meta name="twitter:description" content="多线程并行和并发 并行：多个处理器或多核处理器在同一时刻同时处理多个任务。 并发：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。  进程和线程 进程是资源分配的基本单位，是正运行的程序。 线程是CPU调度的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。  进程和线程的区别和联系 一个进程中可以有多个线程，它们共">
 <meta name="twitter:image" content="https://i.loli.net/2020/08/25/9ecXOKIYZmgzujt.jpg">
 
 
@@ -394,12 +394,12 @@
 
       
         <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h2><ul>
-<li><strong>并行</strong>：多个处理器或多核处理器同时处理在同一时刻 多个任务。</li>
+<li><strong>并行</strong>：多个处理器或多核处理器在同一时刻同时处理多个任务。</li>
 <li><strong>并发</strong>：同一时间段内多个任务在同一个 CPU 核上，按细分的时间片轮流(交替)执行，从逻辑上来看那些任务是同时执行。</li>
 </ul>
 <h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><ul>
-<li>进程是资源调度和分配的基本单位，是正运行的程序。</li>
-<li>线程是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。</li>
+<li>进程是资源分配的基本单位，是正运行的程序。</li>
+<li>线程是CPU调度的基本单位,它是比进程更小的能独立运行的基本单位，是进程中的一个执行单元。</li>
 </ul>
 <h3 id="进程和线程的区别和联系"><a href="#进程和线程的区别和联系" class="headerlink" title="进程和线程的区别和联系"></a>进程和线程的区别和联系</h3><ul>
 <li><strong>一个进程中可以有多个线程，它们共享进程资源。</strong><ul>
@@ -683,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

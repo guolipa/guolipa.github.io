@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/18/9sc2PDb1zly3FEA.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/23/fmanWx6jdMQPNlZ.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/23/NsvAY76DTjSPQaZ.png">
-<meta property="og:updated_time" content="2020-07-25T07:20:18.004Z">
+<meta property="og:updated_time" content="2020-09-20T08:21:52.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-Mybatis框架(1)">
 <meta name="twitter:description" content="MVC模式  Model（模型）是应用程序中用于处理应用程序数据逻辑的部分。　　通常模型对象负责在数据库中存取数据。 View（视图）是应用程序中处理数据显示的部分。　　通常视图是依据模型数据创建的。 Controller（控制器）是应用程序中处理用户交互的部分。　　通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。   三层架构概述：    表现层UL：主要是指与用户交互的界面。用于">
@@ -402,15 +402,16 @@
 <p><img src="https:i.loli.net/2020/07/18/5EesCtkoQ2ZBAz3.jpg" alt="b03533fa828ba61edbddc04d4034970a304e59a4.jpg"></p>
 <p><strong>三层架构概述：</strong>  </p>
 <ul>
-<li><strong>表现层UL：</strong>主要是指与用户交互的界面。用于接收用户输入的数据和显示处理后用户需要的数据。</li>
-<li><strong>业务层BLL：</strong>UI层和DAL层之间的桥梁。实现业务逻辑，处理业务需求。</li>
-<li><strong>持久层DAL：</strong>与数据库交互，主要实现对数据的增、删、改、查。（mybatis）</li>
+<li><strong>表现层UL：</strong>主要是指与用户交互的界面。用于接收用户输入的数据和显示处理后用户需要的数据。  <strong>SpringMVC</strong></li>
+<li><strong>业务层BLL：</strong>UI层和DAL层之间的桥梁。实现业务逻辑，处理业务需求。  <strong>Spring</strong></li>
+<li><strong>持久层DAL：</strong>与数据库交互，主要实现对数据的增、删、改、查。 <strong>Mybatis</strong></li>
 </ul>
 <p><img src="https://i.loli.net/2020/07/18/9sc2PDb1zly3FEA.png" alt="01三层架构.png"></p>
 <h1 id="MyBatis框架概述"><a href="#MyBatis框架概述" class="headerlink" title="MyBatis框架概述"></a>MyBatis框架概述</h1><ol>
-<li>mybatis是一个<strong>基于java的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身</strong>，而不需要花费精力去处理加载驱动、创建连接、创建statement等繁杂的过程。 </li>
-<li>mybatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射为java对象并返回。 </li>
-<li>采用ORM思想解决了实体和数据库映射的问题，对jdbc进行了封装，屏蔽了jdbc api底层访问细节，使我们不用与jdbc api打交道，就可以完成对数据库的持久化操作。</li>
+<li>Mybatis是一个<strong>基于java的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身</strong>，而不需要花费精力去处理<strong>加载驱动、创建连接、创建statement等</strong>繁杂的过程。 </li>
+<li>Mybatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射为java对象并返回。 </li>
+<li>采用ORM思想解决了实体和数据库映射的问题，对jdbc进行了封装，屏蔽了jdbc api底层访问细节，使我们不用与jdbc api打交道，就可以完成对数据库的持久化操作</li>
+<li></li>
 </ol>
 <h2 id="Mybatis简单入门"><a href="#Mybatis简单入门" class="headerlink" title="Mybatis简单入门"></a>Mybatis简单入门</h2><p><strong>搭建Mybatis开发环境：</strong></p>
 <p>1.<strong>创建Maven工程并在pom.xml文件中添加Mybatis的坐标</strong></p>
@@ -589,8 +590,8 @@ public interface UserDao {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/16/Redis知识概述/" rel="next" title="Redis知识概述">
-                <i class="fa fa-chevron-left"></i> Redis知识概述
+              <a href="/2020/07/18/SSM框架知识点总结/" rel="next" title="SSM框架知识点总结">
+                <i class="fa fa-chevron-left"></i> SSM框架知识点总结
               </a>
             
           </div>
@@ -682,7 +683,7 @@ public interface UserDao {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
